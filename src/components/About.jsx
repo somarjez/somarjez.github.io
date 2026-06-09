@@ -15,20 +15,24 @@ export default function About() {
           />
         </Reveal>
         <Reveal delay={0.1}>
-          <h3 className="text-2xl font-bold">
-            Computer Science Student & <span className="gradient-text">Developer</span>
+          <h3 className="font-display text-2xl font-bold">
+            Full-Stack & <span className="gradient-text">AI Developer</span>
           </h3>
           <p className="mt-4 text-slate-300">{site.bio}</p>
-          <div className="glass mt-6 rounded-xl p-5">
-            <h4 className="font-semibold text-primary">
-              <i className="fas fa-graduation-cap mr-2" />
-              {site.education.degree}
-              <span className="ml-2 rounded-full bg-primary/20 px-2 py-0.5 text-xs text-primary">
-                {site.education.year}
-              </span>
-            </h4>
-            <p className="mt-2 text-sm text-slate-400">{site.education.detail}</p>
+
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            {site.focus.map((f) => (
+              <div key={f.label} className="glass rounded-xl p-4 text-center">
+                <i className={`fas ${f.icon} text-lg text-accent`} aria-hidden="true" />
+                <p className="mt-2 text-sm font-medium text-slate-200">{f.label}</p>
+              </div>
+            ))}
           </div>
+
+          <p className="mt-5 text-sm text-slate-500">
+            <i className="fas fa-graduation-cap mr-2 text-primary/70" aria-hidden="true" />
+            {site.education.degree}
+          </p>
         </Reveal>
       </div>
     </Section>
