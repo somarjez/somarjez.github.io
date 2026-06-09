@@ -30,3 +30,10 @@ html:not(.dark) .glass {
   background-clip: text;
   color: transparent;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-grid-move {
+    animation: none !important;
+  }
+}

@@ -10,9 +10,11 @@ const LINKS = [
   ['contact', 'Contact'],
 ]
 
+const LINK_IDS = LINKS.map(([id]) => id)
+
 export default function Nav({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false)
-  const active = useScrollSpy(LINKS.map(([id]) => id))
+  const active = useScrollSpy(LINK_IDS)
 
   const go = (id) => {
     setOpen(false)
@@ -41,12 +43,12 @@ export default function Nav({ theme, onToggleTheme }) {
             <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`} />
           </button>
         </div>
-        <button className="md:hidden text-xl text-slate-200" onClick={() => setOpen((o) => !o)} aria-label="Menu">
+        <button className="md:hidden text-xl text-slate-200" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu">
           <i className={`fas ${open ? 'fa-xmark' : 'fa-bars'}`} />
         </button>
       </div>
       {open && (
-        <div className="mt-3 flex flex-col gap-3 md:hidden">
+        <div id="mobile-menu" className="mt-3 flex flex-col gap-3 md:hidden">
           {LINKS.map(([id, label]) => (
             <button key={id} onClick={() => go(id)} className="text-left text-sm text-slate-200">
               {label}
