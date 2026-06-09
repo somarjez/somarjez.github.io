@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00d9ff;
+  --accent: #4ecdc4;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-darker text-slate-100 font-sans antialiased;
+  line-height: 1.6;
+}
+html:not(.dark) body { @apply bg-slate-50 text-slate-900; }
+
+.glass {
+  @apply backdrop-blur-xl border;
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+}
+html:not(.dark) .glass {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(0,0,0,0.08);
+}
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-grid-move {
+    animation: none !important;
+  }
+}
