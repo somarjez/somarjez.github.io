@@ -19,7 +19,7 @@ export default function RepoGrid({ repos, loading, error }) {
   )
 
   return (
-    <Section id="repos" title="All Repositories" subtitle={`${repos.length} public repositories, live from GitHub`}>
+    <Section id="repos" title="All Repositories" subtitle={loading ? 'Live from GitHub' : `${repos.length} public repositories, live from GitHub`}>
       {error && (
         <p className="glass rounded-xl p-6 text-center text-slate-300">
           Live GitHub data is unavailable right now.{' '}

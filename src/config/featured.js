@@ -8,7 +8,7 @@ export const featured = [
     description:
       'A cross-platform Flutter e-commerce app with product discovery, cart, and Firebase-backed auth and data.',
     tech: ['Flutter', 'Dart', 'Firebase'],
-    source: 'https://github.com/somarjez/Findify',
+    source: null,
     demo: 'https://youtu.be/BgZDwtQfKKk',
   },
   {
