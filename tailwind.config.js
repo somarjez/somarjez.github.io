@@ -5,15 +5,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#00d9ff',
-        'primary-dark': '#00b8d4',
-        accent: '#4ecdc4',
+        ink: '#0B0B12',
+        panel: '#14141F',
+        'panel-2': '#1B1B28',
+        line: '#262635',
+        primary: '#6D5EF8',
+        'primary-dark': '#5B4FE0',
+        accent: '#A78BFA',
         secondary: '#ff6b6b',
-        dark: '#0a0e27',
+        // legacy aliases so existing classNames keep working
+        dark: '#0B0B12',
         darker: '#070b1f',
         darkest: '#04081a',
       },
       fontFamily: {
+        display: ['Space Grotesk', 'Inter', 'sans-serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
