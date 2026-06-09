@@ -1,8 +1,4 @@
-const LANG_COLORS = {
-  JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5',
-  HTML: '#e34c26', Dart: '#00B4AB', Blade: '#f7523f',
-  'Jupyter Notebook': '#DA5B0B', CSS: '#563d7c', Java: '#b07219',
-}
+import { langColor } from '../lib/langColors.js'
 
 export default function RepoCard({ repo }) {
   const updated = new Date(repo.updated_at).toLocaleDateString(undefined, {
@@ -28,7 +24,7 @@ export default function RepoCard({ repo }) {
       <div className="mt-4 flex items-center gap-4 text-xs text-slate-500">
         {repo.language && (
           <span className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full" style={{ background: LANG_COLORS[repo.language] || '#64748b' }} />
+            <span className="h-2.5 w-2.5 rounded-full" style={{ background: langColor(repo.language) }} />
             {repo.language}
           </span>
         )}

@@ -1,12 +1,7 @@
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
 import AnimatedCounter from './ui/AnimatedCounter.jsx'
-
-const LANG_COLORS = {
-  JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5',
-  HTML: '#e34c26', Dart: '#00B4AB', Blade: '#f7523f',
-  'Jupyter Notebook': '#DA5B0B', CSS: '#563d7c', Java: '#b07219',
-}
+import { langColor } from '../lib/langColors.js'
 
 export default function GitHubStats({ stats, loading }) {
   const cards = [
@@ -42,14 +37,14 @@ export default function GitHubStats({ stats, loading }) {
                 <div
                   key={l.name}
                   title={`${l.name} · ${l.count}`}
-                  style={{ width: `${(l.count / total) * 100}%`, background: LANG_COLORS[l.name] || '#64748b' }}
+                  style={{ width: `${(l.count / total) * 100}%`, background: langColor(l.name) }}
                 />
               ))}
             </div>
             <div className="mt-4 flex flex-wrap gap-3 text-sm text-slate-400">
               {stats.languages.slice(0, 8).map((l) => (
                 <span key={l.name} className="flex items-center gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: LANG_COLORS[l.name] || '#64748b' }} />
+                  <span className="h-2.5 w-2.5 rounded-full" style={{ background: langColor(l.name) }} />
                   {l.name} ({l.count})
                 </span>
               ))}

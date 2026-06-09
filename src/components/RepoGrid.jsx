@@ -38,12 +38,14 @@ export default function RepoGrid({ repos, loading, error }) {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search repositories…"
+                aria-label="Search repositories"
                 className="glass w-full rounded-full py-2.5 pl-11 pr-4 text-sm outline-none focus:border-primary/60"
               />
             </div>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
+              aria-label="Sort repositories"
               className="glass rounded-full px-4 py-2.5 text-sm outline-none"
             >
               <option value="recent">Recently updated</option>
@@ -57,6 +59,7 @@ export default function RepoGrid({ repos, loading, error }) {
               <button
                 key={l}
                 onClick={() => setLanguage(l)}
+                aria-pressed={language === l}
                 className={`rounded-full px-3 py-1 text-xs transition-colors ${
                   language === l ? 'bg-primary text-darker' : 'glass text-slate-300 hover:text-primary'
                 }`}
