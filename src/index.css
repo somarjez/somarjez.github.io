@@ -3,22 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --primary: #00d9ff;
-  --accent: #4ecdc4;
+  --primary: #6D5EF8;
+  --accent: #A78BFA;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  @apply bg-darker text-slate-100 font-sans antialiased;
+  @apply bg-ink text-slate-100 font-sans antialiased;
   line-height: 1.6;
 }
 html:not(.dark) body { @apply bg-slate-50 text-slate-900; }
 
+h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.01em; }
+
 .glass {
   @apply backdrop-blur-xl border;
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
 }
 html:not(.dark) .glass {
   background: rgba(255,255,255,0.7);

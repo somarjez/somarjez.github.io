@@ -19,13 +19,14 @@ export default function Hero({ stats, loading }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl font-extrabold md:text-7xl"
+          className="font-display text-5xl font-extrabold md:text-7xl"
         >
           <span className="gradient-text">{site.name}</span>
         </motion.h1>
 
-        <p className="mt-4 text-xl text-slate-300 md:text-2xl">{site.role}</p>
-        <p className="mx-auto mt-5 max-w-2xl text-slate-400">{site.bio.split('. ').slice(0, 2).join('. ')}.</p>
+        <p className="mt-4 font-display text-xl text-slate-200 md:text-2xl">{site.role}</p>
+        <p className="mt-1 font-mono text-xs uppercase tracking-[0.25em] text-accent/80">{site.roleSub}</p>
+        <p className="mx-auto mt-5 max-w-2xl text-slate-400">{site.hero}</p>
 
         {!loading && (
           <div className="mt-6 font-mono text-sm text-primary">
@@ -34,11 +35,11 @@ export default function Hero({ stats, loading }) {
         )}
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <a href="#projects" className="rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-darker transition-transform hover:scale-105">
-            <i className="fas fa-rocket mr-2" /> Explore My Work
+          <a href="#projects" className="rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 font-semibold text-ink transition-transform hover:scale-105">
+            <i className="fas fa-rocket mr-2" aria-hidden="true" /> Explore My Work
           </a>
           <a href="#contact" className="glass rounded-full px-6 py-3 font-semibold transition-transform hover:scale-105">
-            <i className="fas fa-paper-plane mr-2" /> Let's Collaborate
+            <i className="fas fa-paper-plane mr-2" aria-hidden="true" /> Let's Collaborate
           </a>
         </div>
       </div>
