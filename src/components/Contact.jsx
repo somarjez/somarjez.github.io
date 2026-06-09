@@ -14,6 +14,7 @@ export default function Contact() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    setStatus('idle')
     const form = e.target
     const data = Object.fromEntries(new FormData(form))
 
@@ -70,20 +71,23 @@ export default function Contact() {
         </div>
 
         <form onSubmit={onSubmit} className="glass space-y-4 rounded-2xl p-6">
-          <input name="name" required placeholder="Full Name"
+          <input name="name" required placeholder="Full Name" aria-label="Full Name"
             className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
-          <input name="email" type="email" required placeholder="Email Address"
+          <input name="email" type="email" required placeholder="Email Address" aria-label="Email Address"
             className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
-          <input name="subject" required placeholder="Subject"
+          <input name="subject" required placeholder="Subject" aria-label="Subject"
             className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
-          <textarea name="message" required rows={5} placeholder="Your message…"
+          <textarea name="message" required rows={5} placeholder="Your message…" aria-label="Your message"
             className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <button type="submit" disabled={status === 'sending'}
             className="w-full rounded-full bg-gradient-to-r from-primary to-accent py-3 font-semibold text-darker transition-transform hover:scale-[1.02] disabled:opacity-60">
             <i className="fas fa-paper-plane mr-2" />
             {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent! ✓' : 'Send Message'}
           </button>
-          {status === 'sent' && <p className="text-center text-sm text-green-400">Thanks — I'll get back to you soon!</p>}
+          <p role="status" aria-live="polite" className="text-center text-sm min-h-[1.25rem]">
+            {status === 'sent' && <span className="text-green-400">Thanks — I'll get back to you soon!</span>}
+            {status === 'error' && <span className="text-secondary">Send failed — opening your email client…</span>}
+          </p>
         </form>
       </div>
     </Section>
