@@ -26,3 +26,48 @@ export function deriveStats(user, repos) {
     accountAgeYears,
   }
 }
+
+const API = 'https://api.github.com'
+
+export function cacheSet(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify({ t: Date.now(), v: value }))
+  } catch {
+    /* storage full / unavailable — ignore */
+  }
+}
+
+export function cacheGet(key, ttlMs) {
+  try {
+    const raw = localStorage.getItem(key)
+    if (!raw) return null
+    const { t, v } = JSON.parse(raw)
+    if (Date.now() - t > ttlMs) return null
+    return v
+  } catch {
+    return null
+  }
+}
+
+async function getJson(url) {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`GitHub API ${res.status}`)
+  return res.json()
+}
+
+const TTL = 60 * 60 * 1000 // 1 hour
+
+export async function fetchGitHub(username) {
+  const key = `gh:${username}`
+  const cached = cacheGet(key, TTL)
+  if (cached) return cached
+
+  const [user, repos, orgs] = await Promise.all([
+    getJson(`${API}/users/${username}`),
+    getJson(`${API}/users/${username}/repos?per_page=100&sort=updated`),
+    getJson(`${API}/users/${username}/orgs`).catch(() => []),
+  ])
+  const data = { user, repos, orgs }
+  cacheSet(key, data)
+  return data
+}

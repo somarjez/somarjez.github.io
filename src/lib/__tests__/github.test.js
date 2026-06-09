@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { deriveStats } from '../github.js'
 
 describe('deriveStats', () => {
@@ -34,5 +34,28 @@ describe('deriveStats', () => {
     expect(s.totalStars).toBe(0)
     expect(s.languages).toEqual([])
     expect(s.topLanguage).toBe(null)
+  })
+})
+
+import { cacheGet, cacheSet } from '../github.js'
+
+describe('cache', () => {
+  beforeEach(() => localStorage.clear())
+
+  it('returns null on miss', () => {
+    expect(cacheGet('k', 1000)).toBe(null)
+  })
+
+  it('returns value within TTL', () => {
+    cacheSet('k', { a: 1 })
+    expect(cacheGet('k', 60_000)).toEqual({ a: 1 })
+  })
+
+  it('returns null when expired', () => {
+    cacheSet('k', { a: 1 })
+    const raw = JSON.parse(localStorage.getItem('k'))
+    raw.t = Date.now() - 10_000
+    localStorage.setItem('k', JSON.stringify(raw))
+    expect(cacheGet('k', 5_000)).toBe(null)
   })
 })
