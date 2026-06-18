@@ -12,10 +12,10 @@ export default function Orgs({ orgs }) {
               href={`https://github.com/${o.login}`}
               target="_blank"
               rel="noreferrer"
-              className="glass flex flex-col items-center gap-3 rounded-2xl p-6 transition-transform hover:-translate-y-1"
+              className="glass flex flex-col items-center gap-3 rounded-xl border border-line p-6 transition-transform hover:-translate-y-1"
             >
               <img src={o.avatar_url} alt={o.login} className="h-16 w-16 rounded-xl" />
-              <span className="text-sm font-medium">{o.login}</span>
+              <span className="font-mono text-sm text-slate-300">{o.login}</span>
             </a>
           </Reveal>
         ))}

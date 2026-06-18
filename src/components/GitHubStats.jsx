@@ -17,12 +17,13 @@ export default function GitHubStats({ stats, loading }) {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {cards.map((c, i) => (
           <Reveal key={c.label} delay={i * 0.05}>
-            <div className="glass rounded-2xl p-6 text-center">
-              <i className={`fas ${c.icon} mb-3 text-2xl text-primary`} />
-              <div className="text-4xl font-extrabold">
+            <div className="glass rounded-xl p-5">
+              <div className="font-mono text-xs text-slate-500">
+                <span className="text-amber">$</span> {c.label.toLowerCase().replace(/\s+/g, '_')}
+              </div>
+              <div className="mt-2 font-display text-3xl font-extrabold text-primary">
                 {loading ? '—' : <AnimatedCounter value={c.value} />}
               </div>
-              <div className="mt-1 text-sm text-slate-400">{c.label}</div>
             </div>
           </Reveal>
         ))}
@@ -30,8 +31,8 @@ export default function GitHubStats({ stats, loading }) {
 
       {!loading && stats.languages.length > 0 && (
         <Reveal delay={0.1}>
-          <div className="glass mt-8 rounded-2xl p-6">
-            <h4 className="mb-4 font-semibold">Language Distribution</h4>
+          <div className="glass mt-8 rounded-xl p-6">
+            <h4 className="mb-4 font-mono text-sm text-slate-300"># language_distribution</h4>
             <div className="flex h-4 overflow-hidden rounded-full">
               {stats.languages.map((l) => (
                 <div

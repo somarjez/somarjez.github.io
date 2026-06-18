@@ -5,17 +5,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#0B0B12',
-        panel: '#14141F',
-        line: '#262635',
-        primary: '#6D5EF8',
-        'primary-dark': '#5B4FE0',
-        accent: '#A78BFA',
-        secondary: '#ff6b6b',
-        // legacy aliases (neutral near-ink) so existing classNames match the Refined Midnight palette
-        dark: '#0B0B12',
-        darker: '#08080E',
-        darkest: '#050509',
+        ink: '#0a0e14',
+        panel: '#0d1117',
+        'panel-2': '#11161f',
+        line: '#1f2430',
+        'line-bright': '#2a3040',
+        primary: '#7dcfff',
+        'primary-dark': '#5aa8d8',
+        accent: '#bb9af7',
+        secondary: '#f7768e',
+        amber: '#e0af68',
+        green: '#9ece6a',
+        // legacy aliases → Tokyo Night near-bg shades
+        dark: '#0a0e14',
+        darker: '#070a0f',
+        darkest: '#05070b',
       },
       fontFamily: {
         display: ['Space Grotesk', 'Inter', 'sans-serif'],
@@ -31,10 +35,15 @@ export default {
           '0%': { transform: 'translate(0,0)' },
           '100%': { transform: 'translate(60px,60px)' },
         },
+        blink: {
+          '0%,49%': { opacity: '1' },
+          '50%,100%': { opacity: '0' },
+        },
       },
       animation: {
         float: 'float 25s ease-in-out infinite',
         'grid-move': 'grid-move 30s linear infinite',
+        blink: 'blink 1s step-end infinite',
       },
     },
   },

@@ -31,6 +31,10 @@ export default function RepoGrid({ repos, loading, error }) {
 
       {!error && (
         <>
+          <div className="mb-4 font-mono text-sm text-slate-500">
+            <span className="text-amber">$</span> ls ./projects{' '}
+            {language !== 'all' && <span className="text-primary">--lang={language}</span>}
+          </div>
           <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center">
             <div className="relative flex-1">
               <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
@@ -39,14 +43,14 @@ export default function RepoGrid({ repos, loading, error }) {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search repositories…"
                 aria-label="Search repositories"
-                className="glass w-full rounded-full py-2.5 pl-11 pr-4 text-sm outline-none focus:border-primary/60"
+                className="glass w-full rounded-lg py-2.5 pl-11 pr-4 font-mono text-sm outline-none focus:border-primary/60"
               />
             </div>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               aria-label="Sort repositories"
-              className="glass rounded-full px-4 py-2.5 text-sm outline-none"
+              className="glass rounded-lg px-4 py-2.5 font-mono text-sm outline-none"
             >
               <option value="recent">Recently updated</option>
               <option value="stars">Most stars</option>
@@ -60,8 +64,8 @@ export default function RepoGrid({ repos, loading, error }) {
                 key={l}
                 onClick={() => setLanguage(l)}
                 aria-pressed={language === l}
-                className={`rounded-full px-3 py-1 text-xs transition-colors ${
-                  language === l ? 'bg-primary text-darker' : 'glass text-slate-300 hover:text-primary'
+                className={`rounded-md px-3 py-1 font-mono text-xs transition-colors ${
+                  language === l ? 'bg-primary text-ink' : 'glass text-slate-300 hover:text-primary'
                 }`}
               >
                 {l === 'all' ? 'All' : l}

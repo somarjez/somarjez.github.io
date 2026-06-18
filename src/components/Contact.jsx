@@ -53,11 +53,11 @@ export default function Contact() {
           {CONTACTS.map((c) => {
             const inner = (
               <div className="glass flex items-center gap-4 rounded-xl p-4">
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-darker">
+                <span className="grid h-11 w-11 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-ink">
                   <i className={`${c.brand ? 'fab' : 'fas'} ${c.icon}`} />
                 </span>
                 <div>
-                  <div className="text-sm font-semibold">{c.label}</div>
+                  <div className="font-mono text-sm font-semibold">{c.label}</div>
                   <div className="text-sm text-slate-400">{c.value}</div>
                 </div>
               </div>
@@ -72,15 +72,15 @@ export default function Contact() {
 
         <form onSubmit={onSubmit} className="glass space-y-4 rounded-2xl p-6">
           <input name="name" required placeholder="Full Name" aria-label="Full Name"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
+            className="w-full rounded-lg border border-line bg-panel/40 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <input name="email" type="email" required placeholder="Email Address" aria-label="Email Address"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
+            className="w-full rounded-lg border border-line bg-panel/40 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <input name="subject" required placeholder="Subject" aria-label="Subject"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
+            className="w-full rounded-lg border border-line bg-panel/40 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <textarea name="message" required rows={5} placeholder="Your message…" aria-label="Your message"
-            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
+            className="w-full rounded-lg border border-line bg-panel/40 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <button type="submit" disabled={status === 'sending'}
-            className="w-full rounded-full bg-gradient-to-r from-primary to-accent py-3 font-semibold text-darker transition-transform hover:scale-[1.02] disabled:opacity-60">
+            className="w-full rounded-lg bg-gradient-to-r from-primary to-accent py-3 font-semibold text-ink transition-transform hover:scale-[1.02] disabled:opacity-60">
             <i className="fas fa-paper-plane mr-2" />
             {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent! ✓' : 'Send Message'}
           </button>
