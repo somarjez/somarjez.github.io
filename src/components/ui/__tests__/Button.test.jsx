@@ -9,7 +9,7 @@ describe('Button', () => {
     expect(link).toHaveAttribute('href', 'https://example.com')
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noreferrer')
-    expect(link.className).toMatch(/from-primary/)
+    expect(link.className).toMatch(/bg-primary/)
   })
 
   it('applies outline variant classes', () => {

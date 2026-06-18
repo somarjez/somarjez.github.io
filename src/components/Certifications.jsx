@@ -22,7 +22,7 @@ export default function Certifications() {
                   {c.issued && <span className="text-slate-600"> · issued {c.issued}</span>}
                 </div>
                 {c.credentialId && (
-                  <div className="mt-1 break-all font-mono text-[11px] text-slate-600">
+                  <div className="mt-1 break-all font-mono text-[11px] text-slate-500">
                     id: {c.credentialId}
                   </div>
                 )}

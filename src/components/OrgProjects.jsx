@@ -23,7 +23,7 @@ export default function OrgProjects({ orgGroups }) {
                   rel="noreferrer"
                   className="surface group flex items-center gap-4 rounded-xl p-4 transition-colors hover:border-primary/50"
                 >
-                  <img src={org.avatar_url} alt={orgDisplayName(org)} className="h-14 w-14 rounded-lg" />
+                  <img src={org.avatar_url} alt={orgDisplayName(org)} loading="lazy" decoding="async" className="h-14 w-14 rounded-lg" />
                   <div className="min-w-0">
                     <div className="font-mono text-sm font-semibold text-slate-100 group-hover:text-primary">
                       <span className="text-amber">@</span>

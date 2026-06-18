@@ -53,7 +53,7 @@ export default function Contact() {
           {CONTACTS.map((c) => {
             const inner = (
               <div className="surface flex items-center gap-4 rounded-xl p-4">
-                <span className="grid h-11 w-11 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-ink">
+                <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
                   <i className={`${c.brand ? 'fab' : 'fas'} ${c.icon}`} />
                 </span>
                 <div>
@@ -80,7 +80,7 @@ export default function Contact() {
           <textarea name="message" required rows={5} placeholder="Your message…" aria-label="Your message"
             className="w-full rounded-lg border border-line bg-panel/40 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <button type="submit" disabled={status === 'sending'}
-            className="w-full rounded-lg bg-gradient-to-r from-primary to-accent py-3 font-semibold text-ink transition-transform hover:scale-[1.02] disabled:opacity-60">
+            className="w-full rounded-lg bg-primary py-3 font-semibold text-ink transition-transform hover:scale-[1.02] disabled:opacity-60">
             <i className="fas fa-paper-plane mr-2" />
             {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Sent! ✓' : 'Send Message'}
           </button>

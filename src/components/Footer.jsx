@@ -22,7 +22,7 @@ export default function Footer() {
       <p className="font-mono text-sm text-slate-500">
         <span className="text-amber">$</span> echo "© {new Date().getFullYear()} {site.name}"
       </p>
-      <p className="mt-2 font-mono text-xs text-slate-600">
+      <p className="mt-2 font-mono text-xs text-slate-400">
         {site.role} · open to opportunities <span className="term-cursor align-middle">&nbsp;</span>
       </p>
     </footer>

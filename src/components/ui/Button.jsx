@@ -1,5 +1,5 @@
 const VARIANTS = {
-  solid: 'bg-gradient-to-r from-primary to-accent text-ink hover:scale-[1.03]',
+  solid: 'bg-primary text-ink hover:scale-[1.03]',
   outline: 'border border-line bg-panel/40 text-slate-200 hover:border-primary/60 hover:text-white',
 }
 
