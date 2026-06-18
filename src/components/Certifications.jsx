@@ -27,6 +27,10 @@ export default function Certifications() {
                   </div>
                 )}
 
+                {c.description && (
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{c.description}</p>
+                )}
+
                 <div className="mt-4 flex flex-wrap gap-2">
                   {c.skills.map((s) => (
                     <span key={s} className="rounded-md border border-line bg-primary/5 px-2.5 py-1 font-mono text-xs text-accent">

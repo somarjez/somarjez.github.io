@@ -31,12 +31,20 @@ describe('site config', () => {
     expect(site.education.year).toBeUndefined()
   })
 
-  it('lists certification programs each with a title and skills', () => {
+  it('has a one-line tagline with no student/year framing', () => {
+    expect(typeof site.tagline).toBe('string')
+    expect(site.tagline.length).toBeGreaterThan(0)
+    expect(site.tagline).not.toMatch(/\b(3rd|student|year)\b/i)
+  })
+
+  it('lists certification programs each with a title, description, and skills', () => {
     expect(Array.isArray(site.certifications)).toBe(true)
     expect(site.certifications.length).toBeGreaterThanOrEqual(6)
     for (const c of site.certifications) {
       expect(typeof c.title).toBe('string')
       expect(c.title.length).toBeGreaterThan(0)
+      expect(typeof c.description).toBe('string')
+      expect(c.description.length).toBeGreaterThan(0)
       expect(Array.isArray(c.skills)).toBe(true)
       expect(c.skills.length).toBeGreaterThan(0)
     }
