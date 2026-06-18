@@ -11,6 +11,21 @@
 
 html { scroll-behavior: smooth; }
 
+/* Visible keyboard focus for interactive elements (mouse focus stays clean). */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
 body {
   @apply bg-ink text-slate-100 font-sans antialiased;
   line-height: 1.6;

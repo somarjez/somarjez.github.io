@@ -55,6 +55,9 @@ export default function Hero({ stats, loading }) {
         transition={{ duration: 0.6, ease: EASE_OUT }}
         className="w-full max-w-3xl"
       >
+        <h1 className="sr-only">
+          {site.name}, {site.roles.join(', ')}. {site.tagline}
+        </h1>
         <TerminalWindow title="jezreel@portfolio: ~">
           <pre className="whitespace-pre-wrap break-words text-slate-200">
             {text.split('\n').map((ln, i) => (

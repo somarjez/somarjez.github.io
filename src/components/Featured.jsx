@@ -8,7 +8,7 @@ export function Card({ p, live }) {
   return (
     <TiltCard className="surface flex h-full flex-col rounded-xl p-6">
       <div className="mb-4 flex items-center justify-between">
-        <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent text-xl text-ink">
+        <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-xl text-primary">
           <i className={`fas ${p.icon}`} aria-hidden="true" />
         </span>
         {stars > 0 && (
