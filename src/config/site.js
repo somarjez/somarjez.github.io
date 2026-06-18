@@ -71,7 +71,7 @@ export const site = {
       issuer: 'Cisco',
       issued: 'Jun 2026',
       credentialId: '6e6eb5de-05cf-4cbe-9140-45853f4645d0',
-      url: '',
+      url: 'https://www.credly.com/earner/earned/badge/6e6eb5de-05cf-4cbe-9140-45853f4645d0',
       skills: ['Machine Learning', 'Computer Vision', 'Chatbots', 'AI Prompting', 'Machine Translation'],
     },
     {
@@ -80,7 +80,7 @@ export const site = {
       issuer: 'Cisco Networking Academy',
       issued: 'Jun 2026',
       credentialId: '2c37fc3e-618c-4c25-a2dd-97a73f6b8c25',
-      url: '',
+      url: 'https://www.credly.com/earner/earned/badge/2c37fc3e-618c-4c25-a2dd-97a73f6b8c25',
       skills: ['Exploratory Data Analysis', 'Linear Regression', 'Data Cleaning', 'Data Visualization', 'Storytelling', 'Jupyter'],
     },
     {
@@ -89,7 +89,7 @@ export const site = {
       issuer: 'DICT — Philippines',
       issued: 'Sep 2025',
       credentialId: '',
-      url: '',
+      url: 'https://drive.google.com/file/d/1rzpcezg5hZj9UAAy7o3VKEeauUd7LkqP/view',
       skills: ['Artificial Intelligence (AI)', 'Prompt Writing', 'Accurate Prompting', 'Generative AI'],
     },
     {
@@ -98,7 +98,7 @@ export const site = {
       issuer: 'DICT — Philippines',
       issued: 'Sep 2025',
       credentialId: '',
-      url: '',
+      url: 'https://qr.me-qr.com/text/UVt0jYss',
       skills: ['Data Privacy', 'Data Privacy Awareness'],
     },
     {
@@ -107,7 +107,7 @@ export const site = {
       issuer: 'CodeChum',
       issued: 'Dec 2025',
       credentialId: '',
-      url: '',
+      url: 'https://lspu.codechum.com/certificates/18552',
       skills: ['Java', 'Project Management', 'Programming', 'SDLC', 'Data Structures', 'Version Control', 'Testing', 'Quality Assurance', 'Security'],
     },
     {
@@ -116,7 +116,7 @@ export const site = {
       issuer: 'Cisco Networking Academy',
       issued: 'Jun 2026',
       credentialId: '0eaec38c-405a-4c1c-afe5-e977b47fe0d8',
-      url: '',
+      url: 'https://www.credly.com/earner/earned/badge/0eaec38c-405a-4c1c-afe5-e977b47fe0d8',
       skills: ['Data Analysis', 'Data Visualization', 'Microsoft Power BI', 'Tableau', 'SQL', 'Microsoft Excel'],
     },
   ],
