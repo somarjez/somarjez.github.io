@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import Section from './ui/Section.jsx'
 import RepoCard from './RepoCard.jsx'
 import { filterSortRepos } from '../lib/repoFilter.js'
+import { langColor } from '../lib/langColors.js'
 
 export default function RepoGrid({ repos, loading, error }) {
   const [search, setSearch] = useState('')
@@ -9,8 +10,12 @@ export default function RepoGrid({ repos, loading, error }) {
   const [sort, setSort] = useState('recent')
 
   const languages = useMemo(() => {
-    const set = new Set(repos.map((r) => r.language).filter(Boolean))
-    return ['all', ...[...set].sort()]
+    const counts = {}
+    for (const r of repos) if (r.language) counts[r.language] = (counts[r.language] || 0) + 1
+    const list = Object.entries(counts)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+    return [{ name: 'all', count: repos.length }, ...list]
   }, [repos])
 
   const shown = useMemo(
@@ -19,7 +24,7 @@ export default function RepoGrid({ repos, loading, error }) {
   )
 
   return (
-    <Section id="repos" title="All Repositories" subtitle={loading ? 'Live from GitHub' : `${repos.length} public repositories, live from GitHub`}>
+    <Section id="repos" title="Repositories" subtitle="Everything public, pulled live from the GitHub API.">
       {error && (
         <p className="surface rounded-xl p-6 text-center text-slate-300">
           Live GitHub data is unavailable right now.{' '}
@@ -32,8 +37,10 @@ export default function RepoGrid({ repos, loading, error }) {
       {!error && (
         <>
           <div className="mb-4 font-mono text-sm text-slate-500">
-            <span className="text-amber">$</span> ls ./projects{' '}
-            {language !== 'all' && <span className="text-primary">--lang={language}</span>}
+            <span className="text-amber">$</span> ls ./repos
+            {language !== 'all' && <span className="text-primary"> --lang={language}</span>}
+            {search && <span className="text-primary"> --grep="{search}"</span>}
+            {!loading && <span className="text-slate-600"> · {shown.length} {shown.length === 1 ? 'result' : 'results'}</span>}
           </div>
           <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center">
             <div className="relative flex-1">
@@ -59,18 +66,25 @@ export default function RepoGrid({ repos, loading, error }) {
           </div>
 
           <div className="mb-6 flex flex-wrap gap-2">
-            {languages.map((l) => (
-              <button
-                key={l}
-                onClick={() => setLanguage(l)}
-                aria-pressed={language === l}
-                className={`rounded-md px-3 py-1 font-mono text-xs transition-colors ${
-                  language === l ? 'bg-primary text-ink' : 'surface text-slate-300 hover:text-primary'
-                }`}
-              >
-                {l === 'all' ? 'All' : l}
-              </button>
-            ))}
+            {languages.map((l) => {
+              const isActive = language === l.name
+              return (
+                <button
+                  key={l.name}
+                  onClick={() => setLanguage(l.name)}
+                  aria-pressed={isActive}
+                  className={`flex items-center gap-1.5 rounded-md px-3 py-1 font-mono text-xs transition-colors ${
+                    isActive ? 'bg-primary text-ink' : 'surface text-slate-300 hover:text-primary'
+                  }`}
+                >
+                  {l.name !== 'all' && (
+                    <span className="h-2 w-2 rounded-full" style={{ background: langColor(l.name) }} />
+                  )}
+                  {l.name === 'all' ? 'all' : l.name}
+                  <span className={isActive ? 'text-ink/70' : 'text-slate-500'}>{l.count}</span>
+                </button>
+              )
+            })}
           </div>
 
           {loading ? (
