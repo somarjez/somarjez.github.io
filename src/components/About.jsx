@@ -5,34 +5,38 @@ import { site } from '../config/site.js'
 export default function About() {
   return (
     <Section id="about" title="About Me">
-      <div className="grid items-center gap-10 md:grid-cols-[300px_1fr]">
-        <Reveal className="mx-auto">
-          <img
-            src="/me.jpg"
-            alt={site.name}
-            onError={(e) => { e.currentTarget.style.display = 'none' }}
-            className="h-64 w-64 rounded-2xl object-cover shadow-2xl ring-2 ring-primary/40"
-          />
-        </Reveal>
-        <Reveal delay={0.1}>
+      <div className="grid items-start gap-10 md:grid-cols-[1fr_360px]">
+        <Reveal>
           <h3 className="font-display text-2xl font-bold">
             Full-Stack & <span className="gradient-text">AI Developer</span>
           </h3>
           <p className="mt-4 text-slate-300">{site.bio}</p>
-
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            {site.focus.map((f) => (
-              <div key={f.label} className="glass rounded-xl p-4 text-center">
-                <i className={`fas ${f.icon} text-lg text-accent`} aria-hidden="true" />
-                <p className="mt-2 text-sm font-medium text-slate-200">{f.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-5 text-sm text-slate-500">
-            <i className="fas fa-graduation-cap mr-2 text-primary/70" aria-hidden="true" />
-            {site.education.degree}
+          <p className="mt-5 font-mono text-sm text-slate-500">
+            <span className="text-amber">$</span> {site.education.degree}
           </p>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="term-window">
+            <div className="flex items-center gap-2 border-b border-line bg-panel-2/60 px-4 py-2.5">
+              <span className="h-3 w-3 rounded-full bg-[#f7768e]" />
+              <span className="h-3 w-3 rounded-full bg-[#e0af68]" />
+              <span className="h-3 w-3 rounded-full bg-[#9ece6a]" />
+              <span className="ml-3 font-mono text-xs text-slate-500">focus.config</span>
+            </div>
+            <pre className="overflow-x-auto p-5 font-mono text-sm leading-7">
+              <span className="text-slate-500"># core focus areas</span>{'\n'}
+              {site.focus.map((f) => (
+                <span key={f.label}>
+                  <span className="text-primary">focus</span>
+                  <span className="text-slate-500"> = </span>
+                  <span className="text-green">"</span>
+                  <span className="text-green">{f.label}</span>
+                  <span className="text-green">"</span>{'\n'}
+                </span>
+              ))}
+            </pre>
+          </div>
         </Reveal>
       </div>
     </Section>

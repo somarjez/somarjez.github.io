@@ -10,8 +10,8 @@ export default function RepoCard({ repo }) {
     <div className="glass group flex h-full flex-col rounded-xl p-5 transition-all hover:-translate-y-1 hover:border-primary/50">
       <div className="flex items-start justify-between gap-3">
         <h4 className="font-semibold text-slate-100">
-          <i className="fas fa-folder mr-2 text-primary/70" aria-hidden="true" />
-          <a href={repo.html_url} target="_blank" rel="noreferrer" className="hover:text-primary">
+          <span className="mr-1 font-mono text-amber">$</span>
+          <a href={repo.html_url} target="_blank" rel="noreferrer" className="font-mono hover:text-primary">
             {repo.name}
           </a>
         </h4>
@@ -26,7 +26,7 @@ export default function RepoCard({ repo }) {
             {repo.language}
           </span>
         )}
-        <span><i className="fas fa-star mr-1 text-yellow-400" aria-hidden="true" />{repo.stargazers_count}</span>
+        <span><i className="fas fa-star mr-1 text-amber" aria-hidden="true" />{repo.stargazers_count}</span>
         {repo.forks_count > 0 && <span><i className="fas fa-code-branch mr-1" aria-hidden="true" />{repo.forks_count}</span>}
         <span className="ml-auto">{updated}</span>
       </div>
