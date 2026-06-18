@@ -1,22 +1,42 @@
 export const site = {
   username: 'somarjez',
   name: 'Jezreel Ramos',
-  role: 'Full-Stack, AI & Data Developer',
-  roleSub: 'Web · Mobile · AI/ML · Data',
+  role: 'Data Analyst & Developer',
+  roleSub: 'Data · Web · Project Management · AI',
   location: 'Philippines 🇵🇭',
-  tagline:
-    'I design and ship products end-to-end — web, mobile, AI, and data — turning real-world problems into clean, working software.',
+  // The four areas I'm building my path around (priority order).
+  roles: ['Data Analyst', 'Web Developer', 'Project Management', 'AI / Machine Learning'],
+  // Headline tools, for the intro's skills line.
+  stack: ['Python', 'SQL', 'JavaScript', 'React', 'Java', 'C#'],
+  tagline: 'A Computer Science student turning data and ideas into clean, working software.',
   hero:
-    'I build full-stack web, mobile, and AI-driven applications — from Flutter commerce apps to Flask/Django platforms, machine-learning systems, and data-analytics work for real-world problems.',
-  bio: "I'm a full-stack developer who works across web, mobile, AI, and data. I've shipped Flutter mobile-commerce apps, Flask and Django web platforms, and machine-learning projects — including a hybrid Machine Learning + Knowledge-Representation system for affordable, sustainable housing in the Philippines. Alongside engineering, I work in data science and analytics: exploratory data analysis, visualization, and prompt engineering for generative AI, backed by certifications from Cisco, the DICT, and CodeChum. I care about clean architecture, thoughtful UX, and shipping work that actually solves problems, and I'm comfortable across C#/.NET, Java, Python, TypeScript, React/Next.js, and Dart.",
+    'A Computer Science student building toward data analysis, web development, project management, and AI through coursework and team projects.',
+  bio: "I'm Jezreel Ramos, a Computer Science student and developer in the Philippines. I'm focused on four areas: data analysis, web development, project management, and AI. My work so far is academic: course and team projects in web and machine learning, including Flask and Django platforms, exploratory data analysis in Python, and a hybrid Machine Learning and Knowledge-Representation system for affordable, sustainable housing. I work in Python, SQL, JavaScript and TypeScript, React, Java, and C#, with tools like Jupyter, Power BI, Tableau, and Git. I enjoy turning data and ideas into clean, working software, and I'm looking to grow through real projects and collaboration.",
   education: {
-    degree: 'BS Computer Science — Information Systems',
-    detail: 'Focus on software engineering, database systems, and machine learning.',
+    degree: 'BS Computer Science, major in Information Systems',
+    detail: 'Coursework across software engineering, database systems, and machine learning.',
   },
   focus: [
-    { icon: 'fa-layer-group', label: 'Full-Stack Web' },
-    { icon: 'fa-mobile-screen', label: 'Mobile Apps' },
-    { icon: 'fa-brain', label: 'AI / Machine Learning' },
+    {
+      icon: 'fa-chart-line',
+      label: 'Data Analysis',
+      blurb: 'Exploratory analysis, visualization, and insight with Python, SQL, Power BI, and Tableau.',
+    },
+    {
+      icon: 'fa-laptop-code',
+      label: 'Web Development',
+      blurb: 'Full-stack web apps with React, Flask, and Django.',
+    },
+    {
+      icon: 'fa-diagram-project',
+      label: 'Project Management',
+      blurb: 'Planning, SDLC, version control, testing, and delivery.',
+    },
+    {
+      icon: 'fa-brain',
+      label: 'AI / Machine Learning',
+      blurb: 'ML models, computer vision, and prompt engineering for coursework and research.',
+    },
   ],
   // GitHub orgs to feature explicitly (membership may be private, so they won't
   // appear via the public user-orgs API). Their public repos are shown too.

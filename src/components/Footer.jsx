@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="mb-5 flex justify-center gap-4">
         {SOCIAL.map((s) => (
           <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}
-            className="glass grid h-11 w-11 place-items-center rounded-full text-slate-300 transition-colors hover:text-primary">
+            className="surface grid h-11 w-11 place-items-center rounded-full text-slate-300 transition-colors hover:border-primary/50 hover:text-primary">
             <i className={s.icon} aria-hidden="true" />
           </a>
         ))}

@@ -7,7 +7,7 @@ export default function RepoCard({ repo }) {
   })
   const demo = repo.homepage && repo.homepage.trim() ? repo.homepage : null
   return (
-    <div className="glass group flex h-full flex-col rounded-xl p-5 transition-all hover:-translate-y-1 hover:border-primary/50">
+    <div className="surface group flex h-full flex-col rounded-xl p-5 transition-all hover:-translate-y-1 hover:border-primary/50">
       <div className="flex items-start justify-between gap-3">
         <h4 className="font-semibold text-slate-100">
           <span className="mr-1 font-mono text-amber">$</span>

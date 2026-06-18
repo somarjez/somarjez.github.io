@@ -18,17 +18,18 @@ body {
 
 h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.01em; }
 
-.glass {
-  @apply backdrop-blur-xl border;
-  background: rgba(125, 207, 255, 0.03);
-  border-color: rgba(125, 207, 255, 0.10);
+/* Elevated surface for cards/panels — a solid dark surface with a hairline
+   border, not decorative frosted glass. */
+.surface {
+  @apply border border-line;
+  background: rgba(13, 17, 23, 0.66);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Purposeful translucency, used only where content scrolls underneath
+   (sticky nav, command palette). */
+.glass {
+  @apply border border-line backdrop-blur-md;
+  background: rgba(10, 14, 20, 0.72);
 }
 
 /* Terminal window chrome */
