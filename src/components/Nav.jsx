@@ -8,6 +8,7 @@ const LINKS = [
   ['stats', 'github'],
   ['projects', 'projects'],
   ['repos', 'repos'],
+  ['orgs', 'orgs'],
   ['contact', 'contact'],
 ]
 const LINK_IDS = LINKS.map(([id]) => id)

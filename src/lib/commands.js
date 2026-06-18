@@ -10,6 +10,7 @@ export function buildCommands(site) {
     { id: 'stats', label: 'Go to GitHub stats', hint: 'section', run: () => goTo('stats') },
     { id: 'projects', label: 'Go to Projects', hint: 'section', run: () => goTo('projects') },
     { id: 'repos', label: 'Go to Repositories', hint: 'section', run: () => goTo('repos') },
+    { id: 'orgs', label: 'Go to Organizations', hint: 'section', run: () => goTo('orgs') },
     { id: 'contact', label: 'Go to Contact', hint: 'section', run: () => goTo('contact') },
     { id: 'github', label: 'Open GitHub', hint: 'link', run: () => window.open(site.links.github, '_blank', 'noopener') },
     { id: 'linkedin', label: 'Open LinkedIn', hint: 'link', run: () => window.open(site.links.linkedin, '_blank', 'noopener') },

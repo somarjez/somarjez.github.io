@@ -55,10 +55,13 @@ async function getJson(url) {
   return res.json()
 }
 
-const TTL = 60 * 60 * 1000 // 1 hour
+const TTL = 10 * 60 * 1000 // 10 minutes — short enough that fresh repo/org data shows quickly
 
-export async function fetchGitHub(username) {
-  const key = `gh:${username}`
+// Bump the cache prefix to invalidate older, longer-lived caches on existing visitors.
+const CACHE_PREFIX = 'gh:v2'
+
+export async function fetchGitHub(username, featuredOrgs = []) {
+  const key = `${CACHE_PREFIX}:${username}:${featuredOrgs.join(',')}`
   const cached = cacheGet(key, TTL)
   if (cached) return cached
 
@@ -67,7 +70,22 @@ export async function fetchGitHub(username) {
     getJson(`${API}/users/${username}/repos?per_page=100&sort=updated`),
     getJson(`${API}/users/${username}/orgs`).catch(() => []),
   ])
-  const data = { user, repos, orgs }
+
+  // Featured orgs are fetched explicitly — `/users/:user/orgs` only returns
+  // orgs where membership is public, so private-membership orgs are invisible there.
+  const orgGroups = (
+    await Promise.all(
+      featuredOrgs.map(async (login) => {
+        const [org, orgRepos] = await Promise.all([
+          getJson(`${API}/orgs/${login}`).catch(() => null),
+          getJson(`${API}/orgs/${login}/repos?per_page=100&sort=updated`).catch(() => []),
+        ])
+        return org ? { org, repos: orgRepos } : null
+      }),
+    )
+  ).filter(Boolean)
+
+  const data = { user, repos, orgs, orgGroups }
   cacheSet(key, data)
   return data
 }

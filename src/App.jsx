@@ -14,12 +14,12 @@ import Certifications from './components/Certifications.jsx'
 import GitHubStats from './components/GitHubStats.jsx'
 import Featured from './components/Featured.jsx'
 import RepoGrid from './components/RepoGrid.jsx'
-import Orgs from './components/Orgs.jsx'
+import OrgProjects from './components/OrgProjects.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 
 export default function App() {
-  const { repos, orgs, stats, loading, error } = useGitHub(site.username)
+  const { repos, orgGroups, stats, loading, error } = useGitHub(site.username, site.featuredOrgs)
   usePointerSpotlight()
   const { open, setOpen } = useCommandPalette()
   const commands = buildCommands(site)
@@ -37,7 +37,7 @@ export default function App() {
         <GitHubStats stats={stats} loading={loading} />
         <Featured repos={repos} />
         <RepoGrid repos={repos} loading={loading} error={error} />
-        <Orgs orgs={orgs} />
+        <OrgProjects orgGroups={orgGroups} />
         <Contact />
       </main>
       <Footer />
