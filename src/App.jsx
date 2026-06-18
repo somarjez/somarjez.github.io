@@ -10,6 +10,7 @@ import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
+import Certifications from './components/Certifications.jsx'
 import GitHubStats from './components/GitHubStats.jsx'
 import Featured from './components/Featured.jsx'
 import RepoGrid from './components/RepoGrid.jsx'
@@ -32,6 +33,7 @@ export default function App() {
         <Hero stats={stats} loading={loading} />
         <About />
         <Skills />
+        <Certifications />
         <GitHubStats stats={stats} loading={loading} />
         <Featured repos={repos} />
         <RepoGrid repos={repos} loading={loading} error={error} />
