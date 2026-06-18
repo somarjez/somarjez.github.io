@@ -6,6 +6,7 @@ export function buildCommands(site) {
   return [
     { id: 'home', label: 'Go to Home', hint: 'section', run: () => goTo('home') },
     { id: 'about', label: 'Go to About', hint: 'section', run: () => goTo('about') },
+    { id: 'certs', label: 'Go to Certifications', hint: 'section', run: () => goTo('certs') },
     { id: 'stats', label: 'Go to GitHub stats', hint: 'section', run: () => goTo('stats') },
     { id: 'projects', label: 'Go to Projects', hint: 'section', run: () => goTo('projects') },
     { id: 'repos', label: 'Go to Repositories', hint: 'section', run: () => goTo('repos') },
