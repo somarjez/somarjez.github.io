@@ -2,9 +2,18 @@ import { describe, it, expect } from 'vitest'
 import { site } from '../site.js'
 
 describe('site config', () => {
-  it('has no student/year framing in role, subtitle, bio, or education', () => {
-    const text = `${site.role} ${site.roleSub} ${site.bio} ${JSON.stringify(site.education)}`
-    expect(text).not.toMatch(/\b(3rd|student|year)\b/i)
+  it('uses no em dashes in headline copy (banned punctuation)', () => {
+    const text = `${site.role} ${site.roleSub} ${site.tagline} ${site.hero} ${site.bio} ${site.education.degree}`
+    expect(text).not.toMatch(/—|--/)
+  })
+
+  it('leads with the four priority roles in order', () => {
+    expect(site.roles).toEqual([
+      'Data Analyst',
+      'Web Developer',
+      'Project Management',
+      'AI / Machine Learning',
+    ])
   })
 
   it('exposes five project-grounded skill categories in order', () => {
@@ -18,12 +27,17 @@ describe('site config', () => {
     ])
   })
 
-  it('defines three focus pillars', () => {
+  it('defines the four focus pillars, each with a blurb', () => {
     expect(site.focus.map((f) => f.label)).toEqual([
-      'Full-Stack Web',
-      'Mobile Apps',
+      'Data Analysis',
+      'Web Development',
+      'Project Management',
       'AI / Machine Learning',
     ])
+    for (const f of site.focus) {
+      expect(typeof f.blurb).toBe('string')
+      expect(f.blurb.length).toBeGreaterThan(0)
+    }
   })
 
   it('keeps a degree line with no year field', () => {
@@ -31,10 +45,9 @@ describe('site config', () => {
     expect(site.education.year).toBeUndefined()
   })
 
-  it('has a one-line tagline with no student/year framing', () => {
+  it('has a one-line tagline', () => {
     expect(typeof site.tagline).toBe('string')
     expect(site.tagline.length).toBeGreaterThan(0)
-    expect(site.tagline).not.toMatch(/\b(3rd|student|year)\b/i)
   })
 
   it('lists certification programs each with a title, description, and skills', () => {

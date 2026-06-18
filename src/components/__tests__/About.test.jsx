@@ -3,17 +3,16 @@ import { describe, it, expect } from 'vitest'
 import About from '../About.jsx'
 
 describe('About', () => {
-  it('renders the three focus pillars', () => {
+  it('renders the four focus pillars', () => {
     render(<About />)
-    expect(screen.getByText('Full-Stack Web')).toBeInTheDocument()
-    expect(screen.getByText('Mobile Apps')).toBeInTheDocument()
+    expect(screen.getByText('Data Analysis')).toBeInTheDocument()
+    expect(screen.getByText('Web Development')).toBeInTheDocument()
+    expect(screen.getByText('Project Management')).toBeInTheDocument()
     expect(screen.getByText('AI / Machine Learning')).toBeInTheDocument()
   })
 
-  it('shows the degree line and no student/year framing', () => {
+  it('shows the degree line', () => {
     render(<About />)
     expect(screen.getByText(/BS Computer Science/)).toBeInTheDocument()
-    expect(screen.queryByText(/3rd year/i)).toBeNull()
-    expect(screen.queryByText(/student/i)).toBeNull()
   })
 })

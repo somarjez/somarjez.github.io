@@ -6,7 +6,7 @@ import { featured } from '../config/featured.js'
 export function Card({ p, live }) {
   const stars = live?.stargazers_count ?? 0
   return (
-    <TiltCard className="glass flex h-full flex-col rounded-xl p-6">
+    <TiltCard className="surface flex h-full flex-col rounded-xl p-6">
       <div className="mb-4 flex items-center justify-between">
         <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent text-xl text-ink">
           <i className={`fas ${p.icon}`} aria-hidden="true" />

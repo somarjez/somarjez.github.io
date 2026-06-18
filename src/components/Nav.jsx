@@ -26,7 +26,7 @@ export default function Nav({ onOpenPalette }) {
     <nav className="glass fixed inset-x-0 top-0 z-50 border-b border-line px-5 py-2.5">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <button onClick={() => go('home')} className="font-mono text-sm text-slate-400">
-          <span className="text-green">~</span>/<span className="gradient-text font-semibold">jezreel</span>
+          <span className="text-green">~</span>/<span className="font-semibold text-slate-100">jezreel</span>
         </button>
 
         <div className="hidden items-center gap-1 md:flex">

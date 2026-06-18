@@ -11,7 +11,7 @@ export default function Skills() {
       <div className="grid gap-6 md:grid-cols-2">
         {site.skills.map((cat, i) => (
           <Reveal key={cat.title} delay={i * 0.05}>
-            <TiltCard className="glass h-full rounded-xl">
+            <TiltCard className="surface h-full rounded-xl">
               <div className="flex items-center gap-2 border-b border-line px-5 py-3">
                 <i className={`fas ${cat.icon} text-primary`} aria-hidden="true" />
                 <span className="font-mono text-sm text-slate-300">{FILE[i] || `${cat.title}.txt`}</span>

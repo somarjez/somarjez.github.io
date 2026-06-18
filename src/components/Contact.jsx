@@ -52,7 +52,7 @@ export default function Contact() {
           </p>
           {CONTACTS.map((c) => {
             const inner = (
-              <div className="glass flex items-center gap-4 rounded-xl p-4">
+              <div className="surface flex items-center gap-4 rounded-xl p-4">
                 <span className="grid h-11 w-11 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent text-ink">
                   <i className={`${c.brand ? 'fab' : 'fas'} ${c.icon}`} />
                 </span>
@@ -70,7 +70,7 @@ export default function Contact() {
           })}
         </div>
 
-        <form onSubmit={onSubmit} className="glass space-y-4 rounded-2xl p-6">
+        <form onSubmit={onSubmit} className="surface space-y-4 rounded-2xl p-6">
           <input name="name" required placeholder="Full Name" aria-label="Full Name"
             className="w-full rounded-lg border border-line bg-panel/40 px-4 py-2.5 text-sm outline-none focus:border-primary/60" />
           <input name="email" type="email" required placeholder="Email Address" aria-label="Email Address"

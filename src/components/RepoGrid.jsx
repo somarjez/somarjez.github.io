@@ -21,7 +21,7 @@ export default function RepoGrid({ repos, loading, error }) {
   return (
     <Section id="repos" title="All Repositories" subtitle={loading ? 'Live from GitHub' : `${repos.length} public repositories, live from GitHub`}>
       {error && (
-        <p className="glass rounded-xl p-6 text-center text-slate-300">
+        <p className="surface rounded-xl p-6 text-center text-slate-300">
           Live GitHub data is unavailable right now.{' '}
           <a className="text-primary underline" href="https://github.com/somarjez?tab=repositories" target="_blank" rel="noreferrer">
             View repositories on GitHub →
@@ -43,14 +43,14 @@ export default function RepoGrid({ repos, loading, error }) {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search repositories…"
                 aria-label="Search repositories"
-                className="glass w-full rounded-lg py-2.5 pl-11 pr-4 font-mono text-sm outline-none focus:border-primary/60"
+                className="surface w-full rounded-lg py-2.5 pl-11 pr-4 font-mono text-sm outline-none focus:border-primary/60"
               />
             </div>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               aria-label="Sort repositories"
-              className="glass rounded-lg px-4 py-2.5 font-mono text-sm outline-none"
+              className="surface rounded-lg px-4 py-2.5 font-mono text-sm outline-none"
             >
               <option value="recent">Recently updated</option>
               <option value="stars">Most stars</option>
@@ -65,7 +65,7 @@ export default function RepoGrid({ repos, loading, error }) {
                 onClick={() => setLanguage(l)}
                 aria-pressed={language === l}
                 className={`rounded-md px-3 py-1 font-mono text-xs transition-colors ${
-                  language === l ? 'bg-primary text-ink' : 'glass text-slate-300 hover:text-primary'
+                  language === l ? 'bg-primary text-ink' : 'surface text-slate-300 hover:text-primary'
                 }`}
               >
                 {l === 'all' ? 'All' : l}
@@ -76,7 +76,7 @@ export default function RepoGrid({ repos, loading, error }) {
           {loading ? (
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="glass h-40 animate-pulse rounded-xl" />
+                <div key={i} className="surface h-40 animate-pulse rounded-xl" />
               ))}
             </div>
           ) : shown.length === 0 ? (

@@ -9,7 +9,7 @@ export default function Certifications() {
       <div className="grid gap-6 md:grid-cols-2">
         {site.certifications.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.05}>
-            <TiltCard className="glass flex h-full flex-col rounded-xl">
+            <TiltCard className="surface flex h-full flex-col rounded-xl">
               <div className="flex items-center gap-2 border-b border-line px-5 py-3">
                 <i className={`fas ${c.icon} text-primary`} aria-hidden="true" />
                 <span className="font-mono text-sm text-slate-200">
