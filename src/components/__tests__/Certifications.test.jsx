@@ -7,7 +7,14 @@ describe('Certifications', () => {
   it('renders every certification program title', () => {
     render(<Certifications />)
     for (const c of site.certifications) {
-      expect(screen.getByText(new RegExp(c.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))).toBeInTheDocument()
+      expect(screen.getAllByText(new RegExp(c.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))).length).toBeGreaterThan(0)
     }
+  })
+
+  it('shows issuer and credential id for credentials that have them', () => {
+    render(<Certifications />)
+    expect(screen.getAllByText(/Cisco Networking Academy/).length).toBeGreaterThan(0)
+    const withId = site.certifications.find((c) => c.credentialId)
+    expect(screen.getByText(new RegExp(withId.credentialId))).toBeInTheDocument()
   })
 })
