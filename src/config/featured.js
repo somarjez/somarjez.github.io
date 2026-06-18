@@ -85,7 +85,7 @@ export const featured = [
       'A full-stack church management app built with Django REST Framework and React: memberships, events, attendance, and volunteers for Santa Cruz Bible Christian Church.',
     tech: ['Django REST', 'React', 'PostgreSQL'],
     source: 'https://github.com/santacruz-bible-christian-church/sbcc-management-system',
-    demo: null,
+    demo: 'https://pbcm-sbcc.online',
   },
 ]
 
