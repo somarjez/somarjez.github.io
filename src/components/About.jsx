@@ -8,7 +8,7 @@ export default function About() {
       <div className="grid items-start gap-10 md:grid-cols-[1fr_360px]">
         <Reveal>
           <h3 className="font-display text-2xl font-bold">
-            Full-Stack & <span className="gradient-text">AI Developer</span>
+            Full-Stack, <span className="gradient-text">AI &amp; Data</span> Developer
           </h3>
           <p className="mt-4 text-slate-300">{site.bio}</p>
           <p className="mt-5 font-mono text-sm text-slate-500">

@@ -6,7 +6,9 @@ import { useTypewriter } from '../hooks/useTypewriter.js'
 export default function Hero({ stats, loading }) {
   const lines = [
     '$ whoami',
-    `> ${site.name} — ${site.role}`,
+    `> ${site.name} · ${site.role}`,
+    '$ cat about.txt',
+    `> ${site.tagline}`,
     '$ cat location.txt',
     `> ${site.location}`,
     '$ cat status.txt',
