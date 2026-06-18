@@ -12,7 +12,7 @@ const LINKS = [
 
 const LINK_IDS = LINKS.map(([id]) => id)
 
-export default function Nav({ theme, onToggleTheme }) {
+export default function Nav() {
   const [open, setOpen] = useState(false)
   const active = useScrollSpy(LINK_IDS)
 
@@ -39,9 +39,6 @@ export default function Nav({ theme, onToggleTheme }) {
               {label}
             </button>
           ))}
-          <button onClick={onToggleTheme} aria-label="Toggle theme" className="text-slate-300 hover:text-primary">
-            <i className={`fas ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`} />
-          </button>
         </div>
         <button className="md:hidden text-xl text-slate-200" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu">
           <i className={`fas ${open ? 'fa-xmark' : 'fa-bars'}`} />
@@ -54,9 +51,6 @@ export default function Nav({ theme, onToggleTheme }) {
               {label}
             </button>
           ))}
-          <button onClick={onToggleTheme} className="text-left text-sm text-slate-200">
-            Toggle {theme === 'dark' ? 'light' : 'dark'} mode
-          </button>
         </div>
       )}
     </nav>

@@ -1,5 +1,4 @@
 import { useGitHub } from './hooks/useGitHub.js'
-import { useTheme } from './hooks/useTheme.js'
 import { site } from './config/site.js'
 import Background from './components/Background.jsx'
 import Nav from './components/Nav.jsx'
@@ -15,12 +14,11 @@ import Footer from './components/Footer.jsx'
 
 export default function App() {
   const { repos, orgs, stats, loading, error } = useGitHub(site.username)
-  const { theme, toggle } = useTheme()
 
   return (
     <>
       <Background />
-      <Nav theme={theme} onToggleTheme={toggle} />
+      <Nav />
       <main>
         <Hero stats={stats} loading={loading} />
         <About />
