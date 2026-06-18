@@ -4,6 +4,7 @@ import { useScrollSpy } from '../hooks/useScrollSpy.js'
 const LINKS = [
   ['home', 'home'],
   ['about', 'about'],
+  ['certs', 'certs'],
   ['stats', 'github'],
   ['projects', 'projects'],
   ['repos', 'repos'],

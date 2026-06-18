@@ -2,11 +2,11 @@ export const site = {
   username: 'somarjez',
   name: 'Jezreel Ramos',
   role: 'Full-Stack & AI Developer',
-  roleSub: 'Web · Mobile · Machine Learning',
+  roleSub: 'Web · Mobile · AI · Data Science',
   location: 'Philippines 🇵🇭',
   hero:
-    'I build full-stack web, mobile, and AI-driven applications — from Flutter commerce apps to Flask/Django platforms and machine-learning systems for real-world problems.',
-  bio: "I'm a developer who builds across the stack — web, mobile, and AI. My work spans Flutter mobile commerce, Flask and Django web platforms, and machine-learning research, including a hybrid ML + Knowledge-Representation system for affordable housing in the Philippines. I care about clean architecture, thoughtful UX, and shipping work that solves real problems. I'm comfortable across C#/.NET, Java/Spring, Python, TypeScript, React/Next.js, and Dart.",
+    'I build full-stack web, mobile, and AI-driven applications — from Flutter commerce apps to Flask/Django platforms, machine-learning systems, and data-analytics work for real-world problems.',
+  bio: "I'm a developer who builds across the stack — web, mobile, and AI. My work spans Flutter mobile commerce, Flask and Django web platforms, and machine-learning projects, including a hybrid ML + Knowledge-Representation system for affordable housing in the Philippines. I also work in data science and analytics — exploratory data analysis, visualization, and prompt engineering for generative AI. I care about clean architecture, thoughtful UX, and shipping work that solves real problems. I'm comfortable across C#/.NET, Java, Python, TypeScript, React/Next.js, and Dart.",
   education: {
     degree: 'BS Computer Science — Information Systems',
     detail: 'Focus on software engineering, database systems, and machine learning.',
@@ -39,17 +39,59 @@ export const site = {
     {
       icon: 'fa-server',
       title: 'Backend & Data',
-      tags: ['Flask', 'Django', 'Firebase / Firestore', 'SQLite', 'MySQL / PostgreSQL', 'REST APIs'],
+      tags: ['Flask', 'Django', 'Firebase / Firestore', 'SQLite', 'MySQL / PostgreSQL', 'SQL', 'REST APIs'],
     },
     {
       icon: 'fa-brain',
       title: 'AI / Machine Learning',
-      tags: ['Python ML', 'Jupyter', 'Knowledge Representation & Reasoning', 'Data Analysis'],
+      tags: [
+        'Machine Learning',
+        'TensorFlow',
+        'Scikit-learn',
+        'Pandas',
+        'Jupyter',
+        'Computer Vision',
+        'Knowledge Representation & Reasoning',
+        'Prompt Engineering',
+        'Data Analysis',
+      ],
     },
     {
       icon: 'fa-tools',
       title: 'Tools',
-      tags: ['Git / GitHub', 'VS Code', 'Figma'],
+      tags: ['Git / GitHub', 'VS Code', 'Figma', 'Power BI', 'Tableau', 'Excel'],
+    },
+  ],
+  certifications: [
+    {
+      icon: 'fa-robot',
+      title: 'Introduction to Modern AI',
+      skills: ['Machine Learning', 'Computer Vision', 'Chatbots', 'AI Prompting', 'Machine Translation'],
+    },
+    {
+      icon: 'fa-chart-line',
+      title: 'Data Science Essentials with Python',
+      skills: ['Exploratory Data Analysis', 'Linear Regression', 'Data Cleaning', 'Data Visualization', 'Storytelling', 'Jupyter'],
+    },
+    {
+      icon: 'fa-wand-magic-sparkles',
+      title: 'Mastering Prompt Engineering in Generative AI',
+      skills: ['Accurate Prompting', 'Prompt Writing', 'Generative AI'],
+    },
+    {
+      icon: 'fa-chart-pie',
+      title: 'Data Analytics Essentials',
+      skills: ['Microsoft Power BI', 'Tableau', 'SQL', 'Microsoft Excel', 'Data Analysis', 'Data Visualization'],
+    },
+    {
+      icon: 'fa-gears',
+      title: 'Software Engineering I',
+      skills: ['Java', 'SDLC', 'Data Structures', 'Project Management', 'Version Control', 'Testing', 'Quality Assurance', 'Security'],
+    },
+    {
+      icon: 'fa-shield-halved',
+      title: 'Data Privacy Awareness',
+      skills: ['Data Privacy', 'Compliance'],
     },
   ],
 }

@@ -30,4 +30,15 @@ describe('site config', () => {
     expect(site.education.degree).toMatch(/BS Computer Science/)
     expect(site.education.year).toBeUndefined()
   })
+
+  it('lists certification programs each with a title and skills', () => {
+    expect(Array.isArray(site.certifications)).toBe(true)
+    expect(site.certifications.length).toBeGreaterThanOrEqual(6)
+    for (const c of site.certifications) {
+      expect(typeof c.title).toBe('string')
+      expect(c.title.length).toBeGreaterThan(0)
+      expect(Array.isArray(c.skills)).toBe(true)
+      expect(c.skills.length).toBeGreaterThan(0)
+    }
+  })
 })
