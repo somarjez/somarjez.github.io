@@ -1,8 +1,11 @@
 import { useGitHub } from './hooks/useGitHub.js'
 import { usePointerSpotlight } from './hooks/usePointerSpotlight.js'
+import { useCommandPalette } from './hooks/useCommandPalette.js'
+import { buildCommands } from './lib/commands.js'
 import { site } from './config/site.js'
 import Background from './components/Background.jsx'
 import Spotlight from './components/Spotlight.jsx'
+import CommandPalette from './components/CommandPalette.jsx'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
@@ -17,12 +20,14 @@ import Footer from './components/Footer.jsx'
 export default function App() {
   const { repos, orgs, stats, loading, error } = useGitHub(site.username)
   usePointerSpotlight()
+  const { open, setOpen } = useCommandPalette()
+  const commands = buildCommands(site)
 
   return (
     <>
       <Background />
       <Spotlight />
-      <Nav />
+      <Nav onOpenPalette={() => setOpen(true)} />
       <main>
         <Hero stats={stats} loading={loading} />
         <About />
@@ -34,6 +39,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <CommandPalette open={open} commands={commands} onClose={() => setOpen(false)} />
     </>
   )
 }
