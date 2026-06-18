@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { fetchGitHub, deriveStats } from '../lib/github.js'
 
-export function useGitHub(username) {
+export function useGitHub(username, featuredOrgs = []) {
+  const orgsKey = featuredOrgs.join(',')
   const [state, setState] = useState({
     user: null,
     repos: [],
     orgs: [],
+    orgGroups: [],
     stats: deriveStats(null, []),
     loading: true,
     error: null,
@@ -13,13 +15,14 @@ export function useGitHub(username) {
 
   useEffect(() => {
     let alive = true
-    fetchGitHub(username)
-      .then(({ user, repos, orgs }) => {
+    fetchGitHub(username, orgsKey ? orgsKey.split(',') : [])
+      .then(({ user, repos, orgs, orgGroups }) => {
         if (!alive) return
         setState({
           user,
           repos,
           orgs,
+          orgGroups: orgGroups || [],
           stats: deriveStats(user, repos),
           loading: false,
           error: null,
@@ -32,7 +35,7 @@ export function useGitHub(username) {
     return () => {
       alive = false
     }
-  }, [username])
+  }, [username, orgsKey])
 
   return state
 }

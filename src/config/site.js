@@ -18,6 +18,9 @@ export const site = {
     { icon: 'fa-mobile-screen', label: 'Mobile Apps' },
     { icon: 'fa-brain', label: 'AI / Machine Learning' },
   ],
+  // GitHub orgs to feature explicitly (membership may be private, so they won't
+  // appear via the public user-orgs API). Their public repos are shown too.
+  featuredOrgs: ['santacruz-bible-christian-church'],
   // Replace with a real Formspree form id; falls back to mailto when empty.
   formspreeId: '',
   links: {
