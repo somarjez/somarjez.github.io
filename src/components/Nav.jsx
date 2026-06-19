@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useScrollSpy } from '../hooks/useScrollSpy.js'
+import Logo from './ui/Logo.jsx'
 
 const LINKS = [
   ['home', 'home'],
@@ -25,8 +26,9 @@ export default function Nav({ onOpenPalette }) {
   return (
     <nav className="glass fixed inset-x-0 top-0 z-50 border-b border-line px-5 py-2.5">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <button onClick={() => go('home')} className="font-mono text-sm text-slate-400">
-          <span className="text-green">~</span>/<span className="font-semibold text-slate-100">jezreel</span>
+        <button onClick={() => go('home')} aria-label="Home" className="flex items-center gap-2.5 font-mono text-sm text-slate-400">
+          <Logo size={30} />
+          <span className="font-semibold text-slate-100">jezreel</span>
         </button>
 
         <div className="hidden items-center gap-1 md:flex">
