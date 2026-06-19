@@ -49,6 +49,8 @@ export const site = {
     linkedin: 'https://www.linkedin.com/in/somarjez',
     facebook: 'https://www.facebook.com/thenthen05',
     website: 'https://somarjez.github.io/',
+    // Drop a PDF at public/resume/resume.pdf to make this live.
+    resume: '/resume/resume.pdf',
   },
   skills: [
     {

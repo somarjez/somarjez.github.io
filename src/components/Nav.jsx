@@ -6,9 +6,8 @@ const LINKS = [
   ['home', 'home'],
   ['about', 'about'],
   ['certs', 'certs'],
-  ['stats', 'github'],
   ['projects', 'projects'],
-  ['repos', 'repos'],
+  ['github', 'github'],
   ['orgs', 'orgs'],
   ['contact', 'contact'],
 ]
