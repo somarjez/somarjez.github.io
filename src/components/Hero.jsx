@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { site } from '../config/site.js'
 import TerminalWindow from './ui/TerminalWindow.jsx'
+import Avatar from './ui/Avatar.jsx'
 import { useTypewriter } from '../hooks/useTypewriter.js'
 import { langColor } from '../lib/langColors.js'
 
@@ -34,13 +35,14 @@ function LangBars({ languages }) {
 
 export default function Hero({ stats, loading }) {
   const reduce = useReducedMotion()
+  const first = site.name.split(' ')[0]
   const lines = [
-    '$ greet',
-    `> Hi! I'm ${site.name.split(' ')[0]}, a CS student & developer 👋`,
     '$ cat interests.txt',
     `> ${site.roles.join(' · ')}`,
     '$ cat stack.txt',
     `> ${site.stack.join(' · ')}`,
+    '$ cat now.txt',
+    '> building OSCA-AgeSense, our ML thesis 🧠',
     '$ status --now',
     `> open to internships & collaboration · ${site.location}`,
   ]
@@ -55,10 +57,26 @@ export default function Hero({ stats, loading }) {
         transition={{ duration: 0.6, ease: EASE_OUT }}
         className="w-full max-w-3xl"
       >
-        <h1 className="sr-only">
-          {site.name}, {site.roles.join(', ')}. {site.tagline}
-        </h1>
         <TerminalWindow title="jezreel@portfolio: ~">
+          {/* Personal intro header */}
+          <div className="mb-5 flex items-center gap-4 border-b border-line pb-5">
+            <Avatar
+              src="/me.jpg"
+              alt={site.name}
+              initials="JR"
+              className="h-16 w-16 shrink-0 rounded-xl ring-2 ring-primary/30"
+            />
+            <div className="min-w-0">
+              <h1 className="font-display text-xl font-bold text-slate-50">
+                Hi! I&apos;m {first} <span aria-hidden="true">👋</span>
+                <span className="sr-only">. {site.name}, {site.roles.join(', ')}.</span>
+              </h1>
+              <p className="mt-1 text-pretty text-sm leading-relaxed text-slate-400">
+                {site.tagline}
+              </p>
+            </div>
+          </div>
+
           <pre className="whitespace-pre-wrap break-words text-slate-200">
             {text.split('\n').map((ln, i) => (
               <span key={i} className={ln.startsWith('>') ? 'text-primary' : 'text-green'}>
