@@ -100,7 +100,7 @@ export default function Hero({ stats, loading }) {
           {/* Personal intro header */}
           <div className="mb-6 flex items-center gap-5 border-b border-line pb-6">
             <Avatar
-              src="/me2.png"
+              src="/me2.webp"
               alt={site.name}
               initials="JR"
               className="h-24 w-24 shrink-0 rounded-2xl ring-2 ring-primary/40 sm:h-28 sm:w-28"
