@@ -71,7 +71,7 @@ export default function Hero({ stats, loading }) {
     '$ cat stack.txt',
     `> ${site.stack.join(' · ')}`,
     '$ cat now.txt',
-    '> building OSCA-AgeSense, our ML thesis 🧠',
+    '> building OSCA-AgeSense, our ML thesis',
     '$ status --now',
     `> open to internships & collaboration · ${site.location}`,
   ]
