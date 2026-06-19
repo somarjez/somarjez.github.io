@@ -1,8 +1,26 @@
 import { useMemo, useState } from 'react'
 import Section from './ui/Section.jsx'
 import RepoCard from './RepoCard.jsx'
+import LanguageDonut from './ui/LanguageDonut.jsx'
 import { filterSortRepos } from '../lib/repoFilter.js'
 import { langColor } from '../lib/langColors.js'
+
+function RepoList({ repos }) {
+  if (repos.length === 0) {
+    return (
+      <p className="surface rounded-xl p-8 text-center font-mono text-sm text-slate-400">
+        <span className="text-amber">$</span> no repositories match your filters.
+      </p>
+    )
+  }
+  return (
+    <ul className="surface divide-y divide-line overflow-hidden rounded-xl">
+      {repos.map((r) => (
+        <RepoCard key={r.id} repo={r} />
+      ))}
+    </ul>
+  )
+}
 
 export default function RepoGrid({ repos, loading, error }) {
   const [search, setSearch] = useState('')
@@ -85,48 +103,28 @@ export default function RepoGrid({ repos, loading, error }) {
             </select>
           </div>
 
-          {/* Language distribution: a live, clickable breakdown of repo languages */}
-          {!loading && languages.length > 0 && (
-            <div className="mb-6">
-              <div className="flex h-2.5 overflow-hidden rounded-full bg-line/50">
-                {languages.map((l) => {
-                  const dim = language !== 'all' && language !== l.name
-                  return (
-                    <button
-                      key={l.name}
-                      type="button"
-                      onClick={() => setLanguage(language === l.name ? 'all' : l.name)}
-                      title={`${l.name} · ${l.count}`}
-                      aria-label={`Filter by ${l.name}`}
-                      style={{ width: `${(l.count / langTotal) * 100}%`, background: langColor(l.name) }}
-                      className={`h-full transition-opacity hover:opacity-100 ${dim ? 'opacity-25' : 'opacity-100'}`}
-                    />
-                  )
-                })}
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {chip('all', repos.length, null)}
-                {languages.map((l) => chip(l.name, l.count, langColor(l.name)))}
-              </div>
-            </div>
-          )}
-
           {loading ? (
             <ul className="surface divide-y divide-line overflow-hidden rounded-xl">
               {Array.from({ length: 6 }).map((_, i) => (
                 <li key={i} className="h-16 animate-pulse" />
               ))}
             </ul>
-          ) : shown.length === 0 ? (
-            <p className="surface rounded-xl p-8 text-center font-mono text-sm text-slate-400">
-              <span className="text-amber">$</span> no repositories match your filters.
-            </p>
+          ) : languages.length === 0 ? (
+            <RepoList repos={shown} />
           ) : (
-            <ul className="surface divide-y divide-line overflow-hidden rounded-xl">
-              {shown.map((r) => (
-                <RepoCard key={r.id} repo={r} />
-              ))}
-            </ul>
+            <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
+              {/* Live language distribution: hover a slice or click to filter */}
+              <aside className="surface h-fit rounded-xl p-5 lg:sticky lg:top-24">
+                <div className="mb-4 font-mono text-xs text-slate-500"># language_distribution</div>
+                <LanguageDonut languages={languages} total={langTotal} active={language} onSelect={setLanguage} />
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {chip('all', repos.length, null)}
+                  {languages.map((l) => chip(l.name, l.count, langColor(l.name)))}
+                </div>
+              </aside>
+
+              <RepoList repos={shown} />
+            </div>
           )}
         </>
       )}
