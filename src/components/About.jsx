@@ -1,6 +1,5 @@
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
-import Avatar from './ui/Avatar.jsx'
 import { site } from '../config/site.js'
 
 export default function About() {
@@ -8,28 +7,7 @@ export default function About() {
     <Section id="about" title="About me" subtitle="A Computer Science student building toward data, web, project management, and AI.">
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <Reveal>
-          <div className="flex items-center gap-5">
-            <Avatar
-              src="/me.jpg"
-              alt={site.name}
-              initials="JR"
-              className="h-20 w-20 shrink-0 rounded-2xl ring-2 ring-primary/30"
-            />
-            <div>
-              <h3 className="font-display text-2xl font-bold text-slate-50">
-                Hi! I&apos;m {site.name.split(' ')[0]} <span aria-hidden="true">👋</span>
-              </h3>
-              <p className="mt-1 flex items-center gap-2 font-mono text-sm text-primary">
-                {site.role}
-                <span className="inline-flex items-center gap-1.5 text-green">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green" />
-                  available
-                </span>
-              </p>
-            </div>
-          </div>
-
-          <p className="mt-6 max-w-[65ch] text-pretty leading-relaxed text-slate-300">
+          <p className="max-w-[65ch] text-pretty text-lg leading-relaxed text-slate-300">
             {site.bio}
           </p>
           <p className="mt-6 font-mono text-sm text-slate-500">
