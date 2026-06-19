@@ -10,10 +10,10 @@ TASK: Using ONLY the verified information below, write a clean, one-page,
 ATS-friendly resume for me. Target role: [FILL IN — e.g. "Data Analyst intern"
 or "Junior Web Developer"]. Reorder and emphasize the most relevant skills and
 projects for that target. Use strong action verbs and quantify where the data
-allows. Do not invent employers, dates, metrics, or skills I didn't list. My
-work experience so far is ACADEMIC (course/team projects), so frame projects
-accordingly rather than as professional jobs. Avoid em dashes and buzzwords.
-Output in clean Markdown with these sections: Header, Summary, Skills,
+allows. Do not invent employers, dates, metrics, or skills I didn't list. Most
+of my work is ACADEMIC (course/team projects); I also have the short freelance/
+part-time roles listed under EXPERIENCE. Avoid em dashes and buzzwords. Output
+in clean Markdown with these sections: Header, Summary, Skills, Experience,
 Projects, Certifications, Education.
 
 === PERSONAL ===
@@ -34,6 +34,18 @@ Machine Learning. Open to internships and collaboration.
 BS Computer Science, major in Information Systems (currently 3rd-year level,
 A.Y. 2025-2026). Coursework across software engineering, database systems, and
 machine learning.
+
+=== EXPERIENCE ===
+Educational PowerPoint Content Creator | Laguna, Philippines | Nov 2024 - Aug 2025
+- Created PowerPoint-based lessons for elementary students over a 9-month period.
+- Designed age-appropriate instructional slides with clear formatting, visuals,
+  and simplified explanations.
+
+Webpage Developer | [LOCATION - FILL IN] | Jan 2024 - Feb 2024
+- Built and designed a webpage over a 1-month period using front-end development
+  principles.
+- Applied layout design, visual organization, testing, and revision to improve
+  the user experience.
 
 === SKILLS ===
 Programming Languages: Python, JavaScript, TypeScript, Dart, Java, C# (.NET),
@@ -116,7 +128,12 @@ Professional: Project Management, Problem Solving, Team Collaboration,
 === STYLE NOTES ===
 - One page, reverse-chronological where dates apply.
 - Lead the Skills and Projects sections with whatever matches the target role.
-- Honest framing: student + academic projects, not professional employment.
+- Honest framing: a student with short freelance/part-time roles (EXPERIENCE)
+  plus academic and team projects (PROJECTS), not full-time professional jobs.
+- Keep the undergraduate thesis (OSCA-AgeSense) under PROJECTS. Do NOT duplicate
+  it in EXPERIENCE. Only if a role specifically values research, you may instead
+  surface it as one "Undergraduate Thesis, ML Developer (2025-2026)" experience
+  line, but never list it in both sections.
 - Plain, specific language. No em dashes, no buzzwords (avoid "leverage",
   "synergy", "passionate about", etc.).
 ```
