@@ -1,6 +1,9 @@
 # Resume
 
-Put your resume here as **`resume.pdf`** (exact filename).
+The resume PDF lives here as **`Jezreel-Ramos-Resume.pdf`**.
 
-Once `public/resume/resume.pdf` exists, the "Resume" button (floating dock,
-contact section, and ⌘K palette) will open it at `/resume/resume.pdf`.
+The "Resume" button (floating dock and ⌘K palette) opens it at
+`/resume/Jezreel-Ramos-Resume.pdf`, so it downloads with a professional,
+ATS-friendly filename. To update it, replace that file (keep the same name),
+or change the name in both this folder and `site.links.resume` in
+`src/config/site.js`.
