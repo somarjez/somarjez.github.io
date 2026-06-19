@@ -35,8 +35,8 @@ function LangBars({ languages }) {
 export default function Hero({ stats, loading }) {
   const reduce = useReducedMotion()
   const lines = [
-    '$ whoami',
-    `> ${site.name} · CS student & developer`,
+    '$ greet',
+    `> Hi! I'm ${site.name.split(' ')[0]}, a CS student & developer 👋`,
     '$ cat interests.txt',
     `> ${site.roles.join(' · ')}`,
     '$ cat stack.txt',
