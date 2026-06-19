@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import Section from './ui/Section.jsx'
 import RepoCard from './RepoCard.jsx'
 import LanguageDonut from './ui/LanguageDonut.jsx'
+import Pagination from './ui/Pagination.jsx'
+import { usePagination } from '../hooks/usePagination.js'
 import { filterSortRepos } from '../lib/repoFilter.js'
 import { langColor } from '../lib/langColors.js'
 
@@ -41,6 +43,12 @@ export default function RepoGrid({ repos, loading, error }) {
     () => filterSortRepos(repos, { search, language, sort }),
     [repos, search, language, sort],
   )
+
+  const { page, setPage, pageCount, pageItems } = usePagination(shown, 8, `${search}|${language}|${sort}`)
+  const goPage = (p) => {
+    setPage(p)
+    document.getElementById('repos')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const chip = (name, count, color) => {
     const active = language === name
@@ -110,7 +118,10 @@ export default function RepoGrid({ repos, loading, error }) {
               ))}
             </ul>
           ) : languages.length === 0 ? (
-            <RepoList repos={shown} />
+            <>
+              <RepoList repos={pageItems} />
+              <Pagination page={page} pageCount={pageCount} onChange={goPage} />
+            </>
           ) : (
             <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
               {/* Live language distribution: hover a slice or click to filter */}
@@ -123,7 +134,10 @@ export default function RepoGrid({ repos, loading, error }) {
                 </div>
               </aside>
 
-              <RepoList repos={shown} />
+              <div>
+                <RepoList repos={pageItems} />
+                <Pagination page={page} pageCount={pageCount} onChange={goPage} />
+              </div>
             </div>
           )}
         </>
