@@ -11,12 +11,12 @@ import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
 import Certifications from './components/Certifications.jsx'
-import GitHubStats from './components/GitHubStats.jsx'
 import Featured from './components/Featured.jsx'
 import RepoGrid from './components/RepoGrid.jsx'
 import OrgProjects from './components/OrgProjects.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import FloatingLinks from './components/FloatingLinks.jsx'
 
 export default function App() {
   const { repos, orgGroups, stats, loading, error } = useGitHub(site.username, site.featuredOrgs)
@@ -40,13 +40,13 @@ export default function App() {
         <About />
         <Skills />
         <Certifications />
-        <GitHubStats stats={stats} loading={loading} />
         <Featured repos={repos} />
-        <RepoGrid repos={repos} loading={loading} error={error} />
+        <RepoGrid repos={repos} stats={stats} loading={loading} error={error} />
         <OrgProjects orgGroups={orgGroups} />
         <Contact />
       </main>
       <Footer />
+      <FloatingLinks />
       <CommandPalette open={open} commands={commands} onClose={() => setOpen(false)} />
     </>
   )

@@ -1,11 +1,38 @@
 import { useMemo, useState } from 'react'
 import Section from './ui/Section.jsx'
+import Reveal from './ui/Reveal.jsx'
+import AnimatedCounter from './ui/AnimatedCounter.jsx'
 import RepoCard from './RepoCard.jsx'
 import LanguageDonut from './ui/LanguageDonut.jsx'
 import Pagination from './ui/Pagination.jsx'
 import { usePagination } from '../hooks/usePagination.js'
 import { filterSortRepos } from '../lib/repoFilter.js'
 import { langColor } from '../lib/langColors.js'
+
+function StatTiles({ stats, loading }) {
+  const cards = [
+    { label: 'Repositories', value: stats.totalRepos },
+    { label: 'Total Stars', value: stats.totalStars },
+    { label: 'Languages', value: stats.languages.length },
+    { label: 'Years on GitHub', value: Math.max(1, stats.accountAgeYears) },
+  ]
+  return (
+    <div className="mb-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+      {cards.map((c, i) => (
+        <Reveal key={c.label} delay={i * 0.05}>
+          <div className="surface rounded-xl p-5">
+            <div className="font-mono text-xs text-slate-500">
+              <span className="text-amber">$</span> {c.label.toLowerCase().replace(/\s+/g, '_')}
+            </div>
+            <div className="mt-2 font-display text-3xl font-extrabold text-primary">
+              {loading ? '—' : <AnimatedCounter value={c.value} />}
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  )
+}
 
 function RepoList({ repos }) {
   if (repos.length === 0) {
@@ -24,7 +51,7 @@ function RepoList({ repos }) {
   )
 }
 
-export default function RepoGrid({ repos, loading, error }) {
+export default function RepoGrid({ repos, stats, loading, error }) {
   const [search, setSearch] = useState('')
   const [language, setLanguage] = useState('all')
   const [sort, setSort] = useState('recent')
@@ -47,7 +74,7 @@ export default function RepoGrid({ repos, loading, error }) {
   const { page, setPage, pageCount, pageItems } = usePagination(shown, 8, `${search}|${language}|${sort}`)
   const goPage = (p) => {
     setPage(p)
-    document.getElementById('repos')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('github')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const chip = (name, count, color) => {
@@ -69,7 +96,9 @@ export default function RepoGrid({ repos, loading, error }) {
   }
 
   return (
-    <Section id="repos" title="Repositories" subtitle="Everything public, pulled live from the GitHub API.">
+    <Section id="github" title="GitHub" subtitle="Live stats and every public repository, straight from the GitHub API.">
+      <StatTiles stats={stats} loading={loading} />
+
       {error && (
         <p className="surface rounded-xl p-6 text-center text-slate-300">
           Live GitHub data is unavailable right now.{' '}
