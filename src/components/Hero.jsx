@@ -75,7 +75,7 @@ export default function Hero({ stats, loading }) {
     '$ status --now',
     `> open to internships & collaboration · ${site.location}`,
   ]
-  const { text, done } = useTypewriter(lines)
+  const { text, done } = useTypewriter(lines, { speed: 14, linePause: 55, chunk: 3 })
 
   return (
     <section id="home" className="relative flex min-h-screen items-center justify-center px-5 py-28">

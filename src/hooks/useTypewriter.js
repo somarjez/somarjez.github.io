@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useTypewriter(lines, { speed = 28, linePause = 350 } = {}) {
+export function useTypewriter(lines, { speed = 28, linePause = 350, chunk = 1 } = {}) {
   const full = lines.join('\n')
   const reduce =
     typeof window !== 'undefined' &&
@@ -19,14 +19,23 @@ export function useTypewriter(lines, { speed = 28, linePause = 350 } = {}) {
         setDone(true)
         return
       }
-      setText(full.slice(0, i + 1))
-      iRef.current = i + 1
-      const pause = full[i] === '\n' ? linePause : speed
-      timer = setTimeout(step, pause)
+      // Pause at line breaks; otherwise reveal `chunk` characters per tick.
+      if (full[i] === '\n') {
+        iRef.current = i + 1
+        setText(full.slice(0, i + 1))
+        timer = setTimeout(step, linePause)
+        return
+      }
+      let end = Math.min(i + Math.max(1, chunk), full.length)
+      const nl = full.indexOf('\n', i)
+      if (nl !== -1 && nl < end) end = nl
+      iRef.current = end
+      setText(full.slice(0, end))
+      timer = setTimeout(step, speed)
     }
     timer = setTimeout(step, speed)
     return () => clearTimeout(timer)
-  }, [full, reduce, speed, linePause])
+  }, [full, reduce, speed, linePause, chunk])
 
   return { text, done }
 }
