@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="#0d1117" stroke="#7dcfff" stroke-width="2.5"/>
+  <g stroke="#7dcfff" stroke-opacity="0.18" stroke-width="1.5">
+    <line x1="32" y1="14" x2="32" y2="50"/>
+    <line x1="14" y1="32" x2="50" y2="32"/>
+  </g>
+  <g font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,monospace" font-weight="800" fill="#7dcfff" text-anchor="middle">
+    <text x="22" y="29" font-size="19">J</text>
+    <text x="43" y="29" font-size="19">Z</text>
+    <text x="22" y="52" font-size="19">R</text>
+    <text x="43" y="52" font-size="19">L</text>
+  </g>
+</svg>
