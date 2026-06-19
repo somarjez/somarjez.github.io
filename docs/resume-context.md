@@ -19,11 +19,12 @@ Projects, Certifications, Education.
 === PERSONAL ===
 Name: Jezreel Ramos
 Location: Philippines
+Phone: +63 948 447 8536
 Email: jezreelramoz@gmail.com
 GitHub: github.com/somarjez
 LinkedIn: linkedin.com/in/somarjez
 Portfolio: somarjez.github.io
-(Phone / full address: [ADD IF YOU WANT THEM ON THE RESUME])
+(Full mailing address: [ADD IF THE APPLICATION REQUIRES IT])
 
 === POSITIONING ===
 A Computer Science student and developer building a career across four areas
