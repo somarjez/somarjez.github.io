@@ -58,8 +58,9 @@ export default function Hero({ stats, loading }) {
   const reduce = useReducedMotion()
   const first = site.name.split(' ')[0]
 
-  // Build the stack from the tech actually used across featured projects.
-  const { bars, also } = useMemo(() => {
+  // Aggregate tech across featured projects, split into languages first, then stack.
+  const { languages, stackBars, stackAlso } = useMemo(() => {
+    const LANGS = new Set(['Python', 'JavaScript', 'TypeScript', 'Dart', 'Java', 'C#', 'HTML', 'SQL'])
     const counts = {}
     for (const p of featured) {
       for (const raw of p.tech) {
@@ -70,9 +71,11 @@ export default function Hero({ stats, loading }) {
     const ranked = Object.entries(counts)
       .map(([name, count]) => ({ name, count }))
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+    const stack = ranked.filter((s) => !LANGS.has(s.name))
     return {
-      bars: ranked.filter((s) => s.count >= 2),
-      also: ranked.filter((s) => s.count < 2).map((s) => s.name),
+      languages: ranked.filter((s) => LANGS.has(s.name)),
+      stackBars: stack.filter((s) => s.count >= 2),
+      stackAlso: stack.filter((s) => s.count < 2).map((s) => s.name),
     }
   }, [])
 
@@ -133,15 +136,19 @@ export default function Hero({ stats, loading }) {
             transition={{ duration: 0.4, ease: EASE_OUT }}
           >
             <div className="font-mono text-xs text-slate-500">
+              <span className="text-amber">$</span> analyze ./projects --languages
+            </div>
+            {done && <StackBars items={languages} />}
+
+            <div className="mt-5 font-mono text-xs text-slate-500">
               <span className="text-amber">$</span> analyze ./projects --stack
             </div>
+            {done && <StackBars items={stackBars} />}
 
-            {done && <StackBars items={bars} />}
-
-            {also.length > 0 && (
+            {stackAlso.length > 0 && (
               <div className="mt-3 flex flex-wrap items-center gap-1.5 font-mono text-[11px] text-slate-500">
                 <span className="text-slate-600">also:</span>
-                {also.map((name) => (
+                {stackAlso.map((name) => (
                   <span key={name} className="rounded border border-line px-1.5 py-0.5 text-slate-400">{name}</span>
                 ))}
               </div>
