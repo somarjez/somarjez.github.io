@@ -102,6 +102,17 @@ export const site = {
       skills: ['Machine Learning', 'Computer Vision', 'Chatbots', 'AI Prompting', 'Machine Translation'],
     },
     {
+      icon: 'fa-file-lines',
+      title: 'Apply AI: Update Your Resume',
+      issuer: 'Cisco',
+      issued: 'Jun 2026',
+      credentialId: 'c219cac6-0de3-4aa2-ba94-57fa6b192047',
+      url: 'https://www.credly.com/earner/earned/badge/c219cac6-0de3-4aa2-ba94-57fa6b192047',
+      description:
+        'A Cisco micro-course on using AI to improve a resume: tailoring content to a role, sharpening how skills are described, and writing clearer job applications.',
+      skills: ['Generative AI', 'Prompt Writing', 'Resume Writing'],
+    },
+    {
       icon: 'fa-chart-line',
       title: 'Data Science Essentials with Python',
       issuer: 'Cisco Networking Academy',
