@@ -1,13 +1,22 @@
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
 import TiltCard from './ui/TiltCard.jsx'
+import Pagination from './ui/Pagination.jsx'
+import { usePagination } from '../hooks/usePagination.js'
 import { site } from '../config/site.js'
 
 export default function Certifications() {
+  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 4)
+
+  const goPage = (p) => {
+    setPage(p)
+    document.getElementById('certs')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <Section id="certs" title="Certifications" subtitle="Verified coursework and credentials">
       <div className="grid gap-6 md:grid-cols-2">
-        {site.certifications.map((c, i) => (
+        {pageItems.map((c, i) => (
           <Reveal key={c.title} delay={i * 0.05}>
             <TiltCard className="surface flex h-full flex-col rounded-xl">
               <div className="flex items-center gap-2 border-b border-line px-5 py-3">
@@ -56,6 +65,8 @@ export default function Certifications() {
           </Reveal>
         ))}
       </div>
+
+      <Pagination page={page} pageCount={pageCount} onChange={goPage} />
     </Section>
   )
 }

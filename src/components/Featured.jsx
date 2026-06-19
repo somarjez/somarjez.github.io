@@ -107,7 +107,7 @@ export default function Featured({ repos }) {
             <span className="text-amber">$</span> ls ~/projects{' '}
             <span className="text-slate-600">({featured.length})</span>
           </div>
-          <ul className="p-1.5">
+          <ul className="max-h-[460px] overflow-y-auto p-1.5">
             {featured.map((p, i) => {
               const selected = i === active
               const s = categoryStyle[p.category] || categoryStyle.Web
