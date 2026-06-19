@@ -46,7 +46,7 @@ export const site = {
   links: {
     email: 'jezreelramoz@gmail.com',
     github: 'https://github.com/somarjez',
-    linkedin: 'https://linkedin.com/in/jezreel-ramos-49b029350',
+    linkedin: 'https://www.linkedin.com/in/somarjez',
     facebook: 'https://www.facebook.com/thenthen05',
     website: 'https://somarjez.github.io/',
   },

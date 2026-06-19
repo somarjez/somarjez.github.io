@@ -21,7 +21,7 @@ Name: Jezreel Ramos
 Location: Philippines
 Email: jezreelramoz@gmail.com
 GitHub: github.com/somarjez
-LinkedIn: linkedin.com/in/jezreel-ramos-49b029350
+LinkedIn: linkedin.com/in/somarjez
 Portfolio: somarjez.github.io
 (Phone / full address: [ADD IF YOU WANT THEM ON THE RESUME])
 
