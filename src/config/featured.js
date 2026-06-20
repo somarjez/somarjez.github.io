@@ -61,7 +61,7 @@ export const featured = [
       'An e-learning platform where Computer Science students learn, practice, and earn certificates through lessons, quizzes, and exams. Built with Flask and Firebase.',
     tech: ['Flask', 'Python', 'Firebase'],
     source: 'https://github.com/somarjez/quizera-app',
-    demo: null,
+    demo: 'https://quizera-app.onrender.com',
   },
   {
     repo: '404-dreamteamfinal-project-ml-krr-1ay2526',
