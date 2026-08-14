@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import { ProjectDetail } from '../Featured.jsx'
+import { featured } from '../../config/featured.js'
 
 const base = { title: 'Demo Project', icon: 'fa-flask', category: 'Web', description: 'desc', tech: ['Python'] }
 
@@ -21,5 +22,24 @@ describe('Featured ProjectDetail buttons', () => {
     render(<ProjectDetail project={{ ...base, category: 'AI / ML', thesis: true, demo: null, source: null }} live={null} />)
     expect(screen.getByText('AI / ML')).toBeInTheDocument()
     expect(screen.getByText('thesis')).toBeInTheDocument()
+  })
+
+  it('renders a supplied screenshot with specific alt text', () => {
+    render(<ProjectDetail project={{ ...base, title: 'OSCA-AgeSense', image: '/project-images/osca-agesense.png' }} live={null} />)
+    expect(screen.getByRole('img', { name: 'OSCA-AgeSense project screenshot' }))
+      .toHaveAttribute('src', '/project-images/osca-agesense.png')
+  })
+
+  it('keeps the featured explorer focused on seven current projects', () => {
+    expect(featured).toHaveLength(7)
+    expect(featured.map((project) => project.slug)).toEqual([
+      'osca-agesense',
+      'findify-mobile',
+      'findify-web',
+      'educational-rms',
+      'quizera',
+      '404-dreamteam',
+      'sbcc-system',
+    ])
   })
 })

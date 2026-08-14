@@ -19,13 +19,26 @@ export function ProjectDetail({ project, live }) {
   const stars = live?.stargazers_count ?? 0
   return (
     <div>
+      {/* Project screenshot */}
+      {project.image && (
+        <div className="mb-6 overflow-hidden rounded-xl border border-line shadow-sm">
+          <img
+            src={project.image}
+            alt={`${project.title} project screenshot`}
+            className="h-48 w-full object-cover object-top transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )}
+
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-xl text-primary">
             <i className={`fas ${project.icon}`} aria-hidden="true" />
           </span>
           <div>
-            <h3 className="font-display text-xl font-bold text-slate-50">{project.title}</h3>
+            <h3 className="font-display text-xl font-bold text-slate-800">{project.title}</h3>
             <div className="mt-1.5 flex flex-wrap items-center gap-2">
               <CategoryTag category={project.category} />
               {project.thesis && (
@@ -37,13 +50,13 @@ export function ProjectDetail({ project, live }) {
           </div>
         </div>
         {stars > 0 && (
-          <span className="shrink-0 font-mono text-xs text-slate-400">
+          <span className="shrink-0 font-mono text-xs text-slate-500">
             <i className="fas fa-star text-amber" aria-hidden="true" /> {stars}
           </span>
         )}
       </div>
 
-      <p className="mt-5 max-w-[65ch] text-pretty leading-relaxed text-slate-300">{project.description}</p>
+      <p className="mt-5 max-w-[65ch] text-pretty leading-relaxed text-slate-600">{project.description}</p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {project.tech.map((t) => (
@@ -105,7 +118,7 @@ export default function Featured({ repos }) {
         >
           <div className="border-b border-line px-4 py-2.5 font-mono text-xs text-slate-500">
             <span className="text-amber">$</span> ls ~/projects{' '}
-            <span className="text-slate-600">({featured.length})</span>
+            <span className="text-slate-400">({featured.length})</span>
           </div>
           <ul className="max-h-[460px] overflow-y-auto p-1.5">
             {featured.map((p, i) => {
@@ -121,7 +134,7 @@ export default function Featured({ repos }) {
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(i)}
                     className={`group flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left font-mono text-sm transition-colors ${
-                      selected ? 'bg-primary/10 text-primary' : 'text-slate-300 hover:bg-white/[0.04]'
+                      selected ? 'bg-primary/10 text-primary' : 'text-slate-600 hover:bg-slate-100'
                     }`}
                   >
                     <span className={`w-2 text-center ${selected ? 'text-primary' : 'text-transparent'}`}>›</span>
