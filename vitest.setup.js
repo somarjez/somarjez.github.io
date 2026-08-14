@@ -9,3 +9,7 @@ if (typeof globalThis.IntersectionObserver === 'undefined') {
     takeRecords() { return [] }
   }
 }
+
+if (typeof Element.prototype.scrollIntoView === 'undefined') {
+  Element.prototype.scrollIntoView = () => {}
+}

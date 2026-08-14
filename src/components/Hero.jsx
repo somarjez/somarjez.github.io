@@ -9,12 +9,12 @@ import { useTypewriter } from '../hooks/useTypewriter.js'
 const EASE_OUT = [0.22, 1, 0.36, 1]
 
 const STACK_COLOR = {
-  Python: '#4b8bbe', 'Machine Learning': '#bb9af7', Jupyter: '#f37726', Flask: '#9ece6a',
-  Django: '#2dd4a7', React: '#61dafb', JavaScript: '#f1e05a', TypeScript: '#3178c6',
-  HTML: '#e34c26', Flutter: '#54c5f8', Dart: '#00b4ab', Firebase: '#ffca28',
-  MySQL: '#6c9bd1', PostgreSQL: '#7aa6d6', Laravel: '#ff5a45',
+  Python: '#4b8bbe', 'Machine Learning': '#7c3aed', Jupyter: '#f37726', Flask: '#16a34a',
+  Django: '#0d9488', React: '#0ea5e9', JavaScript: '#ca8a04', TypeScript: '#1976d2',
+  HTML: '#e34c26', Flutter: '#0284c7', Dart: '#00b4ab', Firebase: '#f59e0b',
+  MySQL: '#1976d2', PostgreSQL: '#5b6fa8', Laravel: '#ef4444',
 }
-const stackColor = (name) => STACK_COLOR[name] || '#7dcfff'
+const stackColor = (name) => STACK_COLOR[name] || '#1976d2'
 
 function StackBars({ items }) {
   const reduce = useReducedMotion()
@@ -23,8 +23,8 @@ function StackBars({ items }) {
     <div className="mt-2 space-y-1.5">
       {items.map((s, i) => (
         <div key={s.name} className="flex items-center gap-3 font-mono text-xs">
-          <span className="w-28 shrink-0 truncate text-slate-300">{s.name}</span>
-          <div className="h-2 flex-1 overflow-hidden rounded-full bg-line/70">
+          <span className="w-28 shrink-0 truncate text-slate-500">{s.name}</span>
+          <div className="h-2 flex-1 overflow-hidden rounded-full bg-line">
             <motion.div
               className="h-full rounded-full"
               style={{ width: `${(s.count / max) * 100}%`, background: stackColor(s.name), transformOrigin: 'left' }}
@@ -34,7 +34,7 @@ function StackBars({ items }) {
               transition={{ duration: 0.6, ease: EASE_OUT, delay: i * 0.06 }}
             />
           </div>
-          <span className="w-4 shrink-0 text-right tabular-nums text-slate-500">{s.count}</span>
+          <span className="w-4 shrink-0 text-right tabular-nums text-slate-400">{s.count}</span>
         </div>
       ))}
     </div>
@@ -89,7 +89,7 @@ export default function Hero({ stats, loading }) {
             className="lg:z-10 lg:w-[56%]"
           >
             <TerminalWindow title="jezreel@portfolio: ~">
-              <div className="mb-5 flex items-center gap-4 border-b border-line pb-5">
+              <div className="mb-5 flex items-center gap-4 border-b border-slate-700 pb-5">
                 <Avatar
                   src="/me2.webp"
                   alt={site.name}
@@ -97,7 +97,7 @@ export default function Hero({ stats, loading }) {
                   className="h-20 w-20 shrink-0 rounded-2xl ring-2 ring-primary/40"
                 />
                 <div className="min-w-0">
-                  <h1 className="font-display text-2xl font-bold leading-tight text-slate-50">
+                  <h1 className="font-display text-2xl font-bold leading-tight text-slate-100">
                     Hi! I&apos;m <span className="text-primary">{first}</span> <span aria-hidden="true">👋</span>
                     <span className="sr-only">. {site.name}, {site.roles.join(', ')}.</span>
                   </h1>
@@ -107,7 +107,7 @@ export default function Hero({ stats, loading }) {
 
               <pre className="whitespace-pre-wrap break-words text-slate-200">
                 {text.split('\n').map((ln, i) => (
-                  <span key={i} className={ln.startsWith('>') ? 'text-primary' : 'text-green'}>
+                  <span key={i} className={ln.startsWith('>') ? 'text-green-400' : 'text-green-300'}>
                     {ln + '\n'}
                   </span>
                 ))}
@@ -118,54 +118,54 @@ export default function Hero({ stats, loading }) {
                 <a href="#projects" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03]">
                   <span className="font-mono">./view-projects</span>
                 </a>
-                <a href="#contact" className="rounded-lg border border-line bg-panel/40 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-colors hover:border-primary/60 hover:text-white">
+                <a href="#contact" className="rounded-lg border border-slate-600 bg-slate-800/40 px-5 py-2.5 text-sm font-semibold text-slate-200 transition-colors hover:border-primary/60 hover:text-white">
                   <span className="font-mono">./contact</span>
                 </a>
               </div>
             </TerminalWindow>
           </motion.div>
 
-          {/* Window B — analytics, staggered + overlapping */}
+          {/* Window B — analytics */}
           <motion.div
             initial={reduce ? false : { opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.12 }}
             className="lg:z-20 lg:-ml-8 lg:mt-20 lg:w-[52%]"
           >
-            <TerminalWindow title="~/analytics" className="shadow-2xl ring-1 ring-white/5">
-              <div className="font-mono text-xs text-slate-500">
+            <TerminalWindow title="~/analytics" className="shadow-2xl ring-1 ring-black/10">
+              <div className="font-mono text-xs text-slate-400">
                 <span className="text-amber">$</span> analyze ./projects --languages
               </div>
               <StackBars items={languages} />
 
-              <div className="mt-4 font-mono text-xs text-slate-500">
+              <div className="mt-4 font-mono text-xs text-slate-400">
                 <span className="text-amber">$</span> analyze ./projects --stack
               </div>
               <StackBars items={stackBars} />
 
               {stackAlso.length > 0 && (
-                <div className="mt-3 flex flex-wrap items-center gap-1.5 font-mono text-[11px] text-slate-500">
-                  <span className="text-slate-600">also:</span>
+                <div className="mt-3 flex flex-wrap items-center gap-1.5 font-mono text-[11px] text-slate-400">
+                  <span className="text-slate-500">also:</span>
                   {stackAlso.map((name) => (
-                    <span key={name} className="rounded border border-line px-1.5 py-0.5 text-slate-400">{name}</span>
+                    <span key={name} className="rounded border border-slate-600 px-1.5 py-0.5 text-slate-300">{name}</span>
                   ))}
                 </div>
               )}
 
               {!loading && (
-                <div className="mt-4 grid grid-cols-2 gap-2 border-t border-line pt-4 font-mono text-xs text-slate-500">
-                  <span><span className="text-slate-200 tabular-nums">{stats.totalRepos}</span> repos</span>
-                  <span><span className="text-slate-200 tabular-nums">{stats.totalStars}</span> stars</span>
-                  <span><span className="text-slate-200 tabular-nums">{featured.length}</span> featured</span>
-                  <span><span className="text-slate-200 tabular-nums">{Math.max(1, stats.accountAgeYears)}</span>y on GitHub</span>
+                <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-700 pt-4 font-mono text-xs text-slate-400">
+                  <span><span className="text-slate-100 tabular-nums">{stats.totalRepos}</span> repos</span>
+                  <span><span className="text-slate-100 tabular-nums">{stats.totalStars}</span> stars</span>
+                  <span><span className="text-slate-100 tabular-nums">{featured.length}</span> featured</span>
+                  <span><span className="text-slate-100 tabular-nums">{Math.max(1, stats.accountAgeYears)}</span>y on GitHub</span>
                 </div>
               )}
             </TerminalWindow>
           </motion.div>
         </div>
 
-        <p className="mt-8 text-center text-xs text-slate-500">
-          press <kbd className="rounded border border-line bg-panel px-1.5 py-0.5 font-mono text-slate-300">⌘K</kbd> to navigate
+        <p className="mt-8 text-center text-xs text-muted">
+          press <kbd className="rounded border border-line bg-panel px-1.5 py-0.5 font-mono text-muted">⌘K</kbd> to navigate
         </p>
       </div>
     </section>

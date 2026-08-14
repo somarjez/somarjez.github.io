@@ -1,6 +1,6 @@
 // Curated projects for the explorer. `repo` is the lowercase GitHub repo name
 // when it lives under somarjez (used to pull live stars); null for projects that
-// live elsewhere (org repos, video-only demos). `slug` is the file-tree label.
+// live elsewhere. `image` is served from public/project-images/.
 export const featured = [
   {
     repo: 'osca-agesense',
@@ -8,9 +8,10 @@ export const featured = [
     title: 'OSCA-AgeSense',
     category: 'AI / ML',
     icon: 'fa-heart-pulse',
+    image: '/project-images/osca-agesense.png',
     thesis: true,
     description:
-      'Our thesis. A machine-learning system that assesses senior-citizen health risk and returns recommendations for the Office of Senior Citizens Affairs (OSCA) in Pagsanjan, Laguna, aligned with the WHO Healthy Ageing framework.',
+      'A thesis platform for the Office of Senior Citizens Affairs in Pagsanjan, Laguna that uses machine learning to assess senior-citizen health risk, organize assessment results, and support recommendations aligned with the WHO Healthy Ageing framework.',
     tech: ['Machine Learning', 'Python', 'Laravel', 'MySQL'],
     source: 'https://github.com/somarjez/osca-agesense',
     demo: null,
@@ -21,8 +22,9 @@ export const featured = [
     title: 'Findify Mobile',
     category: 'Mobile',
     icon: 'fa-mobile-screen',
+    image: '/project-images/findify-mobile.png',
     description:
-      'A cross-platform Flutter e-commerce app with product discovery, cart, and Firebase-backed auth and data.',
+      'A cross-platform Flutter marketplace experience for browsing products, reviewing item details, managing a cart, and working with Firebase-backed authentication and application data.',
     tech: ['Flutter', 'Dart', 'Firebase'],
     source: null,
     demo: 'https://youtu.be/BgZDwtQfKKk',
@@ -33,8 +35,9 @@ export const featured = [
     title: 'Findify Web (Flask)',
     category: 'Web',
     icon: 'fa-cart-shopping',
+    image: '/project-images/findify-web.png',
     description:
-      'The web build of Findify: a full-featured Flask e-commerce platform with product management, vendor dashboards, and order tracking.',
+      'The Flask web edition of Findify, combining storefront product discovery and ordering with product management, vendor dashboards, and order-tracking workflows.',
     tech: ['Flask', 'Python', 'HTML'],
     source: 'https://github.com/somarjez/Flask-Ecommerce',
     demo: null,
@@ -45,8 +48,9 @@ export const featured = [
     title: 'Educational RMS',
     category: 'Web',
     icon: 'fa-school',
+    image: '/project-images/educational-rms.png',
     description:
-      'A Django and React system for room scheduling, equipment management, and capacity and simulation analysis in academic settings.',
+      'A Django and React resource-management system for academic facilities, bringing together room scheduling, equipment records, capacity planning, and simulation-based analysis.',
     tech: ['Django', 'React', 'JavaScript'],
     source: 'https://github.com/somarjez/educational-rms',
     demo: 'https://educational-rms.vercel.app',
@@ -58,20 +62,21 @@ export const featured = [
     category: 'Web',
     icon: 'fa-graduation-cap',
     description:
-      'An e-learning platform where Computer Science students learn, practice, and earn certificates through lessons, quizzes, and exams. Built with Flask and Firebase.',
+      'A Flask and Firebase e-learning platform where Computer Science students move through lessons, practice activities, quizzes, and examinations, with completion certificates built into the learning flow.',
     tech: ['Flask', 'Python', 'Firebase'],
     source: 'https://github.com/somarjez/quizera-app',
-    demo: null,
+    demo: 'https://quizera-app.onrender.com',
   },
   {
     repo: '404-dreamteamfinal-project-ml-krr-1ay2526',
     slug: '404-dreamteam',
-    title: '404 DreamTeam (ML + KRR)',
+    title: 'PropertyAI — 404 DreamTeam',
     category: 'AI / ML',
     icon: 'fa-house-circle-check',
+    image: '/project-images/property-ai.png',
     description:
-      'A hybrid AI platform combining Machine Learning and Knowledge Representation and Reasoning to guide affordable, sustainable housing choices in the Philippines.',
-    tech: ['Python', 'Jupyter', 'Machine Learning'],
+      'An intelligent property recommendation system for affordable and sustainable housing choices, with natural-language search, criteria filters, future-price prediction, and ranked listing matches.',
+    tech: ['Python', 'Jupyter', 'Machine Learning', 'KRR'],
     source: 'https://github.com/somarjez/404-DreamTeamFinal-Project-ML-KRR-1AY2526',
     demo: null,
   },
@@ -81,15 +86,15 @@ export const featured = [
     title: 'SBCC Management System',
     category: 'Web',
     icon: 'fa-church',
+    image: '/project-images/sbcc-management-system.png',
     description:
-      'A full-stack church management app built with Django REST Framework and React: memberships, events, attendance, and volunteers for Santa Cruz Bible Christian Church.',
+      'A Django REST Framework and React management platform for Santa Cruz Bible Christian Church, supporting public information alongside membership, event, attendance, and volunteer workflows.',
     tech: ['Django REST', 'React', 'PostgreSQL'],
     source: 'https://github.com/santacruz-bible-christian-church/sbcc-management-system',
     demo: 'https://pbcm-sbcc.online',
   },
 ]
 
-// Category accent mapping (Tokyo Night tokens).
 export const categoryStyle = {
   'AI / ML': { dot: 'bg-accent', text: 'text-accent', ring: 'border-accent/40 bg-accent/10' },
   Web: { dot: 'bg-primary', text: 'text-primary', ring: 'border-primary/40 bg-primary/10' },

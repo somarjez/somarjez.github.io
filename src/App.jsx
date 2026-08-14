@@ -1,6 +1,7 @@
 import { useGitHub } from './hooks/useGitHub.js'
 import { usePointerSpotlight } from './hooks/usePointerSpotlight.js'
 import { useCommandPalette } from './hooks/useCommandPalette.js'
+import { useTheme } from './hooks/useTheme.js'
 import { buildCommands } from './lib/commands.js'
 import { site } from './config/site.js'
 import Background from './components/Background.jsx'
@@ -12,6 +13,7 @@ import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
 import Certifications from './components/Certifications.jsx'
 import Featured from './components/Featured.jsx'
+import OtherAcademicProjects from './components/OtherAcademicProjects.jsx'
 import RepoGrid from './components/RepoGrid.jsx'
 import OrgProjects from './components/OrgProjects.jsx'
 import Contact from './components/Contact.jsx'
@@ -22,6 +24,7 @@ export default function App() {
   const { repos, orgGroups, stats, loading, error } = useGitHub(site.username, site.featuredOrgs)
   usePointerSpotlight()
   const { open, setOpen } = useCommandPalette()
+  const { theme, toggleTheme } = useTheme()
   const commands = buildCommands(site)
 
   return (
@@ -34,13 +37,18 @@ export default function App() {
       </a>
       <Background />
       <Spotlight />
-      <Nav onOpenPalette={() => setOpen(true)} />
+      <Nav
+        onOpenPalette={() => setOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
       <main>
         <Hero stats={stats} loading={loading} />
         <About />
         <Skills />
         <Certifications />
         <Featured repos={repos} />
+        <OtherAcademicProjects />
         <RepoGrid repos={repos} stats={stats} loading={loading} error={error} />
         <OrgProjects orgGroups={orgGroups} />
         <Contact />

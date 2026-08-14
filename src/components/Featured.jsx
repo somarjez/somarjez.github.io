@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Section from './ui/Section.jsx'
 import Button from './ui/Button.jsx'
@@ -19,13 +19,26 @@ export function ProjectDetail({ project, live }) {
   const stars = live?.stargazers_count ?? 0
   return (
     <div>
+      {/* Project screenshot */}
+      {project.image && (
+        <div className="mb-6 overflow-hidden rounded-xl border border-line shadow-sm">
+          <img
+            src={project.image}
+            alt={`${project.title} project screenshot`}
+            className="h-48 w-full object-cover object-top transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      )}
+
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-xl text-primary">
             <i className={`fas ${project.icon}`} aria-hidden="true" />
           </span>
           <div>
-            <h3 className="font-display text-xl font-bold text-slate-50">{project.title}</h3>
+            <h3 className="font-display text-xl font-bold text-foreground">{project.title}</h3>
             <div className="mt-1.5 flex flex-wrap items-center gap-2">
               <CategoryTag category={project.category} />
               {project.thesis && (
@@ -37,13 +50,13 @@ export function ProjectDetail({ project, live }) {
           </div>
         </div>
         {stars > 0 && (
-          <span className="shrink-0 font-mono text-xs text-slate-400">
+          <span className="shrink-0 font-mono text-xs text-muted">
             <i className="fas fa-star text-amber" aria-hidden="true" /> {stars}
           </span>
         )}
       </div>
 
-      <p className="mt-5 max-w-[65ch] text-pretty leading-relaxed text-slate-300">{project.description}</p>
+      <p className="mt-5 max-w-[65ch] text-pretty leading-relaxed text-muted">{project.description}</p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {project.tech.map((t) => (
@@ -72,24 +85,30 @@ export function ProjectDetail({ project, live }) {
 export default function Featured({ repos }) {
   const byName = Object.fromEntries((repos || []).map((r) => [r.name.toLowerCase(), r]))
   const [active, setActive] = useState(0)
+  const tabRefs = useRef([])
   const reduce = useReducedMotion()
 
   const project = featured[active]
   const live = project.repo ? byName[project.repo] : null
 
+  const selectProject = (index) => {
+    setActive(index)
+    tabRefs.current[index]?.focus()
+  }
+
   const onKeyDown = (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
       e.preventDefault()
-      setActive((a) => (a + 1) % featured.length)
+      selectProject((active + 1) % featured.length)
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
       e.preventDefault()
-      setActive((a) => (a - 1 + featured.length) % featured.length)
+      selectProject((active - 1 + featured.length) % featured.length)
     } else if (e.key === 'Home') {
       e.preventDefault()
-      setActive(0)
+      selectProject(0)
     } else if (e.key === 'End') {
       e.preventDefault()
-      setActive(featured.length - 1)
+      selectProject(featured.length - 1)
     }
   }
 
@@ -103,9 +122,9 @@ export default function Featured({ repos }) {
           onKeyDown={onKeyDown}
           className="surface h-fit overflow-hidden rounded-xl"
         >
-          <div className="border-b border-line px-4 py-2.5 font-mono text-xs text-slate-500">
+          <div className="border-b border-line px-4 py-2.5 font-mono text-xs text-muted">
             <span className="text-amber">$</span> ls ~/projects{' '}
-            <span className="text-slate-600">({featured.length})</span>
+            <span className="text-subtle">({featured.length})</span>
           </div>
           <ul className="max-h-[460px] overflow-y-auto p-1.5">
             {featured.map((p, i) => {
@@ -119,9 +138,10 @@ export default function Featured({ repos }) {
                     aria-selected={selected}
                     aria-controls="proj-panel"
                     tabIndex={selected ? 0 : -1}
-                    onClick={() => setActive(i)}
+                    ref={(node) => { tabRefs.current[i] = node }}
+                    onClick={() => selectProject(i)}
                     className={`group flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left font-mono text-sm transition-colors ${
-                      selected ? 'bg-primary/10 text-primary' : 'text-slate-300 hover:bg-white/[0.04]'
+                      selected ? 'bg-primary/10 text-primary' : 'text-muted hover:bg-panel-2 hover:text-foreground'
                     }`}
                   >
                     <span className={`w-2 text-center ${selected ? 'text-primary' : 'text-transparent'}`}>›</span>

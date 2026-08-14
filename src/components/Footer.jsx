@@ -10,19 +10,19 @@ const SOCIAL = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 px-5 py-10 text-center">
+    <footer className="border-t border-line px-5 py-10 text-center">
       <div className="mb-5 flex justify-center gap-4">
         {SOCIAL.map((s) => (
           <a key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label}
-            className="surface grid h-11 w-11 place-items-center rounded-full text-slate-300 transition-colors hover:border-primary/50 hover:text-primary">
+            className="surface grid h-11 w-11 place-items-center rounded-full text-muted transition-colors hover:border-primary/50 hover:text-primary">
             <i className={s.icon} aria-hidden="true" />
           </a>
         ))}
       </div>
-      <p className="font-mono text-sm text-slate-500">
-        <span className="text-amber">$</span> echo "© {new Date().getFullYear()} {site.name}"
+      <p className="font-mono text-sm text-muted">
+        <span className="text-amber">$</span> echo &quot;© {new Date().getFullYear()} {site.name}&quot;
       </p>
-      <p className="mt-2 font-mono text-xs text-slate-400">
+      <p className="mt-2 font-mono text-xs text-subtle">
         {site.role} · open to opportunities <span className="term-cursor align-middle">&nbsp;</span>
       </p>
     </footer>

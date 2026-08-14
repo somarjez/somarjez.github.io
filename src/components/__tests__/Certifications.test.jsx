@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import Certifications from '../Certifications.jsx'
 import { site } from '../../config/site.js'
@@ -20,5 +20,20 @@ describe('Certifications', () => {
   it('paginates when there is more than one page', () => {
     render(<Certifications />)
     expect(screen.getByRole('button', { name: /next/i })).toBeInTheDocument()
+  })
+
+  it('shows two editorial credentials per page', () => {
+    render(<Certifications />)
+    expect(screen.getByText('Introduction to Modern AI')).toBeInTheDocument()
+    expect(screen.getByText('Apply AI: Update Your Resume')).toBeInTheDocument()
+    expect(screen.queryByText('Data Science Essentials with Python')).toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: /next/i }))
+    expect(screen.getByText('Data Science Essentials with Python')).toBeInTheDocument()
+  })
+
+  it('renders simultaneous badge and certificate evidence', () => {
+    render(<Certifications />)
+    expect(screen.getByRole('img', { name: 'Introduction to Modern AI badge' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Introduction to Modern AI certificate preview' })).toBeInTheDocument()
   })
 })

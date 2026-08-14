@@ -25,11 +25,11 @@ export default function OrgProjects({ orgGroups }) {
                 >
                   <img src={org.avatar_url} alt={orgDisplayName(org)} loading="lazy" decoding="async" className="h-14 w-14 rounded-lg" />
                   <div className="min-w-0">
-                    <div className="font-mono text-sm font-semibold text-slate-100 group-hover:text-primary">
+                    <div className="font-mono text-sm font-semibold text-foreground group-hover:text-primary">
                       <span className="text-amber">@</span>
                       {org.login}
                     </div>
-                    <p className="truncate text-sm text-slate-400">
+                    <p className="truncate text-sm text-muted">
                       {org.description || orgDisplayName(org)}
                     </p>
                   </div>

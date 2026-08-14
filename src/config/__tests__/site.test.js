@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { site } from '../site.js'
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..')
+const publicFile = (url) => path.join(root, 'public', url.replace(/^\//, ''))
 
 describe('site config', () => {
   it('uses no em dashes in headline copy (banned punctuation)', () => {
@@ -61,5 +67,65 @@ describe('site config', () => {
       expect(Array.isArray(c.skills)).toBe(true)
       expect(c.skills.length).toBeGreaterThan(0)
     }
+  })
+
+  it('uses URL-safe local certificate and preview paths that exist', () => {
+    expect(site.certifications).toHaveLength(11)
+    for (const credential of site.certifications) {
+      for (const field of ['certificate', 'certificatePreview']) {
+        expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|jpg|webp)$/)
+        expect(fs.existsSync(publicFile(credential[field]))).toBe(true)
+      }
+      if (credential.badge) {
+        expect(fs.existsSync(publicFile(credential.badge))).toBe(true)
+      }
+    }
+  })
+
+  it('uses evidence-grounded metadata for newly supplied credentials', () => {
+    expect(site.certifications).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        title: 'Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches',
+        issuer: 'GC Bitbarkada',
+        issued: 'Oct 1, 2025',
+      }),
+      expect.objectContaining({
+        title: 'Integrated OS – Be More Digi-TALINO',
+        issuer: 'Integrated Office Solutions, Inc.',
+        issued: 'Sep 5, 2025',
+      }),
+      expect.objectContaining({
+        title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
+        issuer: 'Computer Science Society Organization',
+        issued: 'Dec 3, 2025',
+      }),
+    ]))
+  })
+
+  it('defines semantic light and dark theme tokens', () => {
+    const css = fs.readFileSync(path.join(root, 'src/index.css'), 'utf8')
+    for (const token of ['--color-ink', '--color-panel', '--color-foreground', '--color-muted', '--color-primary']) {
+      expect(css).toContain(token)
+    }
+    expect(css).toMatch(/\.dark\s*\{/)
+  })
+
+  it('keeps all configured local portfolio assets present', () => {
+    const urls = site.certifications.flatMap((credential) => [
+      credential.badge,
+      credential.certificate,
+      credential.certificatePreview,
+    ]).filter(Boolean)
+
+    for (const url of urls) {
+      expect(fs.existsSync(publicFile(url)), `missing public asset: ${url}`).toBe(true)
+    }
+  })
+
+  it('bootstraps the persisted theme before the page body can paint', () => {
+    const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
+    expect(html.indexOf("localStorage.getItem('portfolio-theme')")).toBeGreaterThan(-1)
+    expect(html.indexOf("document.documentElement.classList.toggle('dark'")).toBeGreaterThan(-1)
+    expect(html.indexOf('<body')).toBeGreaterThan(html.indexOf("localStorage.getItem('portfolio-theme')"))
   })
 })

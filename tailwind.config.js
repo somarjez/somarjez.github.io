@@ -1,25 +1,29 @@
 /** @type {import('tailwindcss').Config} */
+const color = (name) => `rgb(var(--color-${name}) / <alpha-value>)`
+
 export default {
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        ink: '#0a0e14',
-        panel: '#0d1117',
-        'panel-2': '#11161f',
-        line: '#1f2430',
-        'line-bright': '#2a3040',
-        primary: '#7dcfff',
-        'primary-dark': '#5aa8d8',
-        accent: '#bb9af7',
-        secondary: '#f7768e',
-        amber: '#e0af68',
-        green: '#9ece6a',
-        // legacy aliases → Tokyo Night near-bg shades
-        dark: '#0a0e14',
-        darker: '#070a0f',
-        darkest: '#05070b',
+        ink: color('ink'),
+        panel: color('panel'),
+        'panel-2': color('panel-2'),
+        line: color('line'),
+        'line-bright': color('line-bright'),
+        foreground: color('foreground'),
+        muted: color('muted'),
+        subtle: color('subtle'),
+        primary: color('primary'),
+        'primary-dark': color('primary-dark'),
+        accent: color('accent'),
+        secondary: color('secondary'),
+        amber: color('amber'),
+        green: color('green'),
+        dark: color('ink'),
+        darker: color('panel-2'),
+        darkest: color('line'),
       },
       fontFamily: {
         display: ['Space Grotesk', 'Inter', 'sans-serif'],

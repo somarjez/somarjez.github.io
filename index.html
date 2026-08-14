@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#0a0e14" />
+    <meta name="theme-color" content="#f0f4f8" />
+    <script>
+      (() => {
+        try {
+          const theme = window.localStorage.getItem('portfolio-theme') === 'dark' ? 'dark' : 'light';
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          document.documentElement.style.colorScheme = theme;
+        } catch {
+          document.documentElement.style.colorScheme = 'light';
+        }
+      })();
+    </script>
     <title>Jezreel Ramos · Data Analyst & Developer</title>
     <meta name="description" content="Computer Science student and developer focused on data analysis, web development, project management, and AI. Academic and team projects across Python, React, Flask, Django, and machine learning." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
