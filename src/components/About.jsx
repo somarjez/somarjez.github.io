@@ -7,10 +7,10 @@ export default function About() {
     <Section id="about" title="About me" subtitle="A Computer Science student building toward data, web, project management, and AI.">
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <Reveal>
-          <p className="max-w-[65ch] text-pretty text-lg leading-relaxed text-slate-300">
+          <p className="max-w-[65ch] text-pretty text-lg leading-relaxed text-muted">
             {site.bio}
           </p>
-          <p className="mt-6 font-mono text-sm text-slate-500">
+          <p className="mt-6 font-mono text-sm text-muted">
             <span className="text-amber">$</span> {site.education.degree}
           </p>
         </Reveal>
@@ -23,8 +23,8 @@ export default function About() {
                   <i className={`fas ${f.icon}`} aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="font-display font-semibold text-slate-100">{f.label}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-400">{f.blurb}</p>
+                  <h3 className="font-display font-semibold text-foreground">{f.label}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{f.blurb}</p>
                 </div>
               </li>
             ))}

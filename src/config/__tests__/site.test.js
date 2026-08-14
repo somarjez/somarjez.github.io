@@ -101,4 +101,12 @@ describe('site config', () => {
       }),
     ]))
   })
+
+  it('defines semantic light and dark theme tokens', () => {
+    const css = fs.readFileSync(path.join(root, 'src/index.css'), 'utf8')
+    for (const token of ['--color-ink', '--color-panel', '--color-foreground', '--color-muted', '--color-primary']) {
+      expect(css).toContain(token)
+    }
+    expect(css).toMatch(/\.dark\s*\{/)
+  })
 })

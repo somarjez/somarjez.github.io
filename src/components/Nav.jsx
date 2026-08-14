@@ -26,9 +26,9 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
   return (
     <nav className="glass fixed inset-x-0 top-0 z-50 border-b border-line px-5 py-2.5">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <button onClick={() => go('home')} aria-label="Home" className="flex items-center gap-2.5 font-mono text-sm text-slate-500">
+        <button onClick={() => go('home')} aria-label="Home" className="flex items-center gap-2.5 font-mono text-sm text-muted">
           <Logo size={30} />
-          <span className="font-semibold text-slate-700">jezreel</span>
+          <span className="font-semibold text-foreground">jezreel</span>
         </button>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -37,7 +37,7 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
               key={id}
               onClick={() => go(id)}
               className={`rounded-md px-2.5 py-1 font-mono text-sm transition-colors ${
-                active === id ? 'bg-primary/10 text-primary' : 'text-slate-500 hover:text-slate-800'
+                active === id ? 'bg-primary/10 text-primary' : 'text-muted hover:text-foreground'
               }`}
             >
               {label}
@@ -46,7 +46,7 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
             onClick={onOpenPalette}
-            className="ml-2 flex items-center gap-1.5 rounded-md border border-line px-2 py-1 font-mono text-xs text-slate-500 hover:border-primary/50 hover:text-primary"
+            className="ml-2 flex items-center gap-1.5 rounded-md border border-line px-2 py-1 font-mono text-xs text-muted hover:border-primary/50 hover:text-primary"
             aria-label="Open command palette"
           >
             <span>⌘K</span>
@@ -55,7 +55,7 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
 
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-          <button className="text-xl text-slate-600" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu">
+          <button className="text-xl text-muted" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-menu">
             <i className={`fas ${open ? 'fa-xmark' : 'fa-bars'}`} aria-hidden="true" />
           </button>
         </div>
@@ -64,7 +64,7 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
       {open && (
         <div id="mobile-menu" className="mt-3 flex flex-col gap-2 md:hidden">
           {LINKS.map(([id, label]) => (
-            <button key={id} onClick={() => go(id)} className="text-left font-mono text-sm text-slate-700">
+            <button key={id} onClick={() => go(id)} className="text-left font-mono text-sm text-foreground">
               {label}
             </button>
           ))}

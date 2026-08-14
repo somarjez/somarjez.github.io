@@ -3,84 +3,104 @@
 @tailwind utilities;
 
 :root {
-  --primary: #7dcfff;
-  --accent: #bb9af7;
+  --color-ink: 240 244 248;
+  --color-panel: 255 255 255;
+  --color-panel-2: 245 247 250;
+  --color-line: 221 227 238;
+  --color-line-bright: 200 210 227;
+  --color-foreground: 30 41 59;
+  --color-muted: 100 116 139;
+  --color-subtle: 148 163 184;
+  --color-primary: 25 118 210;
+  --color-primary-dark: 21 101 192;
+  --color-accent: 124 58 237;
+  --color-secondary: 190 18 60;
+  --color-amber: 180 83 9;
+  --color-green: 21 128 61;
   --spotlight-x: 50%;
   --spotlight-y: 0%;
 }
 
-html { scroll-behavior: smooth; }
-
-/* Alternating section bands so each section reads as a distinct block:
-   even bands are a touch lighter, odd bands a flat darker fill, and every
-   section carries a top border line. The hero stays transparent above them. */
-.section-band:nth-of-type(even) {
-  background-color: rgba(255, 255, 255, 0.025);
+.dark {
+  --color-ink: 10 14 20;
+  --color-panel: 13 17 23;
+  --color-panel-2: 17 22 31;
+  --color-line: 31 41 55;
+  --color-line-bright: 51 65 85;
+  --color-foreground: 241 245 249;
+  --color-muted: 148 163 184;
+  --color-subtle: 100 116 139;
+  --color-primary: 125 207 255;
+  --color-primary-dark: 155 220 255;
+  --color-accent: 187 154 247;
+  --color-secondary: 247 118 142;
+  --color-amber: 224 175 104;
+  --color-green: 158 206 106;
 }
-.section-band:nth-of-type(odd) {
-  background-color: rgba(10, 14, 20, 0.6);
+
+html {
+  scroll-behavior: smooth;
+  background: rgb(var(--color-ink));
 }
 
-/* Visible keyboard focus for interactive elements (mouse focus stays clean). */
+.section-band:nth-of-type(even) { background-color: rgb(var(--color-panel) / 0.72); }
+.section-band:nth-of-type(odd) { background-color: rgb(var(--color-ink) / 0.82); }
+
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid rgb(var(--color-primary));
   outline-offset: 2px;
   border-radius: 4px;
 }
+
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid rgb(var(--color-primary));
   outline-offset: 1px;
 }
 
 body {
-  @apply bg-ink text-slate-100 font-sans antialiased;
+  @apply bg-ink font-sans text-foreground antialiased;
   line-height: 1.6;
 }
 
-h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.01em; }
+h1, h2, h3 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
 
-/* Elevated surface for cards/panels — a solid dark surface with a hairline
-   border, not decorative frosted glass. */
 .surface {
   @apply border border-line;
-  background: rgba(13, 17, 23, 0.66);
+  background: rgb(var(--color-panel) / 0.95);
+  box-shadow: 0 1px 4px rgb(15 23 42 / 0.08);
 }
 
-/* Purposeful translucency, used only where content scrolls underneath
-   (sticky nav, command palette). */
 .glass {
   @apply border border-line backdrop-blur-md;
-  background: rgba(10, 14, 20, 0.72);
+  background: rgb(var(--color-panel) / 0.88);
 }
 
-/* Terminal window chrome */
 .term-window {
-  @apply rounded-xl border border-line bg-panel/80 backdrop-blur-xl;
-  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+  @apply rounded-xl border border-slate-700 bg-slate-900 backdrop-blur-xl;
+  box-shadow: 0 20px 60px -20px rgb(0 0 0 / 0.35);
 }
 
-/* Blinking caret */
 .term-cursor {
   display: inline-block;
   width: 0.6ch;
-  background: var(--primary);
+  background: rgb(var(--color-primary));
   @apply animate-blink;
 }
 
-/* Faint CRT scanlines layer */
-.scanlines {
-  background-image: repeating-linear-gradient(
-    0deg, rgba(125, 207, 255, 0.025) 0px, rgba(125, 207, 255, 0.025) 1px, transparent 1px, transparent 3px
-  );
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .animate-float, .animate-grid-move, .animate-blink {
-    animation: none !important;
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
   .term-cursor { opacity: 1; }
 }

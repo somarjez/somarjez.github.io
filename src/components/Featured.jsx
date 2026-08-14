@@ -38,7 +38,7 @@ export function ProjectDetail({ project, live }) {
             <i className={`fas ${project.icon}`} aria-hidden="true" />
           </span>
           <div>
-            <h3 className="font-display text-xl font-bold text-slate-800">{project.title}</h3>
+            <h3 className="font-display text-xl font-bold text-foreground">{project.title}</h3>
             <div className="mt-1.5 flex flex-wrap items-center gap-2">
               <CategoryTag category={project.category} />
               {project.thesis && (
@@ -50,13 +50,13 @@ export function ProjectDetail({ project, live }) {
           </div>
         </div>
         {stars > 0 && (
-          <span className="shrink-0 font-mono text-xs text-slate-500">
+          <span className="shrink-0 font-mono text-xs text-muted">
             <i className="fas fa-star text-amber" aria-hidden="true" /> {stars}
           </span>
         )}
       </div>
 
-      <p className="mt-5 max-w-[65ch] text-pretty leading-relaxed text-slate-600">{project.description}</p>
+      <p className="mt-5 max-w-[65ch] text-pretty leading-relaxed text-muted">{project.description}</p>
 
       <div className="mt-5 flex flex-wrap gap-2">
         {project.tech.map((t) => (
@@ -116,9 +116,9 @@ export default function Featured({ repos }) {
           onKeyDown={onKeyDown}
           className="surface h-fit overflow-hidden rounded-xl"
         >
-          <div className="border-b border-line px-4 py-2.5 font-mono text-xs text-slate-500">
+          <div className="border-b border-line px-4 py-2.5 font-mono text-xs text-muted">
             <span className="text-amber">$</span> ls ~/projects{' '}
-            <span className="text-slate-400">({featured.length})</span>
+            <span className="text-subtle">({featured.length})</span>
           </div>
           <ul className="max-h-[460px] overflow-y-auto p-1.5">
             {featured.map((p, i) => {
@@ -134,7 +134,7 @@ export default function Featured({ repos }) {
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(i)}
                     className={`group flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left font-mono text-sm transition-colors ${
-                      selected ? 'bg-primary/10 text-primary' : 'text-slate-600 hover:bg-slate-100'
+                      selected ? 'bg-primary/10 text-primary' : 'text-muted hover:bg-panel-2 hover:text-foreground'
                     }`}
                   >
                     <span className={`w-2 text-center ${selected ? 'text-primary' : 'text-transparent'}`}>›</span>

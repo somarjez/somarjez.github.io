@@ -34,7 +34,7 @@ export default function LanguageDonut({ languages, total, active, onSelect }) {
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <circle cx={SIZE / 2} cy={SIZE / 2} r={R} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth={STROKE} />
+        <circle cx={SIZE / 2} cy={SIZE / 2} r={R} fill="none" stroke="rgb(var(--color-line) / 0.7)" strokeWidth={STROKE} />
         {segs.map((s) => {
           const dim = (active !== 'all' && active !== s.name) || (hover && hover.name !== s.name)
           const isHover = hover && hover.name === s.name
@@ -60,7 +60,7 @@ export default function LanguageDonut({ languages, total, active, onSelect }) {
       </motion.svg>
 
       <div className="pointer-events-none absolute inset-0 grid place-items-center text-center">
-        <div>
+        <div className="grid h-24 w-24 place-content-center rounded-full bg-slate-900 shadow-inner">
           <div className="font-display text-3xl font-bold tabular-nums text-slate-50">
             {focus ? focus.count : total}
           </div>

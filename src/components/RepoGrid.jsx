@@ -21,7 +21,7 @@ function StatTiles({ stats, loading }) {
       {cards.map((c, i) => (
         <Reveal key={c.label} delay={i * 0.05}>
           <div className="surface rounded-xl p-5">
-            <div className="font-mono text-xs text-slate-500">
+            <div className="font-mono text-xs text-muted">
               <span className="text-amber">$</span> {c.label.toLowerCase().replace(/\s+/g, '_')}
             </div>
             <div className="mt-2 font-display text-3xl font-extrabold text-primary">
@@ -37,7 +37,7 @@ function StatTiles({ stats, loading }) {
 function RepoList({ repos }) {
   if (repos.length === 0) {
     return (
-      <p className="surface rounded-xl p-8 text-center font-mono text-sm text-slate-400">
+      <p className="surface rounded-xl p-8 text-center font-mono text-sm text-muted">
         <span className="text-amber">$</span> no repositories match your filters.
       </p>
     )
@@ -85,12 +85,12 @@ export default function RepoGrid({ repos, stats, loading, error }) {
         onClick={() => setLanguage(active ? 'all' : name)}
         aria-pressed={active}
         className={`flex items-center gap-1.5 rounded-md px-3 py-1 font-mono text-xs transition-colors ${
-          active ? 'bg-primary text-ink' : 'surface text-slate-300 hover:text-primary'
+          active ? 'bg-primary text-ink' : 'surface text-muted hover:text-primary'
         }`}
       >
         {color && <span className="h-2 w-2 rounded-full" style={{ background: color }} />}
         {name}
-        <span className={active ? 'text-ink/70' : 'text-slate-500'}>{count}</span>
+        <span className={active ? 'text-ink/70' : 'text-muted'}>{count}</span>
       </button>
     )
   }
@@ -100,7 +100,7 @@ export default function RepoGrid({ repos, stats, loading, error }) {
       <StatTiles stats={stats} loading={loading} />
 
       {error && (
-        <p className="surface rounded-xl p-6 text-center text-slate-300">
+        <p className="surface rounded-xl p-6 text-center text-muted">
           Live GitHub data is unavailable right now.{' '}
           <a className="text-primary underline" href="https://github.com/somarjez?tab=repositories" target="_blank" rel="noreferrer">
             View repositories on GitHub →
@@ -110,29 +110,29 @@ export default function RepoGrid({ repos, stats, loading, error }) {
 
       {!error && (
         <>
-          <div className="mb-4 font-mono text-sm text-slate-500">
+          <div className="mb-4 font-mono text-sm text-muted">
             <span className="text-amber">$</span> ls ./repos
             {language !== 'all' && <span className="text-primary"> --lang={language}</span>}
             {search && <span className="text-primary"> --grep="{search}"</span>}
-            {!loading && <span className="text-slate-600"> · {shown.length} {shown.length === 1 ? 'result' : 'results'}</span>}
+            {!loading && <span className="text-subtle"> · {shown.length} {shown.length === 1 ? 'result' : 'results'}</span>}
           </div>
 
           <div className="mb-5 flex flex-col gap-4 md:flex-row md:items-center">
             <div className="relative flex-1">
-              <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+              <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-muted" />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search repositories…"
                 aria-label="Search repositories"
-                className="surface w-full rounded-lg py-2.5 pl-11 pr-4 font-mono text-sm outline-none focus:border-primary/60"
+                className="surface w-full rounded-lg py-2.5 pl-11 pr-4 font-mono text-sm text-foreground outline-none focus:border-primary/60"
               />
             </div>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               aria-label="Sort repositories"
-              className="surface rounded-lg px-4 py-2.5 font-mono text-sm outline-none"
+              className="surface rounded-lg px-4 py-2.5 font-mono text-sm text-foreground outline-none"
             >
               <option value="recent">Recently updated</option>
               <option value="stars">Most stars</option>
@@ -155,7 +155,7 @@ export default function RepoGrid({ repos, stats, loading, error }) {
             <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
               {/* Live language distribution: hover a slice or click to filter */}
               <aside className="surface h-fit rounded-xl p-5 lg:sticky lg:top-24">
-                <div className="mb-4 font-mono text-xs text-slate-500"># language_distribution</div>
+                <div className="mb-4 font-mono text-xs text-muted"># language distribution</div>
                 <LanguageDonut languages={languages} total={langTotal} active={language} onSelect={setLanguage} />
                 <div className="mt-6 flex flex-wrap gap-2">
                   {chip('all', repos.length, null)}
