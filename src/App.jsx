@@ -13,6 +13,7 @@ import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
 import Certifications from './components/Certifications.jsx'
 import Featured from './components/Featured.jsx'
+import OtherAcademicProjects from './components/OtherAcademicProjects.jsx'
 import RepoGrid from './components/RepoGrid.jsx'
 import OrgProjects from './components/OrgProjects.jsx'
 import Contact from './components/Contact.jsx'
@@ -47,6 +48,7 @@ export default function App() {
         <Skills />
         <Certifications />
         <Featured repos={repos} />
+        <OtherAcademicProjects />
         <RepoGrid repos={repos} stats={stats} loading={loading} error={error} />
         <OrgProjects orgGroups={orgGroups} />
         <Contact />

@@ -1,6 +1,6 @@
 // Curated projects for the explorer. `repo` is the lowercase GitHub repo name
 // when it lives under somarjez (used to pull live stars); null for projects that
-// live elsewhere (org repos, video-only demos). `slug` is the file-tree label.
+// live elsewhere. `image` is served from public/project-images/.
 export const featured = [
   {
     repo: 'osca-agesense',
@@ -8,6 +8,7 @@ export const featured = [
     title: 'OSCA-AgeSense',
     category: 'AI / ML',
     icon: 'fa-heart-pulse',
+    image: '/project-images/AgeSense.png',
     thesis: true,
     description:
       'Our thesis. A machine-learning system that assesses senior-citizen health risk and returns recommendations for the Office of Senior Citizens Affairs (OSCA) in Pagsanjan, Laguna, aligned with the WHO Healthy Ageing framework.',
@@ -21,6 +22,7 @@ export const featured = [
     title: 'Findify Mobile',
     category: 'Mobile',
     icon: 'fa-mobile-screen',
+    image: '/project-images/Findify_Mobile.png',
     description:
       'A cross-platform Flutter e-commerce app with product discovery, cart, and Firebase-backed auth and data.',
     tech: ['Flutter', 'Dart', 'Firebase'],
@@ -33,6 +35,7 @@ export const featured = [
     title: 'Findify Web (Flask)',
     category: 'Web',
     icon: 'fa-cart-shopping',
+    image: '/project-images/Findify_Web.png',
     description:
       'The web build of Findify: a full-featured Flask e-commerce platform with product management, vendor dashboards, and order tracking.',
     tech: ['Flask', 'Python', 'HTML'],
@@ -45,6 +48,7 @@ export const featured = [
     title: 'Educational RMS',
     category: 'Web',
     icon: 'fa-school',
+    image: '/project-images/educational-rms.png',
     description:
       'A Django and React system for room scheduling, equipment management, and capacity and simulation analysis in academic settings.',
     tech: ['Django', 'React', 'JavaScript'],
@@ -69,6 +73,7 @@ export const featured = [
     title: '404 DreamTeam (ML + KRR)',
     category: 'AI / ML',
     icon: 'fa-house-circle-check',
+    image: '/project-images/404-dream-team.png',
     description:
       'A hybrid AI platform combining Machine Learning and Knowledge Representation and Reasoning to guide affordable, sustainable housing choices in the Philippines.',
     tech: ['Python', 'Jupyter', 'Machine Learning'],
@@ -81,6 +86,7 @@ export const featured = [
     title: 'SBCC Management System',
     category: 'Web',
     icon: 'fa-church',
+    image: '/project-images/sbcc-public.png',
     description:
       'A full-stack church management app built with Django REST Framework and React: memberships, events, attendance, and volunteers for Santa Cruz Bible Christian Church.',
     tech: ['Django REST', 'React', 'PostgreSQL'],
@@ -89,7 +95,6 @@ export const featured = [
   },
 ]
 
-// Category accent mapping (Tokyo Night tokens).
 export const categoryStyle = {
   'AI / ML': { dot: 'bg-accent', text: 'text-accent', ring: 'border-accent/40 bg-accent/10' },
   Web: { dot: 'bg-primary', text: 'text-primary', ring: 'border-primary/40 bg-primary/10' },
