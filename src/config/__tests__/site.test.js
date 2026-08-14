@@ -121,4 +121,11 @@ describe('site config', () => {
       expect(fs.existsSync(publicFile(url)), `missing public asset: ${url}`).toBe(true)
     }
   })
+
+  it('bootstraps the persisted theme before the page body can paint', () => {
+    const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8')
+    expect(html.indexOf("localStorage.getItem('portfolio-theme')")).toBeGreaterThan(-1)
+    expect(html.indexOf("document.documentElement.classList.toggle('dark'")).toBeGreaterThan(-1)
+    expect(html.indexOf('<body')).toBeGreaterThan(html.indexOf("localStorage.getItem('portfolio-theme')"))
+  })
 })

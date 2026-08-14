@@ -1,7 +1,7 @@
 # Portfolio Credentials, Light Theme, and Academic Projects Design
 
-**Date:** 2026-08-14  
-**Status:** Approved visual direction; awaiting written-spec review  
+**Date:** 2026-08-14
+**Status:** Approved visual direction; awaiting written-spec review
 **Selected concept:** [Editorial credential-led design](https://p.superdesign.dev/draft/dcef2559-8f59-435c-98df-23e36497dc13)
 
 ## Purpose

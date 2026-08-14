@@ -120,7 +120,7 @@ describe('theme utilities', () => {
 
 - [ ] **Step 2: Run the theme utility test and verify RED**
 
-Run: `npm test -- src/lib/__tests__/theme.test.js`  
+Run: `npm test -- src/lib/__tests__/theme.test.js`
 Expected: FAIL because `src/lib/theme.js` does not exist.
 
 - [ ] **Step 3: Implement the pure theme module**
@@ -140,7 +140,7 @@ export function applyTheme(theme, root = document.documentElement) {
 
 - [ ] **Step 4: Run the theme utility test and verify GREEN**
 
-Run: `npm test -- src/lib/__tests__/theme.test.js`  
+Run: `npm test -- src/lib/__tests__/theme.test.js`
 Expected: 3 tests PASS.
 
 - [ ] **Step 5: Add failing hook and toggle tests**
@@ -187,7 +187,7 @@ describe('ThemeToggle', () => {
 
 - [ ] **Step 6: Run the hook/toggle tests and verify RED**
 
-Run: `npm test -- src/hooks/__tests__/useTheme.test.js src/components/ui/__tests__/ThemeToggle.test.jsx`  
+Run: `npm test -- src/hooks/__tests__/useTheme.test.js src/components/ui/__tests__/ThemeToggle.test.jsx`
 Expected: FAIL because `useTheme.js` and `ThemeToggle.jsx` do not exist.
 
 - [ ] **Step 7: Implement the hook and toggle**
@@ -251,7 +251,7 @@ Update `Nav({ onOpenPalette, theme, onToggleTheme })` to render `ThemeToggle` be
 
 - [ ] **Step 9: Run theme tests and the existing Nav-related suite**
 
-Run: `npm test -- src/lib/__tests__/theme.test.js src/hooks/__tests__/useTheme.test.js src/components/ui/__tests__/ThemeToggle.test.jsx src/components/__tests__/CommandPalette.test.jsx`  
+Run: `npm test -- src/lib/__tests__/theme.test.js src/hooks/__tests__/useTheme.test.js src/components/ui/__tests__/ThemeToggle.test.jsx src/components/__tests__/CommandPalette.test.jsx`
 Expected: all listed tests PASS.
 
 - [ ] **Step 10: Commit the isolated theme behavior**
@@ -326,7 +326,7 @@ it('uses evidence-grounded metadata for newly supplied credentials', () => {
 
 - [ ] **Step 2: Run the config test and verify RED**
 
-Run: `npm test -- src/config/__tests__/site.test.js`  
+Run: `npm test -- src/config/__tests__/site.test.js`
 Expected: FAIL because unsafe filenames, missing `certificatePreview`, and inaccurate metadata remain.
 
 - [ ] **Step 3: Add the deterministic preview generator**
@@ -443,7 +443,7 @@ Use this exact evidence map:
 
 - [ ] **Step 6: Run the config test and verify GREEN**
 
-Run: `npm test -- src/config/__tests__/site.test.js`  
+Run: `npm test -- src/config/__tests__/site.test.js`
 Expected: every site-config test PASS, including file existence and corrected metadata.
 
 - [ ] **Step 7: Commit credential assets and configuration**
@@ -500,7 +500,7 @@ describe('CredentialEvidence', () => {
 
 - [ ] **Step 2: Run the evidence tests and verify RED**
 
-Run: `npm test -- src/components/__tests__/CredentialEvidence.test.jsx`  
+Run: `npm test -- src/components/__tests__/CredentialEvidence.test.jsx`
 Expected: FAIL because `CredentialEvidence.jsx` does not exist.
 
 - [ ] **Step 3: Implement `CredentialEvidence`**
@@ -549,7 +549,7 @@ export default function CredentialEvidence({ credential }) {
 
 - [ ] **Step 4: Run evidence tests and verify GREEN**
 
-Run: `npm test -- src/components/__tests__/CredentialEvidence.test.jsx`  
+Run: `npm test -- src/components/__tests__/CredentialEvidence.test.jsx`
 Expected: 2 tests PASS.
 
 - [ ] **Step 5: Replace the certification grid tests with editorial pagination behavior**
@@ -577,7 +577,7 @@ it('renders simultaneous badge and certificate evidence', () => {
 
 - [ ] **Step 6: Run certification tests and verify RED**
 
-Run: `npm test -- src/components/__tests__/Certifications.test.jsx`  
+Run: `npm test -- src/components/__tests__/Certifications.test.jsx`
 Expected: FAIL because six items render per page and the current component has no real preview.
 
 - [ ] **Step 7: Implement the selected editorial layout**
@@ -624,7 +624,7 @@ Change `usePagination(site.certifications, 6)` to `usePagination(site.certificat
 
 - [ ] **Step 8: Run credential tests and verify GREEN**
 
-Run: `npm test -- src/components/__tests__/CredentialEvidence.test.jsx src/components/__tests__/Certifications.test.jsx`  
+Run: `npm test -- src/components/__tests__/CredentialEvidence.test.jsx src/components/__tests__/Certifications.test.jsx`
 Expected: all credential component tests PASS.
 
 - [ ] **Step 9: Commit the editorial credential UI**
@@ -691,7 +691,7 @@ describe('academic project configuration', () => {
 
 - [ ] **Step 2: Run the configuration test and verify RED**
 
-Run: `npm test -- src/config/__tests__/academicProjects.test.js`  
+Run: `npm test -- src/config/__tests__/academicProjects.test.js`
 Expected: FAIL because `academicProjects.js` does not exist and the records remain in `featured`.
 
 - [ ] **Step 3: Move the four records into `academicProjects.js`**
@@ -747,7 +747,7 @@ Copy the four supplied images to the URL-safe filenames above; do not delete the
 
 - [ ] **Step 4: Run the configuration test and verify GREEN**
 
-Run: `npm test -- src/config/__tests__/academicProjects.test.js`  
+Run: `npm test -- src/config/__tests__/academicProjects.test.js`
 Expected: all 3 tests PASS.
 
 - [ ] **Step 5: Write the failing component test**
@@ -770,7 +770,7 @@ describe('OtherAcademicProjects', () => {
 
 - [ ] **Step 6: Run the component test and verify RED**
 
-Run: `npm test -- src/components/__tests__/OtherAcademicProjects.test.jsx`  
+Run: `npm test -- src/components/__tests__/OtherAcademicProjects.test.jsx`
 Expected: FAIL because `OtherAcademicProjects.jsx` does not exist.
 
 - [ ] **Step 7: Implement alternating editorial rows**
@@ -825,7 +825,7 @@ Insert `<OtherAcademicProjects />` immediately after `<Featured repos={repos} />
 
 - [ ] **Step 8: Run academic-project tests and verify GREEN**
 
-Run: `npm test -- src/config/__tests__/academicProjects.test.js src/components/__tests__/OtherAcademicProjects.test.jsx src/components/__tests__/Featured.test.jsx`  
+Run: `npm test -- src/config/__tests__/academicProjects.test.js src/components/__tests__/OtherAcademicProjects.test.jsx src/components/__tests__/Featured.test.jsx`
 Expected: all tests PASS.
 
 - [ ] **Step 9: Commit the academic-project section**
@@ -881,7 +881,7 @@ it('keeps the featured explorer focused on seven current projects', () => {
 
 - [ ] **Step 2: Run Featured tests and verify RED**
 
-Run: `npm test -- src/components/__tests__/Featured.test.jsx`  
+Run: `npm test -- src/components/__tests__/Featured.test.jsx`
 Expected: FAIL because the screenshot alt text currently omits “project” and image paths are not sanitized.
 
 - [ ] **Step 3: Copy supplied screenshots to exact public names**
@@ -921,7 +921,7 @@ Update `ProjectDetail` alt text to `${project.title} project screenshot`.
 
 - [ ] **Step 5: Run Featured tests and verify GREEN**
 
-Run: `npm test -- src/components/__tests__/Featured.test.jsx`  
+Run: `npm test -- src/components/__tests__/Featured.test.jsx`
 Expected: all Featured tests PASS.
 
 - [ ] **Step 6: Commit current-project evidence**
@@ -979,7 +979,7 @@ it('defines semantic light and dark theme tokens', () => {
 
 - [ ] **Step 2: Run the token test and verify RED**
 
-Run: `npm test -- src/config/__tests__/site.test.js`  
+Run: `npm test -- src/config/__tests__/site.test.js`
 Expected: FAIL because the current CSS defines only `--primary` and `--accent`.
 
 - [ ] **Step 3: Convert Tailwind colors to CSS-variable-backed semantic tokens**
@@ -1073,12 +1073,12 @@ Explicit exceptions:
 
 - [ ] **Step 6: Run the complete component suite**
 
-Run: `npm test -- src/components src/hooks src/lib src/config`  
+Run: `npm test -- src/components src/hooks src/lib src/config`
 Expected: all tests PASS with no invalid-class or render errors.
 
 - [ ] **Step 7: Build and inspect generated CSS**
 
-Run: `npm run build`  
+Run: `npm run build`
 Expected: Vite exits 0 and emits the production bundle without Tailwind or PostCSS errors.
 
 - [ ] **Step 8: Commit full theme parity**
@@ -1126,7 +1126,7 @@ In `Featured.test.jsx`, import `featured` and assert every configured image begi
 
 - [ ] **Step 2: Run the regression tests**
 
-Run: `npm test -- src/config/__tests__/site.test.js src/components/__tests__/Certifications.test.jsx src/components/__tests__/Featured.test.jsx src/components/__tests__/OtherAcademicProjects.test.jsx`  
+Run: `npm test -- src/config/__tests__/site.test.js src/components/__tests__/Certifications.test.jsx src/components/__tests__/Featured.test.jsx src/components/__tests__/OtherAcademicProjects.test.jsx`
 Expected: all listed tests PASS.
 
 - [ ] **Step 3: Document preview regeneration**
@@ -1150,12 +1150,12 @@ Light mode is the default. The navigation toggle stores an explicit choice under
 
 - [ ] **Step 4: Run the full automated test suite**
 
-Run: `npm test`  
+Run: `npm test`
 Expected: Vitest reports 0 failed test files and 0 failed tests.
 
 - [ ] **Step 5: Run the production build**
 
-Run: `npm run build`  
+Run: `npm run build`
 Expected: Vite exits 0 and writes `dist/`.
 
 - [ ] **Step 6: Check every configured public URL after build**

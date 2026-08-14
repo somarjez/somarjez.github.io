@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { ProjectDetail } from '../Featured.jsx'
+import Featured, { ProjectDetail } from '../Featured.jsx'
 import { featured } from '../../config/featured.js'
 
 const base = { title: 'Demo Project', icon: 'fa-flask', category: 'Web', description: 'desc', tech: ['Python'] }
@@ -47,5 +47,14 @@ describe('Featured ProjectDetail buttons', () => {
     for (const project of featured.filter((item) => item.image)) {
       expect(project.image).toMatch(/^\/project-images\/[a-z0-9-]+\.png$/)
     }
+  })
+
+  it('moves focus with keyboard project-tab navigation', () => {
+    render(<Featured repos={[]} />)
+    const tablist = screen.getByRole('tablist', { name: 'Featured projects' })
+    const firstTab = screen.getByRole('tab', { name: /osca-agesense$/ })
+    firstTab.focus()
+    fireEvent.keyDown(tablist, { key: 'ArrowDown' })
+    expect(screen.getByRole('tab', { name: /findify-mobile$/ })).toHaveFocus()
   })
 })

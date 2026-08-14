@@ -10,7 +10,7 @@
   --color-line-bright: 200 210 227;
   --color-foreground: 30 41 59;
   --color-muted: 100 116 139;
-  --color-subtle: 148 163 184;
+  --color-subtle: 100 116 139;
   --color-primary: 25 118 210;
   --color-primary-dark: 21 101 192;
   --color-accent: 124 58 237;
@@ -29,7 +29,7 @@
   --color-line-bright: 51 65 85;
   --color-foreground: 241 245 249;
   --color-muted: 148 163 184;
-  --color-subtle: 100 116 139;
+  --color-subtle: 148 163 184;
   --color-primary: 125 207 255;
   --color-primary-dark: 155 220 255;
   --color-accent: 187 154 247;

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Section from './ui/Section.jsx'
 import Button from './ui/Button.jsx'
@@ -85,24 +85,30 @@ export function ProjectDetail({ project, live }) {
 export default function Featured({ repos }) {
   const byName = Object.fromEntries((repos || []).map((r) => [r.name.toLowerCase(), r]))
   const [active, setActive] = useState(0)
+  const tabRefs = useRef([])
   const reduce = useReducedMotion()
 
   const project = featured[active]
   const live = project.repo ? byName[project.repo] : null
 
+  const selectProject = (index) => {
+    setActive(index)
+    tabRefs.current[index]?.focus()
+  }
+
   const onKeyDown = (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
       e.preventDefault()
-      setActive((a) => (a + 1) % featured.length)
+      selectProject((active + 1) % featured.length)
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
       e.preventDefault()
-      setActive((a) => (a - 1 + featured.length) % featured.length)
+      selectProject((active - 1 + featured.length) % featured.length)
     } else if (e.key === 'Home') {
       e.preventDefault()
-      setActive(0)
+      selectProject(0)
     } else if (e.key === 'End') {
       e.preventDefault()
-      setActive(featured.length - 1)
+      selectProject(featured.length - 1)
     }
   }
 
@@ -132,7 +138,8 @@ export default function Featured({ repos }) {
                     aria-selected={selected}
                     aria-controls="proj-panel"
                     tabIndex={selected ? 0 : -1}
-                    onClick={() => setActive(i)}
+                    ref={(node) => { tabRefs.current[i] = node }}
+                    onClick={() => selectProject(i)}
                     className={`group flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left font-mono text-sm transition-colors ${
                       selected ? 'bg-primary/10 text-primary' : 'text-muted hover:bg-panel-2 hover:text-foreground'
                     }`}
