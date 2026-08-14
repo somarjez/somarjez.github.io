@@ -1,6 +1,7 @@
 import { useGitHub } from './hooks/useGitHub.js'
 import { usePointerSpotlight } from './hooks/usePointerSpotlight.js'
 import { useCommandPalette } from './hooks/useCommandPalette.js'
+import { useTheme } from './hooks/useTheme.js'
 import { buildCommands } from './lib/commands.js'
 import { site } from './config/site.js'
 import Background from './components/Background.jsx'
@@ -22,6 +23,7 @@ export default function App() {
   const { repos, orgGroups, stats, loading, error } = useGitHub(site.username, site.featuredOrgs)
   usePointerSpotlight()
   const { open, setOpen } = useCommandPalette()
+  const { theme, toggleTheme } = useTheme()
   const commands = buildCommands(site)
 
   return (
@@ -34,7 +36,11 @@ export default function App() {
       </a>
       <Background />
       <Spotlight />
-      <Nav onOpenPalette={() => setOpen(true)} />
+      <Nav
+        onOpenPalette={() => setOpen(true)}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
       <main>
         <Hero stats={stats} loading={loading} />
         <About />
