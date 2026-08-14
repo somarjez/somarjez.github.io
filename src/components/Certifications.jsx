@@ -1,67 +1,57 @@
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
-import TiltCard from './ui/TiltCard.jsx'
 import Pagination from './ui/Pagination.jsx'
+import CredentialEvidence from './CredentialEvidence.jsx'
 import { usePagination } from '../hooks/usePagination.js'
 import { site } from '../config/site.js'
 
 export default function Certifications() {
-  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 4)
+  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 2)
 
-  const goPage = (p) => {
-    setPage(p)
+  const goPage = (nextPage) => {
+    setPage(nextPage)
     document.getElementById('certs')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <Section id="certs" title="Certifications" subtitle="Verified coursework and credentials">
-      <div className="grid gap-6 md:grid-cols-2">
-        {pageItems.map((c, i) => (
-          <Reveal key={c.title} delay={i * 0.05}>
-            <TiltCard className="surface flex h-full flex-col rounded-xl">
-              <div className="flex items-center gap-2 border-b border-line px-5 py-3">
-                <i className={`fas ${c.icon} text-primary`} aria-hidden="true" />
-                <span className="font-mono text-sm text-slate-200">
-                  <span className="text-amber">$</span> {c.title}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <div className="font-mono text-xs text-slate-400">
-                  <span className="text-primary">{c.issuer}</span>
-                  {c.issued && <span className="text-slate-600"> · issued {c.issued}</span>}
-                </div>
-                {c.credentialId && (
-                  <div className="mt-1 break-all font-mono text-[11px] text-slate-500">
-                    id: {c.credentialId}
+    <Section id="certs" title="Certifications" subtitle="Verified coursework, credentials, and professional development.">
+      <div className="space-y-10">
+        {pageItems.map((credential, index) => (
+          <Reveal key={credential.title} delay={index * 0.05}>
+            <article className="surface overflow-hidden rounded-xl">
+              <CredentialEvidence credential={credential} />
+              <div className="grid gap-6 p-6 md:p-8 lg:grid-cols-[1fr_280px]">
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-foreground">{credential.title}</h3>
+                  <p className="mt-2 font-mono text-sm text-primary">
+                    {credential.issuer}
+                    {credential.issued && <span className="text-muted"> · {credential.issued}</span>}
+                  </p>
+                  <p className="mt-5 max-w-[65ch] leading-relaxed text-muted">{credential.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {credential.skills.map((skill) => (
+                      <span key={skill} className="rounded-md border border-line bg-primary/5 px-2.5 py-1 font-mono text-xs text-accent">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                )}
-
-                {c.description && (
-                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{c.description}</p>
-                )}
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {c.skills.map((s) => (
-                    <span key={s} className="rounded-md border border-line bg-primary/5 px-2.5 py-1 font-mono text-xs text-accent">
-                      {s}
-                    </span>
-                  ))}
                 </div>
-
-                {c.url && (
-                  <a
-                    href={c.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 self-start rounded-lg border border-line bg-panel/40 px-3 py-1.5 font-mono text-xs text-slate-200 transition-colors hover:border-primary/60 hover:text-primary"
-                  >
-                    <i className="fas fa-certificate" aria-hidden="true" />
-                    Show credential
-                    <i className="fas fa-arrow-up-right-from-square text-[10px]" aria-hidden="true" />
-                  </a>
-                )}
+                <div className="flex flex-col justify-end gap-3 font-mono text-xs">
+                  {credential.credentialId && <p className="break-all text-subtle">id: {credential.credentialId}</p>}
+                  {credential.controlNumber && <p className="break-all text-subtle">control: {credential.controlNumber}</p>}
+                  {credential.url && (
+                    <a
+                      href={credential.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="self-start rounded-lg border border-line bg-panel px-3 py-2 text-muted hover:border-primary/60 hover:text-primary"
+                    >
+                      Verify official record
+                    </a>
+                  )}
+                </div>
               </div>
-            </TiltCard>
+            </article>
           </Reveal>
         ))}
       </div>
