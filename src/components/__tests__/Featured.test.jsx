@@ -42,4 +42,10 @@ describe('Featured ProjectDetail buttons', () => {
       'sbcc-system',
     ])
   })
+
+  it('uses the local project-image directory for every configured screenshot', () => {
+    for (const project of featured.filter((item) => item.image)) {
+      expect(project.image).toMatch(/^\/project-images\/[a-z0-9-]+\.png$/)
+    }
+  })
 })

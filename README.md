@@ -24,6 +24,19 @@ npm run build      # outputs to dist/
 npm run preview
 ```
 
+## Credential previews
+
+The portfolio serves sanitized certificate copies and first-page previews from
+`public/credentials/`. Regenerate previews after replacing a source PDF:
+
+```powershell
+python -m pip install -r requirements-tools.txt
+python scripts/render-credential-previews.py
+```
+
+Light mode is the default. The navigation toggle stores an explicit choice under
+`portfolio-theme` in browser local storage.
+
 ## Deploy
 
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds and
@@ -36,3 +49,4 @@ Source = **GitHub Actions**.
 
 - Personal content, links, skills, Formspree id: `src/config/site.js`
 - Featured projects: `src/config/featured.js`
+- Other academic projects: `src/config/academicProjects.js`

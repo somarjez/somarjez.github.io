@@ -109,4 +109,16 @@ describe('site config', () => {
     }
     expect(css).toMatch(/\.dark\s*\{/)
   })
+
+  it('keeps all configured local portfolio assets present', () => {
+    const urls = site.certifications.flatMap((credential) => [
+      credential.badge,
+      credential.certificate,
+      credential.certificatePreview,
+    ]).filter(Boolean)
+
+    for (const url of urls) {
+      expect(fs.existsSync(publicFile(url)), `missing public asset: ${url}`).toBe(true)
+    }
+  })
 })
