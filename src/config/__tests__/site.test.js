@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { site } from '../site.js'
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..')
+const publicFile = (url) => path.join(root, 'public', url.replace(/^\//, ''))
 
 describe('site config', () => {
   it('uses no em dashes in headline copy (banned punctuation)', () => {
@@ -61,5 +67,38 @@ describe('site config', () => {
       expect(Array.isArray(c.skills)).toBe(true)
       expect(c.skills.length).toBeGreaterThan(0)
     }
+  })
+
+  it('uses URL-safe local certificate and preview paths that exist', () => {
+    expect(site.certifications).toHaveLength(11)
+    for (const credential of site.certifications) {
+      for (const field of ['certificate', 'certificatePreview']) {
+        expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|jpg|webp)$/)
+        expect(fs.existsSync(publicFile(credential[field]))).toBe(true)
+      }
+      if (credential.badge) {
+        expect(fs.existsSync(publicFile(credential.badge))).toBe(true)
+      }
+    }
+  })
+
+  it('uses evidence-grounded metadata for newly supplied credentials', () => {
+    expect(site.certifications).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        title: 'Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches',
+        issuer: 'GC Bitbarkada',
+        issued: 'Oct 1, 2025',
+      }),
+      expect.objectContaining({
+        title: 'Integrated OS – Be More Digi-TALINO',
+        issuer: 'Integrated Office Solutions, Inc.',
+        issued: 'Sep 5, 2025',
+      }),
+      expect.objectContaining({
+        title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
+        issuer: 'Computer Science Society Organization',
+        issued: 'Dec 3, 2025',
+      }),
+    ]))
   })
 })
