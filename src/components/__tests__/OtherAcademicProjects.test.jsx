@@ -10,4 +10,9 @@ describe('OtherAcademicProjects', () => {
       expect(screen.getByRole('img', { name: `${title} project screenshot` })).toBeInTheDocument()
     }
   })
+
+  it('labels project screenshots as full-image viewers', () => {
+    render(<OtherAcademicProjects />)
+    expect(screen.getByRole('button', { name: /view full voguevista screenshot/i })).toBeInTheDocument()
+  })
 })
