@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import Section from './ui/Section.jsx'
 import Button from './ui/Button.jsx'
 import { featured, categoryStyle } from '../config/featured.js'
+import Lightbox from './ui/Lightbox.jsx'
 
 const EASE_OUT = [0.22, 1, 0.36, 1]
 
@@ -17,20 +18,19 @@ function CategoryTag({ category }) {
 
 export function ProjectDetail({ project, live }) {
   const stars = live?.stargazers_count ?? 0
+  const [imageOpen, setImageOpen] = useState(false)
   return (
     <div>
       {/* Project screenshot */}
       {project.image && (
-        <div className="mb-6 overflow-hidden rounded-xl border border-line shadow-sm">
-          <img
-            src={project.image}
-            alt={`${project.title} project screenshot`}
-            className="h-48 w-full object-cover object-top transition-transform duration-500 hover:scale-105"
-            loading="lazy"
-            decoding="async"
-          />
+        <div className="mb-6 overflow-hidden rounded-xl border border-line bg-panel-2 shadow-sm">
+          <button type="button" onClick={() => setImageOpen(true)} aria-label={`View full ${project.title} screenshot`} className="group block w-full cursor-zoom-in p-3 text-left">
+            <img src={project.image} alt={`${project.title} project screenshot`} className="max-h-[30rem] w-full object-contain transition-transform duration-500 group-hover:scale-[1.01]" loading="lazy" decoding="async" />
+            <span className="mt-2 block text-center font-mono text-xs text-muted">View full image</span>
+          </button>
         </div>
       )}
+      {project.image && <Lightbox open={imageOpen} title={project.title} src={project.image} alt={`${project.title} full screenshot`} onClose={() => setImageOpen(false)} />}
 
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">

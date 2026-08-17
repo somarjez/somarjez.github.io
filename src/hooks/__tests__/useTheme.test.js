@@ -9,12 +9,12 @@ describe('useTheme', () => {
     document.documentElement.className = ''
   })
 
-  it('starts light and persists a dark toggle', () => {
+  it('starts dark and persists a light toggle', () => {
     const { result } = renderHook(() => useTheme())
-    expect(result.current.theme).toBe('light')
-    act(() => result.current.toggleTheme())
     expect(result.current.theme).toBe('dark')
-    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark')
-    expect(document.documentElement).toHaveClass('dark')
+    act(() => result.current.toggleTheme())
+    expect(result.current.theme).toBe('light')
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light')
+    expect(document.documentElement).not.toHaveClass('dark')
   })
 })

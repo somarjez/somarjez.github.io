@@ -30,6 +30,13 @@ describe('Featured ProjectDetail buttons', () => {
       .toHaveAttribute('src', '/project-images/osca-agesense.png')
   })
 
+  it('opens the complete screenshot in an accessible lightbox', () => {
+    render(<ProjectDetail project={{ ...base, title: 'OSCA-AgeSense', image: '/project-images/osca-agesense.png' }} live={null} />)
+    fireEvent.click(screen.getByRole('button', { name: /view full osca-agesense screenshot/i }))
+    expect(screen.getByRole('dialog', { name: /osca-agesense screenshot/i })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: /osca-agesense full screenshot/i })).toHaveAttribute('src', '/project-images/osca-agesense.png')
+  })
+
   it('keeps the featured explorer focused on seven current projects', () => {
     expect(featured).toHaveLength(7)
     expect(featured.map((project) => project.slug)).toEqual([

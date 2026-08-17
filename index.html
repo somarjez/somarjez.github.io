@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#f0f4f8" />
+    <meta name="theme-color" content="#0a0e14" />
     <script>
       (() => {
         try {
-          const theme = window.localStorage.getItem('portfolio-theme') === 'dark' ? 'dark' : 'light';
+          const theme = window.localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark';
           document.documentElement.classList.toggle('dark', theme === 'dark');
           document.documentElement.style.colorScheme = theme;
         } catch {
-          document.documentElement.style.colorScheme = 'light';
+          document.documentElement.style.colorScheme = 'dark';
         }
       })();
     </script>
