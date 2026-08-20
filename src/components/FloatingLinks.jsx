@@ -20,7 +20,7 @@ function linkProps(l) {
 const base =
   'grid h-12 w-12 place-items-center rounded-full text-base transition-all duration-200 ' +
   'border border-primary/30 bg-panel/90 text-muted shadow-md ' +
-  'backdrop-blur hover:bg-primary hover:text-ink hover:shadow-lg hover:scale-110'
+  'backdrop-blur hover:bg-primary hover:text-black hover:shadow-lg hover:scale-110 dark:hover:text-white'
 
 export default function FloatingLinks() {
   const reduce = useReducedMotion()
@@ -51,7 +51,7 @@ export default function FloatingLinks() {
             <a
               key={l.label}
               {...linkProps(l)}
-              className={`group relative ${base} ${isAuto ? 'scale-110 border-primary bg-primary text-ink shadow-lg' : ''}`}
+              className={`group relative ${base} ${isAuto ? 'scale-110 border-primary bg-primary text-black shadow-lg dark:text-white' : ''}`}
             >
               <i className={l.icon} aria-hidden="true" />
               <span
