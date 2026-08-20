@@ -4,7 +4,7 @@ import { site } from '../config/site.js'
 
 export default function About() {
   return (
-    <Section id="about" title="About me" subtitle="A Computer Science student building toward data, web, project management, and AI.">
+    <Section id="about" title="About me" subtitle="A fourth-year Computer Science student building toward data, web, project management, and AI.">
       <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <Reveal>
           <p className="max-w-[65ch] text-pretty text-lg leading-relaxed text-muted">
