@@ -11,9 +11,9 @@ export default function CredentialCard({ credential, onOpen }) {
       aria-label={`View ${title} credential details`}
       className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-line bg-panel text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-primary/20"
     >
-      <div className="relative flex h-24 items-center justify-center overflow-hidden border-b border-line bg-panel-2">
+      <div className="relative flex h-28 items-center justify-center overflow-hidden border-b border-line bg-panel-2">
         {badge ? (
-          <img src={badge} alt="" className="h-14 w-14 object-contain p-4" loading="lazy" decoding="async" />
+          <img src={badge} alt="" className="h-20 w-20 object-contain p-1" loading="lazy" decoding="async" />
         ) : (
           <img src={certificatePreview} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
         )}
