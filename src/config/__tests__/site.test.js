@@ -70,7 +70,7 @@ describe('site config', () => {
   })
 
   it('uses URL-safe local certificate and preview paths that exist', () => {
-    expect(site.certifications).toHaveLength(11)
+    expect(site.certifications).toHaveLength(12)
     for (const credential of site.certifications) {
       for (const field of ['certificate', 'certificatePreview']) {
         expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|jpg|webp)$/)
