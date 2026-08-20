@@ -13,3 +13,17 @@ describe('Nav theme controls', () => {
     expect(onToggleTheme).toHaveBeenCalledOnce()
   })
 })
+
+describe('Nav dropdown groups', () => {
+  it('only opens the clicked group, not every group with a dropdown', () => {
+    render(<Nav onOpenPalette={() => {}} theme="light" onToggleTheme={() => {}} />)
+
+    fireEvent.click(screen.getByRole('button', { name: /about/i }))
+    expect(screen.getByText('Skills')).toBeInTheDocument()
+    expect(screen.queryByText('Featured projects')).toBeNull()
+
+    fireEvent.click(screen.getByRole('button', { name: /work/i }))
+    expect(screen.getByText('Featured projects')).toBeInTheDocument()
+    expect(screen.queryByText('Skills')).toBeNull()
+  })
+})

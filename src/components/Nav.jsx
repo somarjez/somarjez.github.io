@@ -14,7 +14,7 @@ const LINK_IDS = GROUPS.flatMap((group) => group.links.map(([id]) => id))
 
 export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
   const [open, setOpen] = useState(false)
-  const [workOpen, setWorkOpen] = useState(false)
+  const [openGroup, setOpenGroup] = useState(null)
   const active = useScrollSpy(LINK_IDS)
 
   const go = (id) => {
@@ -36,12 +36,12 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
               {group.label}
             </button>
           ) : (
-            <div key={group.id} className="relative" onMouseLeave={() => setWorkOpen(false)}>
-              <button onClick={() => setWorkOpen((value) => !value)} aria-expanded={workOpen} aria-haspopup="true" className={`rounded-md px-2.5 py-1 font-mono text-sm transition-colors ${group.links.some(([id]) => active === id) ? 'bg-primary/10 text-primary' : 'text-muted hover:text-foreground'}`}>
+            <div key={group.id} className="relative" onMouseLeave={() => setOpenGroup((value) => (value === group.id ? null : value))}>
+              <button onClick={() => setOpenGroup((value) => (value === group.id ? null : group.id))} aria-expanded={openGroup === group.id} aria-haspopup="true" className={`rounded-md px-2.5 py-1 font-mono text-sm transition-colors ${group.links.some(([id]) => active === id) ? 'bg-primary/10 text-primary' : 'text-muted hover:text-foreground'}`}>
                 {group.label} <i className="fas fa-chevron-down ml-1 text-[10px]" aria-hidden="true" />
               </button>
-              {workOpen && <div className="absolute left-0 top-full mt-2 w-52 rounded-lg border border-line bg-panel p-1.5 shadow-xl">
-                {group.links.map(([id, label]) => <button key={id} onClick={() => { setWorkOpen(false); go(id) }} className="block w-full rounded-md px-3 py-2 text-left font-mono text-xs text-muted hover:bg-panel-2 hover:text-primary">{label}</button>)}
+              {openGroup === group.id && <div className="absolute left-0 top-full mt-2 w-52 rounded-lg border border-line bg-panel p-1.5 shadow-xl">
+                {group.links.map(([id, label]) => <button key={id} onClick={() => { setOpenGroup(null); go(id) }} className="block w-full rounded-md px-3 py-2 text-left font-mono text-xs text-muted hover:bg-panel-2 hover:text-primary">{label}</button>)}
               </div>}
             </div>
           ))}

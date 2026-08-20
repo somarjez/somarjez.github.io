@@ -1,7 +1,7 @@
 export default function TerminalWindow({ title = '~', className = '', children }) {
   return (
     <div className={`term-window overflow-hidden ${className}`}>
-      <div className="flex items-center gap-2 border-b border-line bg-panel-2/60 px-4 py-2.5">
+      <div className="flex items-center gap-2 border-b border-slate-700 bg-slate-800/60 px-4 py-2.5">
         <span className="h-3 w-3 rounded-full bg-[#f7768e]" />
         <span className="h-3 w-3 rounded-full bg-[#e0af68]" />
         <span className="h-3 w-3 rounded-full bg-[#9ece6a]" />
