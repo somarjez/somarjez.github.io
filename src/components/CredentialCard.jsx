@@ -1,5 +1,5 @@
 export default function CredentialCard({ credential, onOpen }) {
-  const { title, issuer, issued, badge, icon, skills } = credential
+  const { title, issuer, issued, badge, certificatePreview, skills } = credential
   const shownSkills = skills.slice(0, 2)
   const extraSkills = skills.length - shownSkills.length
 
@@ -9,20 +9,21 @@ export default function CredentialCard({ credential, onOpen }) {
       onClick={onOpen}
       aria-haspopup="dialog"
       aria-label={`View ${title} credential details`}
-      className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-line bg-panel text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
+      className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-line bg-panel text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-lg hover:shadow-primary/20"
     >
-      <span
-        className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
-        aria-hidden="true"
-      />
-      <div className="flex h-24 items-center justify-center border-b border-line bg-panel-2 p-4">
+      <div className="relative flex h-24 items-center justify-center overflow-hidden border-b border-line bg-panel-2">
         {badge ? (
-          <img src={badge} alt="" className="h-14 w-14 object-contain" loading="lazy" decoding="async" />
+          <img src={badge} alt="" className="h-14 w-14 object-contain p-4" loading="lazy" decoding="async" />
         ) : (
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary">
-            <i className={`fas ${icon}`} aria-hidden="true" />
-          </span>
+          <img src={certificatePreview} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
         )}
+        <span
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+          aria-hidden="true"
+        />
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-slate-950/0 font-mono text-[11px] font-semibold opacity-0 transition-all duration-200 group-hover:bg-slate-950/50 group-hover:opacity-100 group-hover:backdrop-blur-[1px]">
+          <span className="rounded-md border border-white/20 bg-white/95 px-2 py-1 text-slate-900 shadow-sm">View certificate</span>
+        </span>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h3 className="line-clamp-2 font-display text-sm font-bold leading-snug text-foreground">{title}</h3>

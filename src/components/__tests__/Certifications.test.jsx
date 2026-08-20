@@ -25,6 +25,23 @@ describe('Certifications', () => {
     expect(screen.getByText('Apply AI: Update Your Resume')).toBeInTheDocument()
   })
 
+  it('shows a certificate preview thumbnail even for credentials without a badge', () => {
+    render(<Certifications />)
+    const noBadge = site.certifications.find((c) => !c.badge)
+    expect(noBadge).toBeTruthy()
+
+    let page = 0
+    while (!screen.queryByRole('button', { name: new RegExp(`view ${noBadge.title} credential details`, 'i') })) {
+      fireEvent.click(screen.getByRole('button', { name: /next/i }))
+      page += 1
+      if (page > 5) throw new Error('credential without a badge was not found on any page')
+    }
+
+    const card = screen.getByRole('button', { name: new RegExp(`view ${noBadge.title} credential details`, 'i') })
+    const thumbnail = card.querySelector('img')
+    expect(thumbnail).toHaveAttribute('src', noBadge.certificatePreview)
+  })
+
   it('opens a detail dialog with badge, certificate evidence, and credential id on click', () => {
     render(<Certifications />)
     fireEvent.click(screen.getByRole('button', { name: /view introduction to data science credential details/i }))
