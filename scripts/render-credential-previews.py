@@ -17,6 +17,7 @@ PDFS = {
     "DataScienceEssentialswithPythonv120260813-20-71nzrr.pdf": "data-science-essentials-with-python",
     "Integrated OS Be More DigiTalino Certificate_of_Participation_-361.pdf": "integrated-os-digi-talino",
     "IntrotoModernAIUpdate20260813-20-qjixfv.pdf": "introduction-to-modern-ai",
+    "IntrotoDataScienceUpdate20260820-22-13dtw7.pdf": "introduction-to-data-science",
     "“AI-Powered Future  Mastering Prompt_JEZREEL_R_RAMOS.pdf": "ai-powered-future-prompt-engineering",
     "“Hour of Code”  (Bulk 1) Copy of OG BTFM x AI Ready ASEAN Programme_Certificate.pdf": "hour-of-code-ai-ready-asean",
 }

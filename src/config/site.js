@@ -94,33 +94,20 @@ export const site = {
   // `badge` is the Credly/issuer badge image served from public/credentials/badges/.
   // `certificate` is the PDF or image served from public/credentials/certificates/.
   certifications: [
+    // Priority order: Data Science, AI, CodeChum, DICT, others.
     {
-      icon: 'fa-robot',
-      title: 'Introduction to Modern AI',
+      icon: 'fa-chart-line',
+      title: 'Introduction to Data Science',
       issuer: 'Cisco Networking Academy',
-      issued: 'Jun 18, 2026',
-      credentialId: '6e6eb5de-05cf-4cbe-9140-45853f4645d0',
-      url: 'https://www.credly.com/earner/earned/badge/6e6eb5de-05cf-4cbe-9140-45853f4645d0',
-      badge: '/credentials/badges/introduction-to-modern-ai.png',
-      certificate: '/credentials/certificates/introduction-to-modern-ai.pdf',
-      certificatePreview: '/credentials/previews/introduction-to-modern-ai.webp',
+      issued: 'Aug 20, 2026',
+      credentialId: '',
+      url: '',
+      badge: '/credentials/badges/introduction-to-data-science.png',
+      certificate: '/credentials/certificates/introduction-to-data-science.pdf',
+      certificatePreview: '/credentials/previews/introduction-to-data-science.webp',
       description:
-        'Cisco training in AI and machine-learning basics, photo classification, object detection and segmentation, machine translation limits, LLM fundamentals, prompting, chatbots, tool use, and multimodal prompting.',
-      skills: ['Machine Learning', 'Computer Vision', 'LLM Prompting', 'Chatbots', 'Multimodal AI'],
-    },
-    {
-      icon: 'fa-file-lines',
-      title: 'Apply AI: Update Your Resume',
-      issuer: 'Cisco Networking Academy',
-      issued: 'Jun 19, 2026',
-      credentialId: 'c219cac6-0de3-4aa2-ba94-57fa6b192047',
-      url: 'https://www.credly.com/earner/earned/badge/c219cac6-0de3-4aa2-ba94-57fa6b192047',
-      badge: '/credentials/badges/apply-ai-update-your-resume.png',
-      certificate: '/credentials/certificates/apply-ai-update-your-resume.pdf',
-      certificatePreview: '/credentials/previews/apply-ai-update-your-resume.webp',
-      description:
-        'A privacy-aware resume workflow using AI to redact sensitive data, extract evidence-based accomplishments, create ATS-friendly skills and bullets, validate results, style a PDF, and tailor it to a target role.',
-      skills: ['Generative AI', 'Data Privacy', 'Resume Analysis', 'ATS Optimization', 'Human Validation'],
+        'Cisco training covering the data science lifecycle, data types and sources, exploratory analysis, and the roles data plays in decision-making.',
+      skills: ['Data Science', 'Data Analysis', 'Exploratory Analysis'],
     },
     {
       icon: 'fa-chart-line',
@@ -151,6 +138,34 @@ export const site = {
       skills: ['Data Analysis', 'Data Preparation', 'Statistics', 'Excel', 'SQL', 'Tableau'],
     },
     {
+      icon: 'fa-robot',
+      title: 'Introduction to Modern AI',
+      issuer: 'Cisco Networking Academy',
+      issued: 'Jun 18, 2026',
+      credentialId: '6e6eb5de-05cf-4cbe-9140-45853f4645d0',
+      url: 'https://www.credly.com/earner/earned/badge/6e6eb5de-05cf-4cbe-9140-45853f4645d0',
+      badge: '/credentials/badges/introduction-to-modern-ai.png',
+      certificate: '/credentials/certificates/introduction-to-modern-ai.pdf',
+      certificatePreview: '/credentials/previews/introduction-to-modern-ai.webp',
+      description:
+        'Cisco training in AI and machine-learning basics, photo classification, object detection and segmentation, machine translation limits, LLM fundamentals, prompting, chatbots, tool use, and multimodal prompting.',
+      skills: ['Machine Learning', 'Computer Vision', 'LLM Prompting', 'Chatbots', 'Multimodal AI'],
+    },
+    {
+      icon: 'fa-file-lines',
+      title: 'Apply AI: Update Your Resume',
+      issuer: 'Cisco Networking Academy',
+      issued: 'Jun 19, 2026',
+      credentialId: 'c219cac6-0de3-4aa2-ba94-57fa6b192047',
+      url: 'https://www.credly.com/earner/earned/badge/c219cac6-0de3-4aa2-ba94-57fa6b192047',
+      badge: '/credentials/badges/apply-ai-update-your-resume.png',
+      certificate: '/credentials/certificates/apply-ai-update-your-resume.pdf',
+      certificatePreview: '/credentials/previews/apply-ai-update-your-resume.webp',
+      description:
+        'A privacy-aware resume workflow using AI to redact sensitive data, extract evidence-based accomplishments, create ATS-friendly skills and bullets, validate results, style a PDF, and tailor it to a target role.',
+      skills: ['Generative AI', 'Data Privacy', 'Resume Analysis', 'ATS Optimization', 'Human Validation'],
+    },
+    {
       icon: 'fa-wand-magic-sparkles',
       title: 'AI-Powered Future: Mastering Prompt Engineering in Generative AI',
       issuer: 'DICT Region V',
@@ -166,18 +181,18 @@ export const site = {
       skills: ['Prompt Engineering', 'Generative AI', 'AI Literacy'],
     },
     {
-      icon: 'fa-shield-halved',
-      title: '4-hour Webinar on Data Privacy Awareness',
-      issuer: 'DICT Region XI',
-      issued: 'Sep 10, 2025',
+      icon: 'fa-robot',
+      title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
+      issuer: 'Computer Science Society Organization',
+      issued: 'Dec 3, 2025',
       credentialId: '',
-      url: 'https://qr.me-qr.com/text/UVt0jYss',
+      url: '',
       badge: null,
-      certificate: '/credentials/certificates/data-privacy-awareness.pdf',
-      certificatePreview: '/credentials/previews/data-privacy-awareness.webp',
+      certificate: '/credentials/certificates/ai-driven-software-development.jpg',
+      certificatePreview: '/credentials/previews/ai-driven-software-development.jpg',
       description:
-        'Attendance at a four-hour data privacy awareness webinar hosted by the Davao del Sur Provincial Office of DICT Region XI.',
-      skills: ['Data Privacy', 'Privacy Awareness', 'Responsible Data Handling'],
+        'Participation at Laguna State Polytechnic University, Santa Cruz Campus, exploring wireframe-to-app development with a focus on security and assurance.',
+      skills: ['Software Development', 'Wireframing', 'Application Security', 'Software Assurance'],
     },
     {
       icon: 'fa-gears',
@@ -192,6 +207,20 @@ export const site = {
       description:
         'CodeChum certification for CMSC 309 Software Engineering 1, A.Y. 2025–2026, BSCS3A, completed with a score of 400/431.',
       skills: ['Java', 'Software Engineering', 'Programming', 'CMSC 309'],
+    },
+    {
+      icon: 'fa-shield-halved',
+      title: '4-hour Webinar on Data Privacy Awareness',
+      issuer: 'DICT Region XI',
+      issued: 'Sep 10, 2025',
+      credentialId: '',
+      url: 'https://qr.me-qr.com/text/UVt0jYss',
+      badge: null,
+      certificate: '/credentials/certificates/data-privacy-awareness.pdf',
+      certificatePreview: '/credentials/previews/data-privacy-awareness.webp',
+      description:
+        'Attendance at a four-hour data privacy awareness webinar hosted by the Davao del Sur Provincial Office of DICT Region XI.',
+      skills: ['Data Privacy', 'Privacy Awareness', 'Responsible Data Handling'],
     },
     {
       icon: 'fa-lock',
@@ -220,20 +249,6 @@ export const site = {
       description:
         'A digital-skills session covering productivity applications, digital communication, smart research, data safety, and security.',
       skills: ['Digital Productivity', 'Digital Communication', 'Smart Research', 'Data Safety'],
-    },
-    {
-      icon: 'fa-robot',
-      title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
-      issuer: 'Computer Science Society Organization',
-      issued: 'Dec 3, 2025',
-      credentialId: '',
-      url: '',
-      badge: null,
-      certificate: '/credentials/certificates/ai-driven-software-development.jpg',
-      certificatePreview: '/credentials/previews/ai-driven-software-development.jpg',
-      description:
-        'Participation at Laguna State Polytechnic University, Santa Cruz Campus, exploring wireframe-to-app development with a focus on security and assurance.',
-      skills: ['Software Development', 'Wireframing', 'Application Security', 'Software Assurance'],
     },
     {
       icon: 'fa-code',
