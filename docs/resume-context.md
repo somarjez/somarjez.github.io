@@ -32,7 +32,7 @@ A Computer Science student and developer building a career across four areas
 Machine Learning. Open to internships and collaboration.
 
 === EDUCATION ===
-BS Computer Science, major in Information Systems (currently 3rd-year level,
+BS Computer Science, major in Intelligent Systems (currently 3rd-year level,
 A.Y. 2025-2026). Coursework across software engineering, database systems, and
 machine learning.
 

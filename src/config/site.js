@@ -13,7 +13,7 @@ export const site = {
     'A fourth-year Computer Science student building toward data analysis, web development, project management, and AI through coursework and team projects.',
   bio: "I'm a fourth-year Computer Science student and developer in the Philippines, focused on four areas: data analysis, web development, project management, and AI. My work so far is academic: course and team projects in web and machine learning, including Flask and Django platforms, exploratory data analysis in Python, and a hybrid Machine Learning and Knowledge-Representation system for affordable, sustainable housing. I work in Python, SQL, JavaScript and TypeScript, React, Java, and C#, with tools like Jupyter, Power BI, Tableau, and Git. I enjoy turning data and ideas into clean, working software, and I'm looking to grow through real projects and collaboration.",
   education: {
-    degree: 'BS Computer Science, major in Information Systems',
+    degree: 'BS Computer Science, major in Intelligent Systems',
     detail: 'Coursework across software engineering, database systems, and machine learning.',
   },
   focus: [
