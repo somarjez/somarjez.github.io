@@ -50,7 +50,7 @@ export const site = {
     facebook: 'https://www.facebook.com/thenthen05',
     website: 'https://somarjez.github.io/',
     // Served from public/resume/. Filename is professional so downloads are ATS-friendly.
-    resume: '/resume/Jezreel-Ramos-Resume.pdf',
+    resume: '/resume/Jezreel-Ramos-CV.pdf',
   },
   skills: [
     {
