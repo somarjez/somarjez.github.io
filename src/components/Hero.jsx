@@ -43,7 +43,6 @@ function StackBars({ items }) {
 
 export default function Hero({ stats, loading }) {
   const reduce = useReducedMotion()
-  const first = site.name.split(' ')[0]
 
   const { languages, stackBars, stackAlso } = useMemo(() => {
     const LANGS = new Set(['Python', 'JavaScript', 'TypeScript', 'Dart', 'Java', 'C#', 'HTML', 'SQL'])
@@ -98,8 +97,8 @@ export default function Hero({ stats, loading }) {
                 />
                 <div className="min-w-0">
                   <h1 className="font-display text-2xl font-bold leading-tight text-slate-100">
-                    Hi! I&apos;m <span className="text-primary">{first}</span> <span aria-hidden="true">👋</span>
-                    <span className="sr-only">. {site.name}, {site.roles.join(', ')}.</span>
+                    Hi! I&apos;m <span className="text-primary">{site.name}</span> <span aria-hidden="true">👋</span>
+                    <span className="sr-only">. {site.roles.join(', ')}.</span>
                   </h1>
                   <p className="mt-1.5 text-pretty text-sm leading-relaxed text-slate-400">{site.tagline}</p>
                 </div>
