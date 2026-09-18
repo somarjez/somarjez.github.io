@@ -113,7 +113,7 @@ export default function Featured({ repos }) {
   }
 
   return (
-    <Section id="projects" title="Featured projects" subtitle="Academic and team work. Pick one to read the details.">
+    <Section id="projects" title="Featured projects" subtitle="Academic and team work. Pick one to read the details." variant="wide">
       <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
         <div
           role="tablist"

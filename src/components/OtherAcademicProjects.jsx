@@ -25,6 +25,7 @@ export default function OtherAcademicProjects() {
       id="academic-projects"
       title="Other Academic Projects"
       subtitle="Foundational work across web design, desktop NLP, systems simulation, and browser games."
+      variant="wide"
     >
       <div className="space-y-14">
         {academicProjects.map((project, index) => (

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --nav-h: 80px;
   --color-ink: 240 244 248;
   --color-panel: 255 255 255;
   --color-panel-2: 245 247 250;
@@ -41,6 +42,10 @@
 html {
   scroll-behavior: smooth;
   background: rgb(var(--color-ink));
+}
+
+section[id] {
+  scroll-margin-top: var(--nav-h);
 }
 
 .section-band:nth-of-type(even) { background-color: rgb(var(--color-panel) / 0.72); }

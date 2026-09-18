@@ -78,7 +78,7 @@ export default function Hero({ stats, loading }) {
 
   return (
     <section id="home" className="relative flex min-h-screen items-center justify-center px-5 py-28">
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-6xl">
         <div className="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-0">
           {/* Window A — intro + session */}
           <motion.div
