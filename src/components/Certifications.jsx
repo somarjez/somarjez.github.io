@@ -9,12 +9,12 @@ import { usePagination } from '../hooks/usePagination.js'
 import { site } from '../config/site.js'
 
 export default function Certifications() {
-  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 4)
+  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 8)
   const [active, setActive] = useState(null)
   const reduce = useReducedMotion()
 
   return (
-    <Section id="certs" title="Certifications" subtitle="Verified coursework, credentials, and professional development." variant="wide">
+    <Section id="certs" title="Certifications and Credentials" subtitle="Verified coursework, credentials, and professional development." variant="wide">
       <motion.div layout={!reduce}>
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div
