@@ -1,6 +1,6 @@
 const CONTAINER = {
-  default: 'max-w-6xl',
-  wide: 'max-w-[clamp(72rem,92vw,96rem)]',
+  default: 'max-w-[clamp(72rem,86vw,100rem)]',
+  wide: 'max-w-[clamp(72rem,94vw,120rem)]',
 }
 
 export default function Section({ id, title, subtitle, variant = 'default', children }) {

@@ -23,8 +23,8 @@ export default function Nav({ onOpenPalette, theme, onToggleTheme }) {
   }
 
   return (
-    <nav className="glass fixed inset-x-0 top-0 z-50 border-b border-line px-5 py-2.5">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
+    <nav className="glass fixed inset-x-0 top-0 z-50 border-b border-line px-[clamp(1.25rem,3vw,3rem)] py-2.5">
+      <div className="mx-auto flex max-w-[clamp(72rem,86vw,100rem)] items-center justify-between">
         <button onClick={() => go('home')} aria-label="Home" className="flex items-center gap-2.5 font-mono text-sm text-muted">
           <Logo size={30} />
           <span className="font-semibold text-foreground">jezreel</span>

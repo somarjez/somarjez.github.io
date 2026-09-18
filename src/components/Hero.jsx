@@ -77,8 +77,8 @@ export default function Hero({ stats, loading }) {
   const { text, done } = useTypewriter(lines, { speed: 14, linePause: 55, chunk: 3 })
 
   return (
-    <section id="home" className="relative flex min-h-screen items-center justify-center px-5 py-28">
-      <div className="w-full max-w-6xl">
+    <section id="home" className="relative flex min-h-screen items-center justify-center px-[clamp(1.25rem,3vw,3rem)] py-28">
+      <div className="w-full max-w-[clamp(72rem,86vw,100rem)]">
         <div className="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-0">
           {/* Window A — intro + session */}
           <motion.div
