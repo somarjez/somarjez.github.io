@@ -70,7 +70,7 @@ describe('site config', () => {
   })
 
   it('uses URL-safe local certificate and preview paths that exist', () => {
-    expect(site.certifications).toHaveLength(12)
+    expect(site.certifications).toHaveLength(13)
     for (const credential of site.certifications) {
       for (const field of ['certificate', 'certificatePreview']) {
         expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|jpg|webp)$/)
@@ -93,6 +93,11 @@ describe('site config', () => {
         title: 'Integrated OS – Be More Digi-TALINO',
         issuer: 'Integrated Office Solutions, Inc.',
         issued: 'Sep 5, 2025',
+      }),
+      expect.objectContaining({
+        title: 'Claude Code 101',
+        issuer: 'Anthropic',
+        issued: 'Sep 18, 2026',
       }),
       expect.objectContaining({
         title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
