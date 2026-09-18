@@ -166,6 +166,20 @@ export const site = {
       skills: ['Generative AI', 'Data Privacy', 'Resume Analysis', 'ATS Optimization', 'Human Validation'],
     },
     {
+      icon: 'fa-terminal',
+      title: 'Claude Code 101',
+      issuer: 'Anthropic',
+      issued: 'Sep 18, 2026',
+      credentialId: 'f108dc46b3f25fbc5060b50a3e000a23',
+      url: 'https://academy.claude.com/verify/f108dc46b3f25fbc5060b50a3e000a23',
+      badge: '/credentials/badges/claude-code.png',
+      certificate: '/credentials/certificates/claude-code.jpg',
+      certificatePreview: '/credentials/certificates/claude-code.jpg',
+      description:
+        'Claude Academy course on agentic AI development with Claude Code: prompting an AI coding agent effectively and using it to plan, build, and ship real software.',
+      skills: ['Agentic AI Development', 'AI Prompting', 'AI'],
+    },
+    {
       icon: 'fa-wand-magic-sparkles',
       title: 'AI-Powered Future: Mastering Prompt Engineering in Generative AI',
       issuer: 'DICT Region V',
@@ -179,20 +193,6 @@ export const site = {
       description:
         'DICT Region V training focused on prompt engineering and practical use of generative AI.',
       skills: ['Prompt Engineering', 'Generative AI', 'AI Literacy'],
-    },
-    {
-      icon: 'fa-robot',
-      title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
-      issuer: 'Computer Science Society Organization',
-      issued: 'Dec 3, 2025',
-      credentialId: '',
-      url: '',
-      badge: null,
-      certificate: '/credentials/certificates/ai-driven-software-development.jpg',
-      certificatePreview: '/credentials/previews/ai-driven-software-development.jpg',
-      description:
-        'Participation at Laguna State Polytechnic University, Santa Cruz Campus, exploring wireframe-to-app development with a focus on security and assurance.',
-      skills: ['Software Development', 'Wireframing', 'Application Security', 'Software Assurance'],
     },
     {
       icon: 'fa-gears',
@@ -263,6 +263,20 @@ export const site = {
       description:
         'Three hours of online learning delivered by Break the Fake Movement with the ASEAN Foundation and supported by Google.org and DICT Aurora.',
       skills: ['AI Literacy', 'Digital Skills', 'Online Learning'],
+    },
+    {
+      icon: 'fa-robot',
+      title: 'AI-Driven Software Development: From Wireframe to App – with a Focus on Security and Assurance',
+      issuer: 'Computer Science Society Organization',
+      issued: 'Dec 3, 2025',
+      credentialId: '',
+      url: '',
+      badge: null,
+      certificate: '/credentials/certificates/ai-driven-software-development.jpg',
+      certificatePreview: '/credentials/previews/ai-driven-software-development.jpg',
+      description:
+        'Participation at Laguna State Polytechnic University, Santa Cruz Campus, exploring wireframe-to-app development with a focus on security and assurance.',
+      skills: ['Software Development', 'Wireframing', 'Application Security', 'Software Assurance'],
     },
   ],
 }

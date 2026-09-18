@@ -6,9 +6,13 @@ export function useScrollSpy(ids, offset = 120) {
     const onScroll = () => {
       const pos = window.scrollY + offset
       let current = ids[0]
+      let bestTop = -Infinity
       for (const id of ids) {
         const el = document.getElementById(id)
-        if (el && el.offsetTop <= pos) current = id
+        if (el && el.offsetTop <= pos && el.offsetTop > bestTop) {
+          bestTop = el.offsetTop
+          current = id
+        }
       }
       setActive(current)
     }
