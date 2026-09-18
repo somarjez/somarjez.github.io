@@ -17,12 +17,12 @@ describe('Certifications', () => {
     expect(screen.getByRole('button', { name: /next/i })).toBeInTheDocument()
   })
 
-  it('shows four credentials per page', () => {
+  it('shows eight credentials per page', () => {
     render(<Certifications />)
-    expect(screen.getByText('Introduction to Modern AI')).toBeInTheDocument()
-    expect(screen.queryByText('Apply AI: Update Your Resume')).toBeNull()
+    expect(screen.getByText('Java Software Engineering I')).toBeInTheDocument()
+    expect(screen.queryByText('4-hour Webinar on Data Privacy Awareness')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: /next/i }))
-    expect(screen.getByText('Apply AI: Update Your Resume')).toBeInTheDocument()
+    expect(screen.getByText('4-hour Webinar on Data Privacy Awareness')).toBeInTheDocument()
   })
 
   it('shows a certificate preview thumbnail even for credentials without a badge', () => {
