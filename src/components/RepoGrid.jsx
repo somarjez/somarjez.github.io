@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
 import AnimatedCounter from './ui/AnimatedCounter.jsx'
@@ -55,6 +56,7 @@ export default function RepoGrid({ repos, stats, loading, error }) {
   const [search, setSearch] = useState('')
   const [language, setLanguage] = useState('all')
   const [sort, setSort] = useState('recent')
+  const reduce = useReducedMotion()
 
   const languages = useMemo(() => {
     const counts = {}
@@ -72,10 +74,6 @@ export default function RepoGrid({ repos, stats, loading, error }) {
   )
 
   const { page, setPage, pageCount, pageItems } = usePagination(shown, 8, `${search}|${language}|${sort}`)
-  const goPage = (p) => {
-    setPage(p)
-    document.getElementById('github')?.scrollIntoView({ behavior: 'smooth' })
-  }
 
   const chip = (name, count, color) => {
     const active = language === name
@@ -96,7 +94,7 @@ export default function RepoGrid({ repos, stats, loading, error }) {
   }
 
   return (
-    <Section id="github" title="GitHub" subtitle="Live stats and every public repository, straight from the GitHub API.">
+    <Section id="github" title="GitHub" subtitle="Live stats and every public repository, straight from the GitHub API." variant="wide">
       <StatTiles stats={stats} loading={loading} />
 
       {error && (
@@ -148,8 +146,20 @@ export default function RepoGrid({ repos, stats, loading, error }) {
             </ul>
           ) : languages.length === 0 ? (
             <>
-              <RepoList repos={pageItems} />
-              <Pagination page={page} pageCount={pageCount} onChange={goPage} />
+              <motion.div layout={!reduce}>
+                <AnimatePresence mode="popLayout" initial={false}>
+                  <motion.div
+                    key={page}
+                    initial={reduce ? false : { opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduce ? {} : { opacity: 0, y: -8 }}
+                    transition={{ duration: reduce ? 0 : 0.25 }}
+                  >
+                    <RepoList repos={pageItems} />
+                  </motion.div>
+                </AnimatePresence>
+              </motion.div>
+              <Pagination page={page} pageCount={pageCount} onChange={setPage} scrollTargetId="github" />
             </>
           ) : (
             <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
@@ -164,8 +174,20 @@ export default function RepoGrid({ repos, stats, loading, error }) {
               </aside>
 
               <div>
-                <RepoList repos={pageItems} />
-                <Pagination page={page} pageCount={pageCount} onChange={goPage} />
+                <motion.div layout={!reduce}>
+                  <AnimatePresence mode="popLayout" initial={false}>
+                    <motion.div
+                      key={page}
+                      initial={reduce ? false : { opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={reduce ? {} : { opacity: 0, y: -8 }}
+                      transition={{ duration: reduce ? 0 : 0.25 }}
+                    >
+                      <RepoList repos={pageItems} />
+                    </motion.div>
+                  </AnimatePresence>
+                </motion.div>
+                <Pagination page={page} pageCount={pageCount} onChange={setPage} scrollTargetId="github" />
               </div>
             </div>
           )}

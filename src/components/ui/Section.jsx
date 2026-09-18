@@ -1,7 +1,12 @@
-export default function Section({ id, title, subtitle, children }) {
+const CONTAINER = {
+  default: 'max-w-6xl',
+  wide: 'max-w-[clamp(72rem,92vw,96rem)]',
+}
+
+export default function Section({ id, title, subtitle, variant = 'default', children }) {
   return (
     <section id={id} className="section-band border-t border-line">
-      <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+      <div className={`mx-auto ${CONTAINER[variant] ?? CONTAINER.default} px-[clamp(1.25rem,3vw,3rem)] py-16 md:py-24`}>
         {title && (
           <div className="mb-12 max-w-2xl">
             <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">

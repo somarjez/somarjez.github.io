@@ -7,7 +7,7 @@ const FILE = ['languages.json', 'frontend.tsx', 'backend.py', 'ml.ipynb', 'tools
 
 export default function Skills() {
   return (
-    <Section title="Skills &amp; Technologies">
+    <Section id="skills" title="Skills &amp; Technologies" variant="wide">
       <div className="grid gap-6 md:grid-cols-2">
         {site.skills.map((cat, i) => (
           <Reveal key={cat.title} delay={i * 0.05}>

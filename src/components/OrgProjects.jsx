@@ -10,7 +10,7 @@ export default function OrgProjects({ orgGroups }) {
   if (!orgGroups || orgGroups.length === 0) return null
 
   return (
-    <Section id="orgs" title="Organizations" subtitle="Teams and communities I build with">
+    <Section id="orgs" title="Organizations" subtitle="Teams and communities I build with" variant="wide">
       <div className="space-y-12">
         {orgGroups.map(({ org, repos }) => {
           const shown = (repos || []).filter((r) => !r.fork && r.name !== 'demo-repository')
