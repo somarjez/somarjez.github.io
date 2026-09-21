@@ -11,6 +11,7 @@ import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Skills from './components/Skills.jsx'
+import Experience from './components/Experience.jsx'
 import Certifications from './components/Certifications.jsx'
 import Featured from './components/Featured.jsx'
 import OtherAcademicProjects from './components/OtherAcademicProjects.jsx'
@@ -46,6 +47,7 @@ export default function App() {
         <Hero stats={stats} loading={loading} />
         <About />
         <Skills />
+        <Experience />
         <Certifications />
         <Featured repos={repos} />
         <OtherAcademicProjects />

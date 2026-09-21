@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import Lightbox from './ui/Lightbox.jsx'
+import ImageCarousel from './ui/ImageCarousel.jsx'
 
 export default function CredentialEvidence({ credential }) {
-  const { badge, certificate, certificatePreview, title } = credential
-  const [previewOpen, setPreviewOpen] = useState(false)
+  const { badge, certificate, certificatePreview, certificatePreviews, title } = credential
+  const previews = certificatePreviews || [certificatePreview]
 
   return (
     <div
@@ -22,19 +21,10 @@ export default function CredentialEvidence({ credential }) {
         </div>
       )}
       <div className="relative min-h-64 overflow-hidden bg-panel p-3">
-        <button type="button" onClick={() => setPreviewOpen(true)} aria-label={`View full ${title} certificate preview`} className="group block h-full w-full cursor-zoom-in text-left">
-        <img
-          src={certificatePreview}
-          alt={`${title} certificate preview`}
-          className="h-full max-h-[28rem] w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
-          loading="lazy"
-          decoding="async"
-        />
-        </button>
+        <ImageCarousel images={previews} title={title} noun="certificate preview" imgClass="max-h-[28rem]" />
         <a href={certificate} target="_blank" rel="noreferrer" aria-label={`Open ${title} certificate`} className="absolute bottom-5 right-5 rounded-md border border-line bg-panel/95 px-3 py-1.5 font-mono text-xs text-muted shadow-sm hover:text-primary">
           Open certificate <i className="fas fa-arrow-up-right-from-square ml-1" aria-hidden="true" />
         </a>
-        <Lightbox open={previewOpen} title={title} src={certificatePreview} alt={`${title} full certificate preview`} onClose={() => setPreviewOpen(false)} />
       </div>
     </div>
   )

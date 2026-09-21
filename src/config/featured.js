@@ -3,6 +3,41 @@
 // live elsewhere. `image` is served from public/project-images/.
 export const featured = [
   {
+    repo: null,
+    slug: 'agriwise',
+    title: 'AgriWise',
+    category: 'AI / ML',
+    icon: 'fa-seedling',
+    images: [
+      '/project-images/agriwise-dashboard.png',
+      '/project-images/agriwise-forecast.png',
+      '/project-images/agriwise-map.png',
+    ],
+    description:
+      'An agricultural decision-support platform for CALABARZON that combines machine learning forecasting, geospatial analytics, market intelligence, and an AI-assisted chatbot to support agriculture and food security. Built by Team EverForge, Top 3 finalist at Hack4AProgress 2026 (DOST CALABARZON).',
+    tech: ['Machine Learning', 'Forecasting', 'Geospatial Analytics', 'AI Chatbot'],
+    source: null,
+    demo: null,
+  },
+  {
+    repo: null,
+    slug: 'workwise-ph',
+    title: 'WorkWise PH',
+    category: 'Web',
+    icon: 'fa-chart-column',
+    images: [
+      '/project-images/workwise-overview.png',
+      '/project-images/workwise-dash.png',
+      '/project-images/workwise-forecast.png',
+      '/project-images/workwise-report.png',
+    ],
+    description:
+      'A labor-market analytics platform that turns PSA Labor Force Survey workbooks into an interactive dashboard covering employment, industry, occupation, education, hours, and pay trends. A config-driven ETL pipeline loads a single PostgreSQL fact table (full reload cut from about 10 minutes to about 60 seconds with Postgres COPY), served by a layered FastAPI backend to a Next.js and Recharts dashboard with a data explorer and PDF report export.',
+    tech: ['Python', 'FastAPI', 'PostgreSQL', 'Next.js', 'TypeScript'],
+    source: null,
+    demo: null,
+  },
+  {
     repo: 'osca-agesense',
     slug: 'osca-agesense',
     title: 'OSCA-AgeSense',

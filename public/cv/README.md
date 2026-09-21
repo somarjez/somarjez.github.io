@@ -1,0 +1,9 @@
+# Curriculum Vitae
+
+The CV PDF lives here as **`Jezreel-Ramos-CV.pdf`**.
+
+The "Curriculum Vitae" button (floating dock and ⌘K palette) opens it at
+`/cv/Jezreel-Ramos-CV.pdf`, so it downloads with a professional,
+ATS-friendly filename. To update it, replace that file (keep the same name),
+or change the name in both this folder and `site.links.cv` in
+`src/config/site.js`.
