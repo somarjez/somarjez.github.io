@@ -19,10 +19,11 @@ describe('Certifications', () => {
 
   it('shows eight credentials per page', () => {
     render(<Certifications />)
-    expect(screen.getByText('Java Software Engineering I')).toBeInTheDocument()
-    expect(screen.queryByText('4-hour Webinar on Data Privacy Awareness')).toBeNull()
+    expect(screen.getByText('Hack4AProgress 2026: Top 3 Finalist')).toBeInTheDocument()
+    expect(screen.getByText(/AI-Powered Future/)).toBeInTheDocument()
+    expect(screen.queryByText('Java Software Engineering I')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: /next/i }))
-    expect(screen.getByText('4-hour Webinar on Data Privacy Awareness')).toBeInTheDocument()
+    expect(screen.getByText('Java Software Engineering I')).toBeInTheDocument()
   })
 
   it('shows a certificate preview thumbnail even for credentials without a badge', () => {

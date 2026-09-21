@@ -49,8 +49,8 @@ export const site = {
     linkedin: 'https://www.linkedin.com/in/somarjez',
     facebook: 'https://www.facebook.com/thenthen05',
     website: 'https://somarjez.github.io/',
-    // Served from public/resume/. Filename is professional so downloads are ATS-friendly.
-    resume: '/resume/Jezreel-Ramos-CV.pdf',
+    // Served from public/cv/. Filename is professional so downloads are ATS-friendly.
+    cv: '/cv/Jezreel-Ramos-CV.pdf',
   },
   skills: [
     {
@@ -93,8 +93,92 @@ export const site = {
   // `url` holds the public "Show credential" verification link; leave empty to hide the verify button.
   // `badge` is the Credly/issuer badge image served from public/credentials/badges/.
   // `certificate` is the PDF or image served from public/credentials/certificates/.
+  experience: [
+    {
+      role: 'Student Assistant',
+      org: 'Laguna State Polytechnic University (LSPU), Santa Cruz',
+      type: 'Contract',
+      period: 'Jul 2026 - Present',
+      location: 'Laguna, Calabarzon, Philippines · On-site',
+      bullets: [
+        'Processed, encoded, sorted, and maintained CCSS forms and administrative records across 10+ documented duty days, supporting accurate data entry and organized records management.',
+        'Maintained document-control information across 3 key fields (form codes, revision numbers, and implementation dates) while assisting with scanning, filing, and digital record organization.',
+        'Provided administrative support across 2 university offices, coordinating document collection and distribution, Microsoft Excel data encoding, records organization, and inter-office paperwork delivery.',
+      ],
+      skills: ['Student Welfare', 'Support Services', 'Microsoft Excel', 'Records Management'],
+    },
+    {
+      role: 'Data Research Analyst and Statistician',
+      org: 'Freelance',
+      type: 'Freelance',
+      period: 'Jul 2026 - Present',
+      location: 'Laguna, Calabarzon, Philippines · Remote',
+      bullets: [
+        'Encoded, cleaned, and validated datasets by checking for missing values, duplicate entries, format errors, and inconsistencies.',
+        "Performed statistical analyses such as descriptive statistics, Pearson correlation, and t-tests based on the study's research objectives.",
+        'Interpreted results using statistical metrics and prepared organized tables, summaries, and written findings for thesis and academic research clients.',
+      ],
+      skills: ['Data Cleaning', 'Scikit-Learn', 'Statistics', 'Data Analysis'],
+    },
+    {
+      role: 'Educational PowerPoint Content Creator',
+      org: 'Freelance',
+      type: 'Freelance',
+      period: 'Nov 2024 - Aug 2025',
+      location: 'Laguna, Calabarzon, Philippines · Remote',
+      bullets: [
+        'Created PowerPoint-based lessons for elementary students over a 9-month period, using clear formatting, visuals, and simplified explanations.',
+        'Designed age-appropriate instructional slides to support classroom learning and improve lesson readability.',
+      ],
+      skills: ['Creative Writing', 'Technical Writing', 'Presentation Design'],
+    },
+    {
+      role: 'Webpage Developer',
+      org: 'Freelance',
+      type: 'Freelance',
+      period: 'Jan 2024 - Feb 2024',
+      location: 'Laguna, Calabarzon, Philippines · Remote',
+      bullets: [
+        'Built and designed a webpage over a 1-month period using front-end development principles.',
+        'Applied layout design, visual organization, testing, and revision to improve the user experience.',
+      ],
+      skills: ['Web Development', 'Quality Assurance', 'Front-End'],
+    },
+    {
+      role: 'Student Staff',
+      org: 'DepEd Philippines',
+      type: 'Internship',
+      period: 'May 2023 - Jun 2023',
+      location: 'Laguna, Calabarzon, Philippines · On-site',
+      bullets: [
+        'Processed 70+ printed and photocopied documents during a 2-month immersion while supporting routine clerical and administrative requests.',
+        'Coordinated information with teaching and administrative staff on student progress and school concerns; documented meetings, hearings, and conferences for administrative recordkeeping.',
+        'Assisted the Headteacher and School Principal with planning and administrative tasks while maintaining professional coordination with school personnel.',
+      ],
+      skills: ['Student Welfare', 'Scholarly Research', 'Administrative Support'],
+    },
+  ],
   certifications: [
     // Priority order: Data Science, AI, CodeChum, DICT, others.
+    {
+      icon: 'fa-trophy',
+      title: 'Hack4AProgress 2026: Top 3 Finalist',
+      issuer: 'DOST CALABARZON',
+      issued: 'Sep 2026',
+      credentialId: '',
+      url: '',
+      badge: null,
+      certificate: '/credentials/certificates/everforge-recog.png',
+      certificatePreview: '/credentials/previews/everforge-recog.webp',
+      certificatePreviews: [
+        '/credentials/previews/everforge-recog.webp',
+        '/credentials/previews/everforge-participation.webp',
+        '/credentials/previews/everforge-award.jpg',
+      ],
+      description:
+        'Selected as one of the Top 3 finalists of Hack4AProgress 2026 as part of Team EverForge, representing the College of Computer Studies, Laguna State Polytechnic University - Santa Cruz Campus. Our team developed AgriWise, an agricultural decision-support platform combining machine learning forecasting, geospatial analytics, market intelligence, and an AI-assisted chatbot to support agriculture and food security in CALABARZON. Role: Developer / Researcher.',
+      skills: ['Machine Learning', 'Geospatial Analytics', 'Hackathon', 'Teamwork'],
+    },
     {
       icon: 'fa-chart-line',
       title: 'Introduction to Data Science',

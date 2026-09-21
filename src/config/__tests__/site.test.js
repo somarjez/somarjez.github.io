@@ -70,10 +70,10 @@ describe('site config', () => {
   })
 
   it('uses URL-safe local certificate and preview paths that exist', () => {
-    expect(site.certifications).toHaveLength(13)
+    expect(site.certifications).toHaveLength(14)
     for (const credential of site.certifications) {
       for (const field of ['certificate', 'certificatePreview']) {
-        expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|jpg|webp)$/)
+        expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|png|jpg|webp)$/)
         expect(fs.existsSync(publicFile(credential[field]))).toBe(true)
       }
       if (credential.badge) {

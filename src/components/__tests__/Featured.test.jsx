@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import Featured, { ProjectDetail } from '../Featured.jsx'
@@ -26,7 +28,7 @@ describe('Featured ProjectDetail buttons', () => {
 
   it('renders a supplied screenshot with specific alt text', () => {
     render(<ProjectDetail project={{ ...base, title: 'OSCA-AgeSense', image: '/project-images/osca-agesense.png' }} live={null} />)
-    expect(screen.getByRole('img', { name: 'OSCA-AgeSense project screenshot' }))
+    expect(screen.getByRole('img', { name: 'OSCA-AgeSense screenshot' }))
       .toHaveAttribute('src', '/project-images/osca-agesense.png')
   })
 
@@ -37,9 +39,11 @@ describe('Featured ProjectDetail buttons', () => {
     expect(screen.getByRole('img', { name: /osca-agesense full screenshot/i })).toHaveAttribute('src', '/project-images/osca-agesense.png')
   })
 
-  it('keeps the featured explorer focused on seven current projects', () => {
-    expect(featured).toHaveLength(7)
+  it('keeps the featured explorer focused on nine current projects', () => {
+    expect(featured).toHaveLength(9)
     expect(featured.map((project) => project.slug)).toEqual([
+      'agriwise',
+      'workwise-ph',
       'osca-agesense',
       'findify-mobile',
       'findify-web',
@@ -56,12 +60,27 @@ describe('Featured ProjectDetail buttons', () => {
     }
   })
 
+  it('lets multi-image projects be swiped through and every image file exists', () => {
+    for (const project of featured.filter((item) => item.images)) {
+      expect(project.images.length).toBeGreaterThan(1)
+      for (const image of project.images) {
+        expect(image).toMatch(/^\/project-images\/[a-z0-9-]+\.png$/)
+        expect(fs.existsSync(path.join(process.cwd(), 'public', image))).toBe(true)
+      }
+    }
+    const agriwise = featured.find((item) => item.slug === 'agriwise')
+    render(<ProjectDetail project={agriwise} live={null} />)
+    expect(screen.getAllByRole('img')).toHaveLength(3)
+    fireEvent.click(screen.getByRole('button', { name: 'Next screenshot' }))
+    expect(screen.getByRole('button', { name: 'Show screenshot 2 of 3' })).toHaveAttribute('aria-current', 'true')
+  })
+
   it('moves focus with keyboard project-tab navigation', () => {
     render(<Featured repos={[]} />)
     const tablist = screen.getByRole('tablist', { name: 'Featured projects' })
-    const firstTab = screen.getByRole('tab', { name: /osca-agesense$/ })
+    const firstTab = screen.getByRole('tab', { name: /agriwise$/ })
     firstTab.focus()
     fireEvent.keyDown(tablist, { key: 'ArrowDown' })
-    expect(screen.getByRole('tab', { name: /findify-mobile$/ })).toHaveFocus()
+    expect(screen.getByRole('tab', { name: /workwise-ph$/ })).toHaveFocus()
   })
 })

@@ -36,3 +36,19 @@ describe('CredentialEvidence', () => {
     expect(screen.getByRole('img', { name: /introduction to modern ai full certificate preview/i })).toHaveAttribute('src', base.certificatePreview)
   })
 })
+
+describe('CredentialEvidence with several previews', () => {
+  it('shows every preview in a swipeable carousel', () => {
+    const credential = {
+      title: 'Hack4AProgress',
+      badge: null,
+      certificate: '/credentials/certificates/everforge-recog.png',
+      certificatePreview: '/credentials/previews/everforge-recog.webp',
+      certificatePreviews: ['/a.webp', '/b.webp', '/c.jpg'],
+    }
+    render(<CredentialEvidence credential={credential} />)
+    expect(screen.getAllByRole('img')).toHaveLength(3)
+    fireEvent.click(screen.getByRole('button', { name: 'Next certificate preview' }))
+    expect(screen.getByRole('button', { name: 'Show certificate preview 2 of 3' })).toHaveAttribute('aria-current', 'true')
+  })
+})

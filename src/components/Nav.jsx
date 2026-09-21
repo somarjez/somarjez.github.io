@@ -5,7 +5,7 @@ import ThemeToggle from './ui/ThemeToggle.jsx'
 
 const GROUPS = [
   { id: 'home', label: 'Home', links: [['home', 'Overview']] },
-  { id: 'about', label: 'About', links: [['about', 'About'], ['skills', 'Skills']] },
+  { id: 'about', label: 'About', links: [['about', 'About'], ['skills', 'Skills'], ['experience', 'Experience']] },
   { id: 'projects', label: 'Work', links: [['projects', 'Featured projects'], ['academic-projects', 'Academic projects'], ['github', 'GitHub'], ['orgs', 'Organizations']] },
   { id: 'certs', label: 'Credentials', links: [['certs', 'Certifications']] },
   { id: 'contact', label: 'Contact', links: [['contact', 'Contact']] },

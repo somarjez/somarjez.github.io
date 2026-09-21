@@ -1,5 +1,6 @@
 export default function CredentialCard({ credential, onOpen }) {
-  const { title, issuer, issued, badge, certificatePreview, skills } = credential
+  const { title, issuer, issued, badge, certificatePreview, certificatePreviews, skills } = credential
+  const thumbnail = certificatePreviews?.[0] || certificatePreview
   const shownSkills = skills.slice(0, 2)
   const extraSkills = skills.length - shownSkills.length
 
@@ -15,7 +16,7 @@ export default function CredentialCard({ credential, onOpen }) {
         {badge ? (
           <img src={badge} alt="" className="h-20 w-20 object-contain p-1" loading="lazy" decoding="async" />
         ) : (
-          <img src={certificatePreview} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+          <img src={thumbnail} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
         )}
         <span
           className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"

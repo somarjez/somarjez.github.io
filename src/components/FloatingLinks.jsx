@@ -6,7 +6,7 @@ const LINKS = [
   { label: 'GitHub', href: site.links.github, icon: 'fab fa-github' },
   { label: 'LinkedIn', href: site.links.linkedin, icon: 'fab fa-linkedin-in' },
   { label: 'Email', href: `mailto:${site.links.email}`, icon: 'fas fa-envelope', mail: true },
-  { label: 'Resume', href: site.links.resume, icon: 'fas fa-file-lines' },
+  { label: 'Curriculum Vitae', href: site.links.cv, icon: 'fas fa-file-lines' },
 ]
 
 const CYCLE_MS = 1800
