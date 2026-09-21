@@ -22,13 +22,18 @@ describe('site config', () => {
     ])
   })
 
-  it('exposes five project-grounded skill categories in order', () => {
-    expect(site.skills).toHaveLength(5)
+  it('exposes ten project-grounded skill categories in order', () => {
+    expect(site.skills).toHaveLength(10)
     expect(site.skills.map((s) => s.title)).toEqual([
       'Languages',
       'Frontend & Mobile',
       'Backend & Data',
       'AI / Machine Learning',
+      'Data & Statistics',
+      'Software Engineering & Quality',
+      'Research & Writing',
+      'Office & Administration',
+      'Leadership & Communication',
       'Tools',
     ])
   })

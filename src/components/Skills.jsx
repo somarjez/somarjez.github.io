@@ -3,7 +3,7 @@ import Reveal from './ui/Reveal.jsx'
 import TiltCard from './ui/TiltCard.jsx'
 import { site } from '../config/site.js'
 
-const FILE = ['languages.json', 'frontend.tsx', 'backend.py', 'ml.ipynb', 'tools.sh']
+const FILE = ['languages.json', 'frontend.tsx', 'backend.py', 'ml.ipynb', 'data.csv', 'engineering.md', 'research.tex', 'office.xlsx', 'leadership.txt', 'tools.sh']
 
 export default function Skills() {
   return (
