@@ -237,7 +237,22 @@ export const site = {
     },
   ],
   certifications: [
-    // Priority order: Data Science, AI, CodeChum, DICT, others.
+    // Priority order: IT Specialist - AI (formal certification), Hack4AProgress, Data Science, AI, CodeChum, DICT, others.
+    {
+      icon: 'fa-brain',
+      title: 'IT Specialist - Artificial Intelligence',
+      issuer: 'Certiport, a Pearson VUE business',
+      issued: 'Sep 25, 2026',
+      expires: 'Sep 25, 2031',
+      credentialId: 'wBMXA-2Fdp',
+      url: 'https://www.credly.com/earner/earned/badge/7f4dc164-7c1b-49f5-8c3e-41d2b4d9f2d4',
+      badge: '/credentials/badges/it-specialist-artificial-intelligence.png',
+      certificate: '/credentials/certificates/it-specialist-artificial-intelligence.pdf',
+      certificatePreview: '/credentials/previews/it-specialist-artificial-intelligence.webp',
+      description:
+        'Foundational, proctored Certiport certification validating professional use of AI to solve problems, covering AI concepts, machine learning fundamentals, and responsible AI use; completed with identity verification at a Certiport Authorized Testing Center.',
+      skills: ['Artificial Intelligence', 'Machine Learning', 'AI Literacy', 'Azure', 'AWS'],
+    },
     {
       icon: 'fa-trophy',
       title: 'Hack4AProgress 2026: Top 3 Finalist',
@@ -298,21 +313,6 @@ export const site = {
       description:
         'Cisco training in the analytics process, data characteristics and acquisition, transformation, preparation, basic statistics, and portfolio-ready work using Excel, SQL, and Tableau.',
       skills: ['Data Analysis', 'Data Preparation', 'Statistics', 'Excel', 'SQL', 'Tableau'],
-    },
-    {
-      icon: 'fa-brain',
-      title: 'IT Specialist - Artificial Intelligence',
-      issuer: 'Certiport, a Pearson VUE business',
-      issued: 'Sep 25, 2026',
-      expires: 'Sep 25, 2031',
-      credentialId: 'wBMXA-2Fdp',
-      url: 'https://www.credly.com/earner/earned/badge/7f4dc164-7c1b-49f5-8c3e-41d2b4d9f2d4',
-      badge: '/credentials/badges/it-specialist-artificial-intelligence.png',
-      certificate: '/credentials/certificates/it-specialist-artificial-intelligence.pdf',
-      certificatePreview: '/credentials/previews/it-specialist-artificial-intelligence.webp',
-      description:
-        'Foundational, proctored Certiport certification validating professional use of AI to solve problems, covering AI concepts, machine learning fundamentals, and responsible AI use; completed with identity verification at a Certiport Authorized Testing Center.',
-      skills: ['Artificial Intelligence', 'Machine Learning', 'AI Literacy', 'Azure', 'AWS'],
     },
     {
       icon: 'fa-robot',
