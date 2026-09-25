@@ -110,20 +110,22 @@ Professional: Project Management, Problem Solving, Team Collaboration,
    Repo: github.com/somarjez/quizera-app
 
 === CERTIFICATIONS ===
-1. Introduction to Modern AI - Cisco (Jun 2026)
+1. IT Specialist - Artificial Intelligence - Certiport, a Pearson VUE business (Sep 2026, expires Sep 2031)
+   Skills: Artificial Intelligence, Machine Learning, AI Literacy. Proctored exam with identity verification.
+2. Introduction to Modern AI - Cisco (Jun 2026)
    Skills: Machine Learning, Computer Vision, Chatbots, AI Prompting, Machine Translation
-2. Apply AI: Update Your Resume - Cisco (Jun 2026)
+3. Apply AI: Update Your Resume - Cisco (Jun 2026)
    Skills: Generative AI, Prompt Writing
-3. Data Science Essentials with Python - Cisco Networking Academy (Jun 2026)
+4. Data Science Essentials with Python - Cisco Networking Academy (Jun 2026)
    Skills: Exploratory Data Analysis, Linear Regression, Data Cleaning, Data Visualization, Jupyter
-4. Data Analytics Essentials - Cisco Networking Academy (Jun 2026)
+5. Data Analytics Essentials - Cisco Networking Academy (Jun 2026)
    Skills: Data Analysis, Data Visualization, Power BI, Tableau, SQL, Excel
-5. Software Engineering I (Java, CMSC 309) - CodeChum (Dec 2025)
+6. Software Engineering I (Java, CMSC 309) - CodeChum (Dec 2025)
    Skills: Java, SDLC, Data Structures, Project Management, Version Control,
    Testing, Quality Assurance. Achievement: scored 400/431.
-6. AI-Powered Future: Mastering Prompt Engineering in Generative AI - DICT Philippines (Sep 2025)
+7. AI-Powered Future: Mastering Prompt Engineering in Generative AI - DICT Philippines (Sep 2025)
    Skills: Generative AI, Prompt Writing, Accurate Prompting
-7. Data Privacy Awareness - DICT Philippines (Sep 2025)
+8. Data Privacy Awareness - DICT Philippines (Sep 2025)
    Skills: Data Privacy, responsible information handling
 
 === STYLE NOTES ===
