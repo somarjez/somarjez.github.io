@@ -15,7 +15,7 @@ export default function CredentialModal({ credential, onClose }) {
 
   if (!credential) return null
 
-  const { title, issuer, issued, description, skills, credentialId, controlNumber, url } = credential
+  const { title, issuer, issued, expires, description, skills, credentialId, controlNumber, url } = credential
 
   return (
     <div
@@ -40,6 +40,7 @@ export default function CredentialModal({ credential, onClose }) {
           <p className="mt-2 font-mono text-sm text-primary">
             {issuer}
             {issued && <span className="text-muted"> · {issued}</span>}
+            {expires && <span className="text-muted"> · Expires {expires}</span>}
           </p>
           <p className="mt-5 max-w-[65ch] leading-relaxed text-muted">{description}</p>
           <div className="mt-5 flex flex-wrap gap-2">

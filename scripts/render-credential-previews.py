@@ -10,6 +10,7 @@ DEST = ROOT / "public" / "credentials"
 
 PDFS = {
     "4-hour Webinar on Data Privacy Awareness RAMOS_JEZREEL.pdf": "data-privacy-awareness",
+    "Artificial Intelligence.pdf": "it-specialist-artificial-intelligence",
     "ApplyAIUpdateYourResumev120260813-20-tp9b24.pdf": "apply-ai-update-your-resume",
     "Are your S3CretS Safe Forti&ing Your Certificate Jezreel R. Ramos.pdf": "aws-bucket-breaches",
     "CodeChum Certificate RamosJezreel-19903.pdf": "java-software-engineering-i",

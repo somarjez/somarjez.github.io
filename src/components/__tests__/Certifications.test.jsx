@@ -20,7 +20,7 @@ describe('Certifications', () => {
   it('shows eight credentials per page', () => {
     render(<Certifications />)
     expect(screen.getByText('Hack4AProgress 2026: Top 3 Finalist')).toBeInTheDocument()
-    expect(screen.getByText(/AI-Powered Future/)).toBeInTheDocument()
+    expect(screen.getByText('IT Specialist - Artificial Intelligence')).toBeInTheDocument()
     expect(screen.queryByText('Java Software Engineering I')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: /next/i }))
     expect(screen.getByText('Java Software Engineering I')).toBeInTheDocument()
