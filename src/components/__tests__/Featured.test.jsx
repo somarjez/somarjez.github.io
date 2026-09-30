@@ -74,6 +74,11 @@ describe('Featured ProjectDetail buttons', () => {
     expect(cospheria.description).toMatch(/cosplayers, makers, costume designers, and photographers/)
   })
 
+  it('labels WorkWise PH as an AI / ML project', () => {
+    expect(featured.find((item) => item.slug === 'workwise-ph'))
+      .toMatchObject({ category: 'AI / ML' })
+  })
+
   it('uses the local project-image directory for every configured screenshot', () => {
     for (const project of featured.filter((item) => item.image)) {
       expect(project.image).toMatch(/^\/project-images\/[a-z0-9-]+\.png$/)
