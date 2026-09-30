@@ -39,19 +39,39 @@ describe('Featured ProjectDetail buttons', () => {
     expect(screen.getByRole('img', { name: /osca-agesense full screenshot/i })).toHaveAttribute('src', '/project-images/osca-agesense.png')
   })
 
-  it('keeps the featured explorer focused on nine current projects', () => {
-    expect(featured).toHaveLength(9)
+  it('keeps the featured explorer in the requested ten-project order', () => {
+    expect(featured).toHaveLength(10)
     expect(featured.map((project) => project.slug)).toEqual([
-      'agriwise',
-      'workwise-ph',
       'osca-agesense',
+      'agriwise',
+      'cospheria',
+      'sbcc-system',
+      'workwise-ph',
+      'educational-rms',
       'findify-mobile',
       'findify-web',
-      'educational-rms',
       'quizera',
       '404-dreamteam',
-      'sbcc-system',
     ])
+  })
+
+  it('presents Cospheria as a PermaForge community platform with three screenshots', () => {
+    const cospheria = featured.find((item) => item.slug === 'cospheria')
+
+    expect(cospheria).toMatchObject({
+      title: 'Cospheria',
+      category: 'Web',
+      images: [
+        '/project-images/cospheria-1.png',
+        '/project-images/cospheria-2.png',
+        '/project-images/cospheria-3.png',
+      ],
+      tech: ['Creator Discovery', 'Portfolio Sharing', 'Community Events', 'Social Platform'],
+      source: null,
+      demo: 'http://cospheria.com/',
+    })
+    expect(cospheria.description).toMatch(/PermaForge/)
+    expect(cospheria.description).toMatch(/cosplayers, makers, costume designers, and photographers/)
   })
 
   it('uses the local project-image directory for every configured screenshot', () => {
@@ -75,12 +95,21 @@ describe('Featured ProjectDetail buttons', () => {
     expect(screen.getByRole('button', { name: 'Show screenshot 2 of 3' })).toHaveAttribute('aria-current', 'true')
   })
 
+  it('lets visitors advance from the SBCC public site to its admin portal screenshot', () => {
+    const sbcc = featured.find((item) => item.slug === 'sbcc-system')
+
+    render(<ProjectDetail project={sbcc} live={null} />)
+    expect(screen.getAllByRole('img')).toHaveLength(2)
+    fireEvent.click(screen.getByRole('button', { name: 'Next screenshot' }))
+    expect(screen.getByRole('button', { name: 'Show screenshot 2 of 2' })).toHaveAttribute('aria-current', 'true')
+  })
+
   it('moves focus with keyboard project-tab navigation', () => {
     render(<Featured repos={[]} />)
     const tablist = screen.getByRole('tablist', { name: 'Featured projects' })
-    const firstTab = screen.getByRole('tab', { name: /agriwise$/ })
+    const firstTab = screen.getByRole('tab', { name: /osca-agesense$/ })
     firstTab.focus()
     fireEvent.keyDown(tablist, { key: 'ArrowDown' })
-    expect(screen.getByRole('tab', { name: /workwise-ph$/ })).toHaveFocus()
+    expect(screen.getByRole('tab', { name: /agriwise$/ })).toHaveFocus()
   })
 })
