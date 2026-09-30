@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
 import { academicProjects } from '../config/academicProjects.js'
@@ -22,6 +22,7 @@ function ProjectImage({ project }) {
 
 export default function OtherAcademicProjects() {
   const [activeExperience, setActiveExperience] = useState(null)
+  const closeExperience = useCallback(() => setActiveExperience(null), [])
 
   return (
     <Section
@@ -64,7 +65,7 @@ export default function OtherAcademicProjects() {
       </div>
       <LinuxBootSimulation
         open={activeExperience === 'linux-boot'}
-        onClose={() => setActiveExperience(null)}
+        onClose={closeExperience}
       />
     </Section>
   )

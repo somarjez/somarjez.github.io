@@ -67,7 +67,9 @@ describe('LinuxBootSimulation', () => {
     render(<LinuxBootSimulation open onClose={vi.fn()} />)
 
     act(() => vi.advanceTimersByTime(1400))
-    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Enter' })
+    const selectedEntry = screen.getByRole('button', { name: /jez_os linux 6\.8\.0/i })
+    expect(selectedEntry).toHaveFocus()
+    fireEvent.keyDown(document.activeElement, { key: 'Enter' })
 
     expect(screen.getByRole('heading', { name: /loading linux kernel/i })).toBeInTheDocument()
   })

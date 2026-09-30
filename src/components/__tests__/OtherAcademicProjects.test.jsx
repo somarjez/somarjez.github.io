@@ -40,4 +40,15 @@ describe('OtherAcademicProjects', () => {
     expect(document.body.style.overflow).toBe('')
     expect(launcher).toHaveFocus()
   })
+
+  it('preserves modal focus when the parent rerenders', () => {
+    const { rerender } = render(<OtherAcademicProjects />)
+    fireEvent.click(screen.getByRole('button', { name: /launch jez_os linux boot simulation/i }))
+    const skip = screen.getByRole('button', { name: /skip to login/i })
+    skip.focus()
+
+    rerender(<OtherAcademicProjects />)
+
+    expect(skip).toHaveFocus()
+  })
 })

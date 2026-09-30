@@ -71,11 +71,24 @@ function PostScreen() {
   )
 }
 
-function GrubScreen({ grubSeconds }) {
+function GrubScreen({ grubSeconds, onBoot }) {
   return (
     <div className="mx-auto w-full max-w-3xl border-2 border-slate-300 bg-black p-3 font-mono text-sm text-slate-100 sm:p-6">
       <h2 className="mb-5 text-center text-base font-bold sm:text-lg">GNU GRUB version 2.12</h2>
-      <div className="bg-slate-100 px-3 py-2 font-semibold text-slate-950">Jez_OS Linux 6.8.0</div>
+      <button
+        type="button"
+        autoFocus
+        onClick={onBoot}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            event.preventDefault()
+            onBoot()
+          }
+        }}
+        className="w-full bg-slate-100 px-3 py-2 text-left font-semibold text-slate-950 outline-none ring-cyan-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+      >
+        Jez_OS Linux 6.8.0
+      </button>
       <div className="px-3 py-2">Advanced options for Jez_OS</div>
       <p className="mt-8 text-xs leading-relaxed text-slate-300">
         Booting selected entry in {grubSeconds} {grubSeconds === 1 ? 'second' : 'seconds'}. Press Enter to boot now.
@@ -282,12 +295,6 @@ export default function LinuxBootSimulation({ open, onClose }) {
       aria-modal="true"
       aria-label="Jez_OS Linux boot simulation"
       tabIndex={-1}
-      onKeyDown={(event) => {
-        if (state.phase === 'grub' && event.key === 'Enter' && event.target.tagName !== 'BUTTON') {
-          event.preventDefault()
-          dispatch({ type: 'advance' })
-        }
-      }}
       className="fixed inset-0 z-[200] flex flex-col overflow-hidden bg-slate-950 text-slate-100"
     >
       <header className="flex h-14 shrink-0 items-center justify-between border-b border-slate-700 bg-slate-900 px-4 sm:px-6">
@@ -314,6 +321,7 @@ export default function LinuxBootSimulation({ open, onClose }) {
             <Screen
               logCount={state.logCount}
               grubSeconds={state.grubSeconds}
+              onBoot={() => dispatch({ type: 'advance' })}
               onLogin={() => dispatch({ type: 'login' })}
               onRestart={() => dispatch({ type: 'restart' })}
               onExit={onClose}
