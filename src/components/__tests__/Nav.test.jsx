@@ -20,6 +20,7 @@ describe('Nav dropdown groups', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /about/i }))
     expect(screen.getByText('Skills')).toBeInTheDocument()
+    expect(screen.getByText('Leadership')).toBeInTheDocument()
     expect(screen.queryByText('Featured projects')).toBeNull()
 
     fireEvent.click(screen.getByRole('button', { name: /work/i }))
