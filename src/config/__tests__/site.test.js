@@ -56,6 +56,55 @@ describe('site config', () => {
     expect(site.education.year).toBeUndefined()
   })
 
+  it('defines the approved college and church leadership history', () => {
+    expect(site.leadership).toEqual([
+      {
+        org: 'Laguna State Polytechnic University - Santa Cruz Campus',
+        category: 'Campus Leadership',
+        icon: 'fa-building-columns',
+        distinction: 'LSPU Senior High School - Graduated with High Honors',
+        roles: [
+          {
+            title: 'Event Coordinator',
+            unit: 'Student Organization of the College of Computer Studies (SOCCS)',
+            period: '2026 - 2027',
+          },
+          {
+            title: 'Vice Chairperson',
+            unit: 'College Commission on Elections (COMELEC), College of Computer Studies',
+            period: '2025 - 2026',
+          },
+          {
+            title: 'Player and Secretary',
+            unit: 'LSPU Iron Fist Karatedo',
+            period: '2025 - 2026',
+            achievement: 'STRASUC qualifier and silver medalist',
+          },
+          {
+            title: 'Auditor',
+            unit: 'Computer Science Society (CSS)',
+            period: '2024 - 2025',
+          },
+        ],
+      },
+      {
+        org: 'Santa Cruz Bible Christian Church',
+        category: 'Community Service',
+        icon: 'fa-church',
+        roles: [
+          {
+            title: 'Secretary',
+            unit: 'SBCC LAM (Laguna, Alabang, Muntinlupa)',
+            period: '2026 - Present',
+          },
+          { title: 'Youth President', period: '2024 - Present' },
+          { title: 'Ministry Treasurer', period: '2024 - Present' },
+        ],
+      },
+    ])
+    expect(JSON.stringify(site.leadership)).not.toMatch(/Pedro Guevara|English and Forensic|Grade 8|Grade 9/)
+  })
+
   it('has a one-line tagline', () => {
     expect(typeof site.tagline).toBe('string')
     expect(site.tagline.length).toBeGreaterThan(0)

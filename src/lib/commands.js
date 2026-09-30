@@ -7,6 +7,7 @@ export function buildCommands(site) {
     { id: 'home', label: 'Go to Home', hint: 'section', run: () => goTo('home') },
     { id: 'about', label: 'Go to About', hint: 'section', run: () => goTo('about') },
     { id: 'experience', label: 'Go to Experience', hint: 'section', run: () => goTo('experience') },
+    { id: 'leadership', label: 'Go to Leadership', hint: 'section', run: () => goTo('leadership') },
     { id: 'certs', label: 'Go to Certifications', hint: 'section', run: () => goTo('certs') },
     { id: 'projects', label: 'Go to Projects', hint: 'section', run: () => goTo('projects') },
     { id: 'github', label: 'Go to GitHub', hint: 'section', run: () => goTo('github') },

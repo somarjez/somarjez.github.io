@@ -236,6 +236,57 @@ export const site = {
       skills: ['Student Welfare', 'Scholarly Research', 'Microsoft Office', 'Microsoft Excel', 'Communication'],
     },
   ],
+  leadership: [
+    {
+      org: 'Laguna State Polytechnic University - Santa Cruz Campus',
+      category: 'Campus Leadership',
+      icon: 'fa-building-columns',
+      distinction: 'LSPU Senior High School - Graduated with High Honors',
+      roles: [
+        {
+          title: 'Event Coordinator',
+          unit: 'Student Organization of the College of Computer Studies (SOCCS)',
+          period: '2026 - 2027',
+        },
+        {
+          title: 'Vice Chairperson',
+          unit: 'College Commission on Elections (COMELEC), College of Computer Studies',
+          period: '2025 - 2026',
+        },
+        {
+          title: 'Player and Secretary',
+          unit: 'LSPU Iron Fist Karatedo',
+          period: '2025 - 2026',
+          achievement: 'STRASUC qualifier and silver medalist',
+        },
+        {
+          title: 'Auditor',
+          unit: 'Computer Science Society (CSS)',
+          period: '2024 - 2025',
+        },
+      ],
+    },
+    {
+      org: 'Santa Cruz Bible Christian Church',
+      category: 'Community Service',
+      icon: 'fa-church',
+      roles: [
+        {
+          title: 'Secretary',
+          unit: 'SBCC LAM (Laguna, Alabang, Muntinlupa)',
+          period: '2026 - Present',
+        },
+        {
+          title: 'Youth President',
+          period: '2024 - Present',
+        },
+        {
+          title: 'Ministry Treasurer',
+          period: '2024 - Present',
+        },
+      ],
+    },
+  ],
   certifications: [
     // Priority order: IT Specialist - AI (formal certification), Hack4AProgress, Data Science, AI, CodeChum, DICT, others.
     {
