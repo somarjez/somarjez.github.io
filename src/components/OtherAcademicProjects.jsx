@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Section from './ui/Section.jsx'
 import Reveal from './ui/Reveal.jsx'
 import { academicProjects } from '../config/academicProjects.js'
 import Lightbox from './ui/Lightbox.jsx'
+import LinuxBootSimulation from './LinuxBootSimulation.jsx'
 
 function ProjectImage({ project }) {
   const [open, setOpen] = useState(false)
@@ -20,6 +21,9 @@ function ProjectImage({ project }) {
 }
 
 export default function OtherAcademicProjects() {
+  const [activeExperience, setActiveExperience] = useState(null)
+  const closeExperience = useCallback(() => setActiveExperience(null), [])
+
   return (
     <Section
       id="academic-projects"
@@ -43,11 +47,26 @@ export default function OtherAcademicProjects() {
                     </span>
                   ))}
                 </div>
+                {project.interactiveExperience === 'linux-boot' && (
+                  <button
+                    type="button"
+                    aria-label="Launch Jez_OS Linux boot simulation"
+                    onClick={() => setActiveExperience(project.interactiveExperience)}
+                    className="mt-6 rounded-lg bg-primary px-5 py-2.5 font-mono text-sm font-semibold text-ink transition-transform hover:scale-[1.03]"
+                  >
+                    <i className="fas fa-power-off mr-2" aria-hidden="true" />
+                    Launch boot simulation
+                  </button>
+                )}
               </div>
             </article>
           </Reveal>
         ))}
       </div>
+      <LinuxBootSimulation
+        open={activeExperience === 'linux-boot'}
+        onClose={closeExperience}
+      />
     </Section>
   )
 }

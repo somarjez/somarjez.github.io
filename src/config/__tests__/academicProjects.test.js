@@ -22,6 +22,11 @@ describe('academic project configuration', () => {
     expect(featured.some((project) => academicSlugs.has(project.slug))).toBe(false)
   })
 
+  it('marks Jez_OS as the Linux boot interactive experience', () => {
+    expect(academicProjects.find((project) => project.slug === 'jez-os'))
+      .toMatchObject({ interactiveExperience: 'linux-boot' })
+  })
+
   it('uses URL-safe screenshots that exist', () => {
     for (const project of academicProjects) {
       expect(project.image).toMatch(/^\/project-images\/[a-z0-9-]+\.png$/)

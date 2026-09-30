@@ -23,6 +23,7 @@ export const academicProjects = [
     slug: 'jez-os',
     title: 'Jez_OS',
     category: 'Web',
+    interactiveExperience: 'linux-boot',
     icon: 'fa-desktop',
     image: '/project-images/jez-os.png',
     description:

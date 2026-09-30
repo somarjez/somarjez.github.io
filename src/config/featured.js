@@ -70,7 +70,7 @@ export const featured = [
     repo: null,
     slug: 'workwise-ph',
     title: 'WorkWise PH',
-    category: 'Web',
+    category: 'AI / ML',
     icon: 'fa-chart-column',
     images: [
       '/project-images/workwise-overview.png',
