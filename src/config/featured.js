@@ -1,7 +1,21 @@
 // Curated projects for the explorer. `repo` is the lowercase GitHub repo name
 // when it lives under somarjez (used to pull live stars); null for projects that
-// live elsewhere. `image` is served from public/project-images/.
+// live elsewhere. `image` and `images` are served from public/project-images/.
 export const featured = [
+  {
+    repo: 'osca-agesense',
+    slug: 'osca-agesense',
+    title: 'OSCA-AgeSense',
+    category: 'AI / ML',
+    icon: 'fa-heart-pulse',
+    image: '/project-images/osca-agesense.png',
+    thesis: true,
+    description:
+      'A thesis platform for the Office of Senior Citizens Affairs in Pagsanjan, Laguna that uses machine learning to assess senior-citizen health risk, organize assessment results, and support recommendations aligned with the WHO Healthy Ageing framework.',
+    tech: ['Machine Learning', 'Python', 'Laravel', 'MySQL'],
+    source: 'https://github.com/somarjez/osca-agesense',
+    demo: null,
+  },
   {
     repo: null,
     slug: 'agriwise',
@@ -18,6 +32,39 @@ export const featured = [
     tech: ['Machine Learning', 'Forecasting', 'Geospatial Analytics', 'AI Chatbot'],
     source: null,
     demo: null,
+  },
+  {
+    repo: null,
+    slug: 'cospheria',
+    title: 'Cospheria',
+    category: 'Web',
+    icon: 'fa-masks-theater',
+    images: [
+      '/project-images/cospheria-1.png',
+      '/project-images/cospheria-2.png',
+      '/project-images/cospheria-3.png',
+    ],
+    description:
+      "A PermaForge creative social platform and community for the cosplay ecosystem, helping cosplayers, makers, costume designers, and photographers discover one another, share portfolios and works in progress, and join conventions, community events, and collaborative projects.",
+    tech: ['Creator Discovery', 'Portfolio Sharing', 'Community Events', 'Social Platform'],
+    source: null,
+    demo: 'http://cospheria.com/',
+  },
+  {
+    repo: null,
+    slug: 'sbcc-system',
+    title: 'SBCC Management System',
+    category: 'Web',
+    icon: 'fa-church',
+    images: [
+      '/project-images/sbcc-management-system.png',
+      '/project-images/sbcc-admin.png',
+    ],
+    description:
+      'A Django REST Framework and React management platform for Santa Cruz Bible Christian Church, supporting public information alongside membership, event, attendance, and volunteer workflows.',
+    tech: ['Django REST', 'React', 'PostgreSQL'],
+    source: 'https://github.com/santacruz-bible-christian-church/sbcc-management-system',
+    demo: 'https://pbcm-sbcc.online',
   },
   {
     repo: null,
@@ -38,18 +85,17 @@ export const featured = [
     demo: null,
   },
   {
-    repo: 'osca-agesense',
-    slug: 'osca-agesense',
-    title: 'OSCA-AgeSense',
-    category: 'AI / ML',
-    icon: 'fa-heart-pulse',
-    image: '/project-images/osca-agesense.png',
-    thesis: true,
+    repo: 'educational-rms',
+    slug: 'educational-rms',
+    title: 'Educational RMS',
+    category: 'Web',
+    icon: 'fa-school',
+    image: '/project-images/educational-rms.png',
     description:
-      'A thesis platform for the Office of Senior Citizens Affairs in Pagsanjan, Laguna that uses machine learning to assess senior-citizen health risk, organize assessment results, and support recommendations aligned with the WHO Healthy Ageing framework.',
-    tech: ['Machine Learning', 'Python', 'Laravel', 'MySQL'],
-    source: 'https://github.com/somarjez/osca-agesense',
-    demo: null,
+      'A Django and React resource-management system for academic facilities, bringing together room scheduling, equipment records, capacity planning, and simulation-based analysis.',
+    tech: ['Django', 'React', 'JavaScript'],
+    source: 'https://github.com/somarjez/educational-rms',
+    demo: 'https://educational-rms.vercel.app',
   },
   {
     repo: null,
@@ -78,19 +124,6 @@ export const featured = [
     demo: null,
   },
   {
-    repo: 'educational-rms',
-    slug: 'educational-rms',
-    title: 'Educational RMS',
-    category: 'Web',
-    icon: 'fa-school',
-    image: '/project-images/educational-rms.png',
-    description:
-      'A Django and React resource-management system for academic facilities, bringing together room scheduling, equipment records, capacity planning, and simulation-based analysis.',
-    tech: ['Django', 'React', 'JavaScript'],
-    source: 'https://github.com/somarjez/educational-rms',
-    demo: 'https://educational-rms.vercel.app',
-  },
-  {
     repo: 'quizera-app',
     slug: 'quizera',
     title: 'Quizera',
@@ -114,19 +147,6 @@ export const featured = [
     tech: ['Python', 'Jupyter', 'Machine Learning', 'KRR'],
     source: 'https://github.com/somarjez/404-DreamTeamFinal-Project-ML-KRR-1AY2526',
     demo: null,
-  },
-  {
-    repo: null,
-    slug: 'sbcc-system',
-    title: 'SBCC Management System',
-    category: 'Web',
-    icon: 'fa-church',
-    image: '/project-images/sbcc-management-system.png',
-    description:
-      'A Django REST Framework and React management platform for Santa Cruz Bible Christian Church, supporting public information alongside membership, event, attendance, and volunteer workflows.',
-    tech: ['Django REST', 'React', 'PostgreSQL'],
-    source: 'https://github.com/santacruz-bible-christian-church/sbcc-management-system',
-    demo: 'https://pbcm-sbcc.online',
   },
 ]
 
