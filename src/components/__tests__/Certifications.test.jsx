@@ -17,13 +17,14 @@ describe('Certifications', () => {
     expect(screen.getByRole('button', { name: /next/i })).toBeInTheDocument()
   })
 
-  it('shows eight credentials per page', () => {
+  it('shows twelve credentials per page', () => {
     render(<Certifications />)
-    expect(screen.getByText('Hack4AProgress 2026: Top 3 Finalist')).toBeInTheDocument()
-    expect(screen.getByText('IT Specialist - Artificial Intelligence')).toBeInTheDocument()
-    expect(screen.queryByText('Java Software Engineering I')).toBeNull()
+    expect(screen.getAllByRole('button', { name: /credential details/i })).toHaveLength(12)
+    expect(screen.getByText('JavaScript Essentials 1')).toBeInTheDocument()
+    expect(screen.getByText('4-hour Webinar on Data Privacy Awareness')).toBeInTheDocument()
+    expect(screen.queryByText('Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: /next/i }))
-    expect(screen.getByText('Java Software Engineering I')).toBeInTheDocument()
+    expect(screen.getByText('Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches')).toBeInTheDocument()
   })
 
   it('shows a certificate preview thumbnail even for credentials without a badge', () => {

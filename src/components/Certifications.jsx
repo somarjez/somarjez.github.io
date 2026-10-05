@@ -9,7 +9,7 @@ import { usePagination } from '../hooks/usePagination.js'
 import { site } from '../config/site.js'
 
 export default function Certifications() {
-  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 8)
+  const { page, setPage, pageCount, pageItems } = usePagination(site.certifications, 12)
   const [active, setActive] = useState(null)
   const reduce = useReducedMotion()
 
