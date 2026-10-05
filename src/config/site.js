@@ -394,6 +394,20 @@ export const site = {
       skills: ['Generative AI', 'Data Privacy', 'Resume Analysis', 'ATS Optimization', 'Human Validation'],
     },
     {
+      icon: 'fa-code',
+      title: 'JavaScript Essentials 1',
+      issuer: 'Cisco Networking Academy',
+      issued: 'Oct 5, 2026',
+      credentialId: '',
+      url: '',
+      badge: '/credentials/badges/javascript-essentials-1.png',
+      certificate: '/credentials/certificates/javascript-essentials-1.pdf',
+      certificatePreview: '/credentials/previews/javascript-essentials-1.webp',
+      description:
+        'Cisco Networking Academy coursework covering core JavaScript syntax, variables, operators, flow control, functions, data types, algorithmic thinking, basic exceptions, and software development fundamentals.',
+      skills: ['JavaScript', 'Data Types', 'Control Flow', 'Functions'],
+    },
+    {
       icon: 'fa-terminal',
       title: 'Claude Code 101',
       issuer: 'Anthropic',

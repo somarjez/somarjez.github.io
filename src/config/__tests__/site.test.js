@@ -124,7 +124,7 @@ describe('site config', () => {
   })
 
   it('uses URL-safe local certificate and preview paths that exist', () => {
-    expect(site.certifications).toHaveLength(15)
+    expect(site.certifications).toHaveLength(16)
     for (const credential of site.certifications) {
       for (const field of ['certificate', 'certificatePreview']) {
         expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|png|jpg|webp)$/)
@@ -149,6 +149,14 @@ describe('site config', () => {
         issued: 'Sep 5, 2025',
       }),
       expect.objectContaining({
+        title: 'JavaScript Essentials 1',
+        issuer: 'Cisco Networking Academy',
+        issued: 'Oct 5, 2026',
+        badge: '/credentials/badges/javascript-essentials-1.png',
+        certificate: '/credentials/certificates/javascript-essentials-1.pdf',
+        certificatePreview: '/credentials/previews/javascript-essentials-1.webp',
+      }),
+      expect.objectContaining({
         title: 'Claude Code 101',
         issuer: 'Anthropic',
         issued: 'Sep 18, 2026',
@@ -159,6 +167,10 @@ describe('site config', () => {
         issued: 'Dec 3, 2025',
       }),
     ]))
+
+    const javascriptIndex = site.certifications.findIndex((credential) => credential.title === 'JavaScript Essentials 1')
+    const claudeIndex = site.certifications.findIndex((credential) => credential.title === 'Claude Code 101')
+    expect(javascriptIndex).toBe(claudeIndex - 1)
   })
 
   it('defines semantic light and dark theme tokens', () => {
