@@ -17,6 +17,7 @@ PDFS = {
     "DataAnalyticsEssentialsUpdate20260813-20-5fpb7t.pdf": "data-analytics-essentials",
     "DataScienceEssentialswithPythonv120260813-20-71nzrr.pdf": "data-science-essentials-with-python",
     "Integrated OS Be More DigiTalino Certificate_of_Participation_-361.pdf": "integrated-os-digi-talino",
+    "HTMLEssentialsv120261007-20-cxcnx6.pdf": "html-essentials",
     "IntrotoModernAIUpdate20260813-20-qjixfv.pdf": "introduction-to-modern-ai",
     "IntrotoDataScienceUpdate20260820-22-13dtw7.pdf": "introduction-to-data-science",
     "JavaScriptEssentials1Update20261005-22-bsobuu.pdf": "javascript-essentials-1",

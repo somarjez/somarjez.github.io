@@ -21,10 +21,11 @@ describe('Certifications', () => {
     render(<Certifications />)
     expect(screen.getAllByRole('button', { name: /credential details/i })).toHaveLength(12)
     expect(screen.getByText('JavaScript Essentials 1')).toBeInTheDocument()
-    expect(screen.getByText('4-hour Webinar on Data Privacy Awareness')).toBeInTheDocument()
-    expect(screen.queryByText('Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches')).toBeNull()
+    expect(screen.getByText('HTML Essentials')).toBeInTheDocument()
+    expect(screen.getByText('Java Software Engineering I')).toBeInTheDocument()
+    expect(screen.queryByText('4-hour Webinar on Data Privacy Awareness')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: /next/i }))
-    expect(screen.getByText('Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches')).toBeInTheDocument()
+    expect(screen.getByText('4-hour Webinar on Data Privacy Awareness')).toBeInTheDocument()
   })
 
   it('shows a certificate preview thumbnail even for credentials without a badge', () => {

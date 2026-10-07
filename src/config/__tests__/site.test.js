@@ -124,7 +124,7 @@ describe('site config', () => {
   })
 
   it('uses URL-safe local certificate and preview paths that exist', () => {
-    expect(site.certifications).toHaveLength(16)
+    expect(site.certifications).toHaveLength(17)
     for (const credential of site.certifications) {
       for (const field of ['certificate', 'certificatePreview']) {
         expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|png|jpg|webp)$/)
@@ -157,6 +157,28 @@ describe('site config', () => {
         certificatePreview: '/credentials/previews/javascript-essentials-1.webp',
       }),
       expect.objectContaining({
+        title: 'HTML Essentials',
+        issuer: 'Cisco Networking Academy',
+        issued: 'Oct 7, 2026',
+        credentialId: '',
+        url: '',
+        badge: '/credentials/badges/html-essentials.png',
+        certificate: '/credentials/certificates/html-essentials.pdf',
+        certificatePreview: '/credentials/previews/html-essentials.webp',
+        description:
+          'Cisco, in collaboration with JS Institute, coursework covering HTML5 document structure, text formatting, hyperlinks, multimedia, forms, accessibility, and web development best practices, preparing learners for the WDE™ Certified Entry-Level Web Developer exam.',
+        skills: [
+          'Best Practices in Web Development',
+          'Entry-Level Web Development',
+          'Forms and Data Collection',
+          'HTML Fundamentals',
+          'Hyperlinks and Multimedia Integration',
+          'Structuring Web Content',
+          'Web Accessibility and Usability',
+          'Web Development Basics',
+        ],
+      }),
+      expect.objectContaining({
         title: 'Claude Code 101',
         issuer: 'Anthropic',
         issued: 'Sep 18, 2026',
@@ -169,8 +191,12 @@ describe('site config', () => {
     ]))
 
     const javascriptIndex = site.certifications.findIndex((credential) => credential.title === 'JavaScript Essentials 1')
-    const claudeIndex = site.certifications.findIndex((credential) => credential.title === 'Claude Code 101')
-    expect(javascriptIndex).toBe(claudeIndex - 1)
+    expect(site.certifications.slice(javascriptIndex, javascriptIndex + 4).map((credential) => credential.title)).toEqual([
+      'JavaScript Essentials 1',
+      'HTML Essentials',
+      'Apply AI: Update Your Resume',
+      'Claude Code 101',
+    ])
   })
 
   it('defines semantic light and dark theme tokens', () => {
