@@ -61,7 +61,18 @@ export const site = {
     {
       icon: 'fa-palette',
       title: 'Frontend & Mobile',
-      tags: ['React / Next.js', 'Flutter', 'Tailwind CSS', 'HTML5 / CSS3', 'Vue.js'],
+      tags: [
+        'React / Next.js',
+        'Flutter',
+        'Tailwind CSS',
+        'HTML5 / CSS3',
+        'Vue.js',
+        'HTML Fundamentals',
+        'Structuring Web Content',
+        'HTML Forms',
+        'Web Accessibility',
+        'Multimedia Integration',
+      ],
     },
     {
       icon: 'fa-server',
@@ -124,6 +135,12 @@ export const site = {
         'Web Development',
         'User Interface Design',
         'User Experience (UX)',
+        'JavaScript Fundamentals',
+        'Data Types',
+        'Control Flow',
+        'Functions',
+        'Exception Handling',
+        'Algorithmic Thinking',
       ],
     },
     {
