@@ -324,6 +324,20 @@ export const site = {
       skills: ['Machine Learning', 'Geospatial Analytics', 'Hackathon', 'Teamwork'],
     },
     {
+      icon: 'fa-microscope',
+      title: '1st UMAK International Research Congress 2026: Certificate of Participation',
+      issuer: 'University of Makati',
+      issued: 'Oct 29, 2026',
+      credentialId: '',
+      url: '',
+      badge: null,
+      certificate: '/credentials/certificates/1st-umak-international-research-congress-2026.pdf',
+      certificatePreview: '/credentials/previews/1st-umak-international-research-congress-2026.webp',
+      description:
+        'Participated in the 1st UMAK International Research Congress 2026, themed "Education and Research Synergy: Bridging Communities Through Knowledge, Innovation, Resilience, and Sustainability," where I presented AgeSense, our thesis project on AI-assisted senior citizen health risk assessment and community-centered digital health innovation.',
+      skills: ['Research Presentation', 'Thesis Presentation', 'AI in Healthcare', 'Innovation', 'Community Impact'],
+    },
+    {
       icon: 'fa-chart-line',
       title: 'Introduction to Data Science',
       issuer: 'Cisco Networking Academy',

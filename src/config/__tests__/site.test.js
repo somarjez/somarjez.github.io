@@ -124,7 +124,7 @@ describe('site config', () => {
   })
 
   it('uses URL-safe local certificate and preview paths that exist', () => {
-    expect(site.certifications).toHaveLength(17)
+    expect(site.certifications).toHaveLength(18)
     for (const credential of site.certifications) {
       for (const field of ['certificate', 'certificatePreview']) {
         expect(credential[field]).toMatch(/^\/credentials\/[a-z0-9/-]+\.(pdf|png|jpg|webp)$/)
@@ -138,6 +138,13 @@ describe('site config', () => {
 
   it('uses evidence-grounded metadata for newly supplied credentials', () => {
     expect(site.certifications).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        title: '1st UMAK International Research Congress 2026: Certificate of Participation',
+        issuer: 'University of Makati',
+        issued: 'Oct 29, 2026',
+        certificate: '/credentials/certificates/1st-umak-international-research-congress-2026.pdf',
+        certificatePreview: '/credentials/previews/1st-umak-international-research-congress-2026.webp',
+      }),
       expect.objectContaining({
         title: 'Are your s3crets safe? Fortifying Your Arsenal Against AWS Bucket Breaches',
         issuer: 'GC Bitbarkada',
